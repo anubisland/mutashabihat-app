@@ -4,11 +4,21 @@ const html = fs.readFileSync('index.html', 'utf8');
 
 const startMarker = 'const surahsData = {';
 const startIdx = html.indexOf(startMarker);
-const endMarker = 'let currentSurah =';
-const endIdx = html.indexOf(endMarker, startIdx);
+let depth = 0;
+let endIdx = -1;
+for (let i = startIdx + startMarker.length - 1; i < html.length; i++) {
+    if (html[i] === '{') depth++;
+    else if (html[i] === '}') {
+        depth--;
+        if (depth === 0) {
+            endIdx = i + 1;
+            break;
+        }
+    }
+}
 
-const code = html.substring(startIdx + 'const surahsData = '.length, endIdx).trim().replace(/;$/, '');
-const surahsData = JSON.parse(code);
+const code = html.substring(startIdx + 'const surahsData = '.length, endIdx);
+const surahsData = eval('(' + code + ')');
 
 function normalizeSurahName(name) {
     return (name || '')
