@@ -1,5 +1,5 @@
 // Service Worker for "معراج الإتقان في متشابهات القرآن"
-const CACHE_NAME = 'miraj-itqan-v68-tahrim-gold-badge-fix';
+const CACHE_NAME = 'miraj-itqan-v69-scale-weight-note-fix';
 const STATIC_ASSETS = [
   './',
   './index.html',
