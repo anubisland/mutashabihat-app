@@ -691,6 +691,25 @@
             border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
         }
 
+        .pill-surah-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-light);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            padding: 0.12rem 0.55rem;
+            border-radius: 5px;
+            font-weight: 800;
+            font-size: 0.74rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.28rem;
+        }
+
+        .pill-surah-tag.other-surah {
+            background: rgba(56, 189, 248, 0.15);
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.38);
+        }
+
         .pill-ayah-num {
             background: var(--gold-glow);
             color: var(--gold-light);
@@ -150824,7 +150843,15 @@
                 card.id = `cluster-card-${idx}`;
                 card.onclick = () => loadCluster(idx);
 
-                const pills = c.verses.map(v => `<span class="ayah-chip-tag">آية ${v.ayah}</span>`).join('');
+                const pills = c.verses.map(v => {
+                    let sLabel = v.surahName || (v.surah ? (typeof v.surah === 'string' ? v.surah : '') : '');
+                    sLabel = sLabel.replace(/^سورة\s+/, '').trim();
+                    const curName = (surahsData[currentSurah].name || '').replace(/^سورة\s+/, '').trim();
+                    if (sLabel && sLabel !== curName) {
+                        return `<span class="ayah-chip-tag" style="border-color: rgba(56, 189, 248, 0.4); color: #7dd3fc;" title="سورة ${sLabel}">${sLabel}: ${v.ayah}</span>`;
+                    }
+                    return `<span class="ayah-chip-tag">آية ${v.ayah}</span>`;
+                }).join('');
 
                 card.innerHTML = `
                     <div class="entry-top-meta">
@@ -150903,9 +150930,25 @@
             cluster.verses.forEach((v, vIndex) => {
                 const card = document.createElement('div');
                 card.className = `verse-stage-card ${isDimmed ? 'dim-mode' : ''}`;
+                
+                // تحديد اسم السورة بدقة للموضع
+                let verseSurah = v.surahName || (v.surah ? (typeof v.surah === 'string' ? (v.surah.startsWith('سورة') ? v.surah : 'سورة ' + v.surah) : '') : '');
+                if (!verseSurah) {
+                    verseSurah = surahsData[currentSurah].name;
+                }
+                verseSurah = verseSurah.replace(/^سورة\s+سورة/, 'سورة').trim();
+                
+                const curSurahName = (surahsData[currentSurah].name || '').replace(/^سورة\s+سورة/, 'سورة').trim();
+                const isOtherSurah = (verseSurah !== curSurahName);
+                const surahLabelShort = verseSurah.replace(/^سورة\s+/, '');
+
                 card.innerHTML = `
                     <div class="card-meta-bar">
-                        <div>
+                        <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                            <span class="pill-surah-tag ${isOtherSurah ? 'other-surah' : ''}" title="${isOtherSurah ? 'موضع مقارن من سورة أخرى: ' + verseSurah : 'موضع من نفس السورة: ' + verseSurah}">
+                                <i class="fa-solid ${isOtherSurah ? 'fa-arrow-up-right-from-square' : 'fa-book-quran'}"></i>
+                                (${surahLabelShort})
+                            </span>
                             <span class="pill-ayah-num">آية ${v.ayah}</span>
                             <span class="pill-quarter-name">${v.quarter}</span>
                         </div>
@@ -151183,7 +151226,9 @@
         function openMushafModal(clusterIndex, verseIndex) {
             const cluster = getCurrentClusters()[clusterIndex];
             const verse = cluster.verses[verseIndex];
-            const surahName = surahsData[currentSurah].name;
+            let surahName = verse.surahName || (verse.surah ? (typeof verse.surah === 'string' ? (verse.surah.startsWith('سورة') ? verse.surah : 'سورة ' + verse.surah) : '') : '');
+            if (!surahName) surahName = surahsData[currentSurah].name;
+            surahName = surahName.replace(/^سورة\s+سورة/, 'سورة').trim();
 
             document.getElementById('sheetSurahPart').textContent = `${surahName} (المسألة #${clusterIndex + 1}) • ${verse.quarter}`;
             document.getElementById('sheetQuarterName').textContent = verse.pos;
