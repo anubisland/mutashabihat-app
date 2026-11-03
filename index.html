@@ -3216,6 +3216,371 @@
             100% { transform: scale(1.1); filter: brightness(1.35); }
         }
 
+    
+        /* =========================================================
+           الوضع الفاتح المصحفي الفاخر (Royal Mushaf Light Theme)
+           ========================================================= */
+        body.light-theme {
+            --bg-night: #f7f5ed !important; /* ورق المصحف الفاخر العاجي */
+            --bg-card: #ffffff !important;  /* كروت بيضاء نقية واضحة */
+            --bg-card-inner: #f1ece1 !important;
+            --emerald: #059669 !important;
+            --emerald-glow: rgba(5, 150, 105, 0.2) !important;
+            --gold: #b45309 !important;
+            --gold-light: #92400e !important;
+            --gold-glow: rgba(180, 83, 9, 0.15) !important;
+            --border-line: rgba(180, 83, 9, 0.22) !important;
+            --text-main: #0f172a !important; /* نصوص كحلية داكنة فائقة الوضوح */
+            --text-muted: #64748b !important;
+            --quran-text: #020617 !important;
+            --diff-1-bg: rgba(2, 132, 199, 0.12) !important;
+            --diff-1-text: #0369a1 !important;
+            --diff-1-border: #0284c7 !important;
+            --diff-2-bg: rgba(5, 150, 105, 0.12) !important;
+            --diff-2-text: #047857 !important;
+            --diff-2-border: #059669 !important;
+            --diff-3-bg: rgba(217, 119, 6, 0.12) !important;
+            --diff-3-text: #b45309 !important;
+            --diff-3-border: #d97706 !important;
+            background-color: var(--bg-night) !important;
+            color: var(--text-main) !important;
+        }
+
+        /* تكييف عناصر الواجهة في الوضع الفاتح */
+        body.light-theme .master-navy-header {
+            background: linear-gradient(135deg, #0d1e38 0%, #15294a 100%) !important;
+        }
+
+        body.light-theme .controls-utility-bar {
+            background: #ffffff !important;
+            border-bottom: 1px solid #e2e8f0 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.light-theme .perspective-master-switch-bar {
+            background: #f1ede2 !important;
+            border-bottom: 1px solid #e2ded5 !important;
+        }
+
+        body.light-theme .perspective-tab {
+            color: #475569 !important;
+            background: rgba(255, 255, 255, 0.6) !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-theme .perspective-tab.active {
+            background: #ffffff !important;
+            color: #047857 !important;
+            border-color: #059669 !important;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.15) !important;
+        }
+
+        body.light-theme .surah-select-control {
+            background: #f8fafc !important;
+            color: #0f172a !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-theme .juz-top-subfilters {
+            background: #f8fafc !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-theme .juz-top-tab {
+            color: #475569 !important;
+        }
+
+        body.light-theme .juz-top-tab.active {
+            background: #ecfdf5 !important;
+            border-color: #059669 !important;
+            color: #047857 !important;
+        }
+
+        body.light-theme .juz-tab-count {
+            background: #e2e8f0 !important;
+            color: #0f172a !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-theme .clusters-sidebar {
+            background: #fdfcf9 !important;
+            border-left: 1px solid #e2ded5 !important;
+        }
+
+        body.light-theme .cluster-entry-card {
+            background: #ffffff !important;
+            border: 1px solid #e5e0d4 !important;
+            color: #0f172a !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.light-theme .cluster-entry-card:hover {
+            border-color: #b45309 !important;
+            background: #fbf9f4 !important;
+        }
+
+        body.light-theme .cluster-entry-card.active {
+            background: #f0fdf4 !important;
+            border-color: #059669 !important;
+            border-right: 4px solid #059669 !important;
+        }
+
+        body.light-theme .cluster-entry-card h4 {
+            color: #0f172a !important;
+        }
+
+        body.light-theme .cluster-entry-card p {
+            color: #64748b !important;
+        }
+
+        body.light-theme .workspace-center {
+            background: #f7f5ed !important;
+        }
+
+        body.light-theme .stage-title-deck {
+            background: #ffffff !important;
+            border-color: #e5e0d4 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.light-theme #stageTitle {
+            color: #0f172a !important;
+        }
+
+        body.light-theme #stageSub {
+            color: #64748b !important;
+        }
+
+        body.light-theme .verse-stage-card {
+            background: #ffffff !important;
+            border-color: #e5e0d4 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.light-theme .quran-script-body {
+            background: #fbf9f4 !important;
+            color: #0f172a !important;
+            border-right: 3px solid #059669 !important;
+        }
+
+        body.light-theme .quran-quote-mark {
+            color: #b45309 !important;
+        }
+
+        body.light-theme .scale-contrast-deck {
+            background: #ffffff !important;
+            border-color: #e5e0d4 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        body.light-theme .scale-plate {
+            background: #f8fafc !important;
+            border-color: #e2e8f0 !important;
+        }
+
+        body.light-theme .plate-meaning {
+            color: #475569 !important;
+        }
+
+        body.light-theme .tadabbur-deck {
+            background: #fdfcf9 !important;
+            border-right: 1px solid #e2ded5 !important;
+        }
+
+        body.light-theme .tadabbur-item-row {
+            background: #ffffff !important;
+            border-color: #e5e0d4 !important;
+            color: #0f172a !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important;
+        }
+
+        body.light-theme .tadabbur-item-row p {
+            color: #334155 !important;
+        }
+
+        body.light-theme .mushaf-modal-window {
+            background: #ffffff !important;
+            color: #0f172a !important;
+            border-color: #b45309 !important;
+        }
+
+        body.light-theme .mushaf-page-frame {
+            background: #fefce8 !important;
+        }
+
+        body.light-theme .btn-action-tool {
+            background: #ffffff !important;
+            color: #334155 !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-theme .btn-action-tool:hover {
+            background: #f1f5f9 !important;
+            color: #0f172a !important;
+        }
+
+        body.light-theme .font-sizer-group {
+            background: #f1f5f9 !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        body.light-theme .btn-font-size {
+            color: #0f172a !important;
+        }
+
+        body.light-theme .font-size-display {
+            color: #b45309 !important;
+        }
+
+        /* --- شريط فهرس المواضع المقارنة في رأس العمود الثاني --- */
+        .verses-comparator-bar {
+            background: rgba(13, 26, 21, 0.7);
+            border: 1px solid var(--border-line);
+            border-radius: 10px;
+            padding: 0.5rem 0.85rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        body.light-theme .verses-comparator-bar {
+            background: #ffffff !important;
+            border-color: #e2ded5 !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .comp-bar-head {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .comp-bar-label {
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        body.light-theme .comp-bar-label {
+            color: #b45309 !important;
+        }
+
+        .comp-pills-row {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .comp-verse-chip {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            padding: 0.25rem 0.65rem;
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body.light-theme .comp-verse-chip {
+            background: #f1f5f9 !important;
+            border-color: #cbd5e1 !important;
+            color: #334155 !important;
+        }
+
+        .comp-verse-chip:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+            border-color: var(--gold);
+        }
+
+        .comp-verse-chip.active {
+            background: rgba(16, 185, 129, 0.25) !important;
+            border-color: var(--emerald) !important;
+            color: #6ee7b7 !important;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        body.light-theme .comp-verse-chip.active {
+            background: #ecfdf5 !important;
+            border-color: #059669 !important;
+            color: #047857 !important;
+        }
+
+        .chip-order {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 0.05rem 0.35rem;
+            border-radius: 5px;
+            font-size: 0.68rem;
+            font-weight: 800;
+        }
+
+        body.light-theme .chip-order {
+            background: #e2e8f0 !important;
+            color: #0f172a !important;
+        }
+
+        .verse-order-badge {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--gold-light);
+            font-size: 0.7rem;
+            font-weight: 800;
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+        }
+
+        body.light-theme .verse-order-badge {
+            background: #fef3c7 !important;
+            border-color: #d97706 !important;
+            color: #92400e !important;
+        }
+
+        /* زر الشاشات الفرعية بالإعدادات */
+        .settings-subscreen-trigger {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 10px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 100%;
+            text-align: right;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body.light-theme .settings-subscreen-trigger {
+            background: #f8fafc !important;
+            border-color: #cbd5e1 !important;
+        }
+
+        .settings-subscreen-trigger:hover {
+            background: rgba(212, 175, 55, 0.12);
+            border-color: var(--gold);
+            transform: translateX(-3px);
+        }
+
+        body.light-theme .settings-subscreen-trigger:hover {
+            background: #fef9ee !important;
+            border-color: #b45309 !important;
+        }
+
     </style>
 </head>
 <body>
@@ -3698,65 +4063,42 @@
     <!-- نافذة محاكاة صفحة المصحف البصرية الشريفة عند الطلب (Mushaf Page Visualizer Modal) -->
     <!-- نافذة الإعدادات وخيارات المنظومة الملكية -->
     <div class="mushaf-modal-backdrop" id="settingsModal" style="display: none;">
-        <div class="mushaf-modal-window" style="max-width: 580px; max-height: 88vh; overflow-y: auto; border: 2px solid var(--gold);">
+        
+        <div class="mushaf-modal-window" style="max-width: 540px; max-height: 85vh; overflow-y: auto; border: 2px solid var(--gold);">
             <button class="btn-dismiss-modal" onclick="closeSettingsModal()">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-            <div style="text-align: center; margin-bottom: 1.2rem;">
-                <div style="display: inline-block; margin-bottom: 0.5rem;">
-                    <img src="header-emblem.svg" alt="معراج الإتقان" width="46" height="46">
+            <div style="text-align: center; margin-bottom: 1.1rem;">
+                <div style="display: inline-block; margin-bottom: 0.4rem;">
+                    <img src="header-emblem.svg" alt="معراج الإتقان" width="44" height="44">
                 </div>
                 <h3 style="font-size: 1.25rem; color: var(--gold-light); font-weight: 800;">
                     <i class="fa-solid fa-sliders"></i> إعدادات وتفضيلات المنظومة
                 </h3>
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem;">
-                    تخصيص تجربة القراءة والضبط الصوتي والبصري
+                    تخصيص المظهر وتجربة القراءة والضبط البصري
                 </p>
             </div>
 
-            <!-- خيارات الإعدادات -->
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-                
-                <!-- قسم ميثاق ورسالة المنظومة المعرفية وأهميتها واستخداماتها -->
-                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(212, 175, 55, 0.12) 100%); padding: 1.1rem 1.25rem; border-radius: 12px; border: 1.5px solid var(--gold); box-shadow: 0 4px 18px rgba(0,0,0,0.45); margin-bottom: 0.5rem;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 0.45rem;">
-                        <h4 style="font-size: 0.98rem; color: var(--gold-light); font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
-                            <i class="fa-solid fa-star-and-crescent" style="color: var(--gold);"></i>
-                            أهمية منظومة «معراج الإتقان» واستخداماتها
-                        </h4>
-                        <span style="font-size: 0.68rem; background: rgba(16, 185, 129, 0.2); color: #6ee7b7; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 700;">دليل الحفاظ والمقرئين</span>
+            <!-- خيارات الإعدادات المباشرة -->
+            <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+                <!-- 1. مظهر المنظومة (ليلي / نهاري) -->
+                <div style="background: rgba(0,0,0,0.25); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);" class="settings-opt-box">
+                    <div style="font-size: 0.86rem; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between;">
+                        <span><i class="fa-solid fa-circle-half-stroke"></i> مظهر المنظومة (الوضع الليلي والنهاري):</span>
                     </div>
-
-                    <p style="font-size: 0.8rem; color: #f1f5f9; line-height: 1.7; margin-bottom: 0.8rem; text-align: justify;">
-                        تُمثّل هذه المنظومة نقلة معرفية وتقنية فريدة لخدمة حفظة كتاب الله، حيث تجمع لأول مرة بين <strong style="color: var(--gold-light);">الرسم العثماني الأصيل</strong>، و<strong style="color: #6ee7b7;">الميزان البصري المقارن</strong>، و<strong style="color: #7dd3fc;">التدبر السياقي والتوجيه البياني</strong> لأئمة التفسير والقراءات، للانتقال بالحافظ من الحفظ التلقائي المجرد إلى الحفظ الاستيعابي الواعي المبرهن.
-                    </p>
-
-                    <div style="font-size: 0.82rem; font-weight: 800; color: var(--gold); margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.4rem;">
-                        <i class="fa-solid fa-compass"></i> مسارات واستخدامات المنظومة:
-                    </div>
-
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.76rem; color: #cbd5e1; line-height: 1.55;">
-                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid var(--gold);">
-                            <span style="color: var(--gold-light); font-weight: 800;">١. ضبط السور (114 سورة):</span>
-                            <span>إتقان متشابهات كل سورة بمفردها ومعرفة فوارقها الداخلية لضمان سرد السورة غيباً دون تردد.</span>
-                        </div>
-                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid #10b981;">
-                            <span style="color: #6ee7b7; font-weight: 800;">٢. مصحف الأجزاء (30 جزءاً):</span>
-                            <span>فرز أوراد الحزب والجزء، والتمييز الفوري بين المتشابه الداخلي ورابط الأجزاء الخارجية لمنع الانتقال لسور أخرى أثناء الصلاة.</span>
-                        </div>
-                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid #38bdf8;">
-                            <span style="color: #7dd3fc; font-weight: 800;">٣. أطلس المتشابهات الكبرى:</span>
-                            <span>رؤية شمولية لعائلات الآيات المتكررة عبر القرآن كاملاً (قصص الأنبياء، صيغ النداء، والتوحيد).</span>
-                        </div>
-                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid #f59e0b;">
-                            <span style="color: #fcd34d; font-weight: 800;">٤. الميزان البصري وتركيز الفروق:</span>
-                            <span>تقنيات ذهنية بصرية تكشف دلالة الكلمة الفاصلة والتقديم والتأخير لتثبيت الموضع في الذاكرة الفوتوغرافية.</span>
-                        </div>
+                    <div style="display: flex; gap: 0.5rem;">
+                        <button class="tier-btn active" id="btnThemeDark" onclick="setAppTheme('dark')" style="flex: 1; justify-content: center;">
+                            <i class="fa-solid fa-moon"></i> الوضع الداكن (الليلي)
+                        </button>
+                        <button class="tier-btn" id="btnThemeLight" onclick="setAppTheme('light')" style="flex: 1; justify-content: center;">
+                            <i class="fa-solid fa-sun"></i> الوضع الفاتح (النهاري)
+                        </button>
                     </div>
                 </div>
 
-                <!-- 1. نوع الخط القرآني -->
-                <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);">
+                <!-- 2. نوع الخط القرآني -->
+                <div style="background: rgba(0,0,0,0.25); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);" class="settings-opt-box">
                     <div style="font-size: 0.86rem; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
                         <i class="fa-solid fa-font"></i> نوع الخط القرآني:
                     </div>
@@ -3770,8 +4112,8 @@
                     </div>
                 </div>
 
-                <!-- 2. حجم الخط القرآني -->
-                <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);">
+                <!-- 3. حجم الخط القرآني الحي -->
+                <div style="background: rgba(0,0,0,0.25); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);" class="settings-opt-box">
                     <div style="font-size: 0.86rem; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between;">
                         <span><i class="fa-solid fa-text-height"></i> حجم الخط المعتمد:</span>
                         <span id="settingsFontSizeVal" style="color: #fff; font-weight: 800;">1.65rem</span>
@@ -3789,8 +4131,8 @@
                     </div>
                 </div>
 
-                <!-- 3. إبراز الفروق اللفظية الملونة -->
-                <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;">
+                <!-- 4. إبراز الفروق اللفظية الملونة -->
+                <div style="background: rgba(0,0,0,0.25); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center;" class="settings-opt-box">
                     <div>
                         <div style="font-size: 0.86rem; color: var(--gold); font-weight: 700; display: flex; align-items: center; gap: 0.4rem;">
                             <i class="fa-solid fa-highlighter"></i> التلوين التفاعلي للفروق
@@ -3805,115 +4147,199 @@
                     </label>
                 </div>
 
-                
-                <!-- 4. أمهات المصادر والمراجع العلمية المعتمدة -->
-                <div style="background: rgba(0,0,0,0.4); padding: 0.95rem 1.15rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.3); box-shadow: inset 0 0 15px rgba(0,0,0,0.5);">
-                    <div style="font-size: 0.92rem; color: var(--gold-light); font-weight: 800; margin-bottom: 0.45rem; display: flex; align-items: center; justify-content: space-between;">
-                        <span style="display: flex; align-items: center; gap: 0.5rem;">
-                            <i class="fa-solid fa-book-journal-whills" style="color: var(--gold);"></i> التوثيق الأكاديمي والمصادر التراثية المعتمدة
-                        </span>
-                        <span style="font-size: 0.68rem; background: rgba(212, 175, 55, 0.15); color: var(--gold); padding: 2px 8px; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.3);">تحقيق تراثي معتمد</span>
+                <div style="height: 1px; background: rgba(255, 255, 255, 0.1); margin: 0.3rem 0;"></div>
+
+                <!-- زران أنيقان للشاشات الثانوية عند الطلب دون إرغام المستخدم على القراءة الإجبارية -->
+                <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                    <button class="settings-subscreen-trigger" onclick="openAppImportanceModal()">
+                        <div style="display: flex; align-items: center; gap: 0.65rem;">
+                            <i class="fa-solid fa-star-and-crescent" style="color: var(--gold); font-size: 1.15rem;"></i>
+                            <div>
+                                <div style="font-weight: 800; font-size: 0.86rem; color: var(--gold-light);">رسالة وأهمية المنظومة المعرفية واستخداماتها</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">دليل الحفاظ والمقرئين لمسارات الضبط الخمسة</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-left" style="color: var(--gold); font-size: 0.85rem;"></i>
+                    </button>
+
+                    <button class="settings-subscreen-trigger" onclick="openAppSourcesModal()">
+                        <div style="display: flex; align-items: center; gap: 0.65rem;">
+                            <i class="fa-solid fa-book-journal-whills" style="color: var(--emerald); font-size: 1.15rem;"></i>
+                            <div>
+                                <div style="font-weight: 800; font-size: 0.86rem; color: #6ee7b7;">التوثيق الأكاديمي والمصادر التراثية المعتمدة</div>
+                                <div style="font-size: 0.7rem; color: var(--text-muted);">أمهات كتب علم المتشابه اللفظي لكبار الأئمة</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-left" style="color: #6ee7b7; font-size: 0.85rem;"></i>
+                    </button>
+                </div>
+
+                <!-- تذييل الإصدار -->
+                <div style="text-align: center; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+                    <span style="font-size: 0.75rem; color: var(--gold); font-weight: 700;">
+                        مِعْرَاجُ الإِتْقَان فِي مُتَشَابِهَاتِ القُرْآن • الإصدار 2.0
+                    </span>
+                    <p style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.15rem;">
+                        المنظومة المعرفية البصرية لضبط المتشابهات بالتدبر والمصحف المكاني
+                    </p>
+                </div>
+            </div>
+        </div>iv>
+
+    
+    <!-- الشاشة الثانوية الأولى: رسالة وأهمية المنظومة المعرفية واستخداماتها -->
+    <div class="mushaf-modal-backdrop" id="appImportanceModal" style="display: none; z-index: 1060;">
+        <div class="mushaf-modal-window" style="max-width: 620px; max-height: 88vh; overflow-y: auto; border: 2px solid var(--gold);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid rgba(212, 175, 55, 0.3); padding-bottom: 0.6rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-solid fa-star-and-crescent" style="color: var(--gold); font-size: 1.2rem;"></i>
+                    <h3 style="font-size: 1.1rem; color: var(--gold-light); font-weight: 800; margin: 0;">
+                        رسالة وأهمية المنظومة واستخداماتها
+                    </h3>
+                </div>
+                <div style="display: flex; gap: 0.4rem;">
+                    <button class="tier-btn" onclick="backToSettingsFromImportance()" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">
+                        <i class="fa-solid fa-arrow-right"></i> رجوع للإعدادات
+                    </button>
+                    <button class="btn-dismiss-modal" onclick="closeAppImportanceModal()" style="position: static; width: 32px; height: 32px;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div style="font-size: 0.85rem; line-height: 1.75; color: #f1f5f9; text-align: justify; margin-bottom: 1rem;">
+                <p style="margin-bottom: 0.75rem;">
+                    تُمثّل منظومة <strong style="color: var(--gold-light);">«معراج الإتقان»</strong> نقلة معرفية وتقنية فريدة لخدمة حفظة كتاب الله العزيز، حيث تجمع لأول مرة في بيئة تفاعلية واحدة بين:
+                </p>
+                <ul style="padding-right: 1.4rem; margin-bottom: 1rem; display: flex; flex-direction: column; gap: 0.4rem; color: #cbd5e1;">
+                    <li><strong style="color: #6ee7b7;">الرسم العثماني الأصيل:</strong> عرض نصوص الآيات المتشابهة بالمصحف المكاني لترسيخ الذاكرة الصورية.</li>
+                    <li><strong style="color: #7dd3fc;">الميزان البصري المقارن:</strong> وضع الكلمات الفاصلة في كفتي ميزان ذهني متقابل يكشف الفارق في لحظة واحدة.</li>
+                    <li><strong style="color: var(--gold-light);">التدبر والسياق البياني:</strong> توضيح أسباب مجيء كل حرف أو كلمة وفق مقتضى سياق السورة ومقصدها الشريف عند كبار أئمة التفسير.</li>
+                </ul>
+
+                <h4 style="font-size: 0.92rem; color: var(--gold); font-weight: 800; margin-bottom: 0.6rem; border-right: 3px solid var(--gold); padding-right: 0.5rem;">
+                    المسارات الخمسة لاستخدام المنظومة باحترافية:
+                </h4>
+
+                <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.78rem;">
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.8rem; border-radius: 8px; border-right: 3px solid var(--gold);">
+                        <strong style="color: var(--gold-light); display: block; margin-bottom: 0.2rem;">١. مسار ضبط السور (114 سورة):</strong>
+                        مخصص لمراجعة كل سورة على حدة وسردها غيباً دون تردد، مع حصر مواضع التشابه الداخلي مع بقية السور.
                     </div>
-                    <div style="font-size: 0.74rem; color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.6;">
-                        كافة المتشابهات والتوجيهات البيانية والضوابط المنظومة في التطبيق محررة بدقة وفق التحقيق المعتمد لأمهات كتب علم المتشابه اللفظي لكبار أئمة التفسير والقراءات:
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.8rem; border-radius: 8px; border-right: 3px solid #10b981;">
+                        <strong style="color: #6ee7b7; display: block; margin-bottom: 0.2rem;">٢. مسار مصحف الأجزاء (30 جزءاً):</strong>
+                        مخصص للأوراد اليومية وصلاة القيام والتهجد؛ يفرز للمقرئ ما يقع داخل الجزء ليركز على ورده الحالي، ويكشف المتشابه الخارجي لتفادي الانزلاق إلى سور أخرى.
                     </div>
-                    <div style="display: flex; flex-direction: column; gap: 0.65rem; max-height: 270px; overflow-y: auto; padding-left: 0.3rem;">
-                        
-                        <!-- المصدر 1 -->
-                        <div style="background: rgba(255,255,255,0.03); border-right: 3px solid var(--gold); padding: 0.55rem 0.75rem; border-radius: 6px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">١. البرهان في توجيه متشابه القرآن لما فيه من الحجة والبيان</div>
-                                <span style="font-size: 0.68rem; color: var(--gold); font-family: monospace;">ت ~٥٠٥هـ</span>
-                            </div>
-                            <div style="font-size: 0.74rem; color: var(--gold); margin-top: 0.15rem; font-weight: 600;">
-                                لتاج القراء، برهان الدين أبي القاسم محمود بن حمزة بن نصر الكرماني
-                            </div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45;">
-                                <strong style="color: #cbd5e1;">التحقيق والشهرة:</strong> عمدة ضبط الفوارق اللفظية والتقديم والتأخير، ويُعرف أيضاً ومطبوع باسم <span style="color:#e2e8f0;">«أسرار التكرار في القرآن»</span> (حققته لجان علمية منها تحقيق د. عبد القادر عطا ود. السيد الجميلي).
-                            </div>
-                        </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.8rem; border-radius: 8px; border-right: 3px solid #38bdf8;">
+                        <strong style="color: #7dd3fc; display: block; margin-bottom: 0.2rem;">٣. مسار أطلس القرآن كاملاً:</strong>
+                        رؤية شمولية تتيح دراسة المتشابهات كـ «عائلات كبرى» ممتدة (مثل عائلة قصص الأنبياء، صيغ الاستغفار، المسبحات، وآيات التوحيد).
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.8rem; border-radius: 8px; border-right: 3px solid #f59e0b;">
+                        <strong style="color: #fcd34d; display: block; margin-bottom: 0.2rem;">٤. تقنية تركيز وإضاءة الفروق (المصباح البصري):</strong>
+                        تعتيم الكلمات المتطابقة وإضاءة الفاصلة فقط، لترسيخ الكلمة المفتاحية في ثوانٍ معدودة.
+                    </div>
+                    <div style="background: rgba(0,0,0,0.3); padding: 0.6rem 0.8rem; border-radius: 8px; border-right: 3px solid #a855f7;">
+                        <strong style="color: #d8b4fe; display: block; margin-bottom: 0.2rem;">٥. مسبار التثبيت الذكي:</strong>
+                        بنك أسئلة واختبارات تفاعلية تقيس إتقان الحافظ للمواضع الدقيقة وتصحح الخطأ مع التوجيه التراثي.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        <!-- المصدر 2 -->
-                        <div style="background: rgba(255,255,255,0.03); border-right: 3px solid #34d399; padding: 0.55rem 0.75rem; border-radius: 6px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٢. درة التنزيل وغرة التأويل في بيان الآيات المتشابهات في كتاب الله العزيز</div>
-                                <span style="font-size: 0.68rem; color: #34d399; font-family: monospace;">ت ٤٢٠هـ</span>
-                            </div>
-                            <div style="font-size: 0.74rem; color: #34d399; margin-top: 0.15rem; font-weight: 600;">
-                                للإمام أبي عبد الله محمد بن عبد الله الأصبهاني المعروف بـ «الخطيب الإسكافي»
-                            </div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45;">
-                                <strong style="color: #cbd5e1;">التحقيق والشهرة:</strong> أقدم وأجلّ مراجع أسرار النظم البياني والزيادة والحذف؛ (نُسب قديماً خطأً للفخر الرازي أو للقاضي عبد الجبار، وثبت قطوعاً بمخطوطاته ونقول الأئمة أنه للإسكافي، بتحقيق د. محمد مصطفى آيدين ود. درويش الجندي).
-                            </div>
-                        </div>
+    <!-- الشاشة الثانوية الثانية: التوثيق الأكاديمي والمصادر التراثية المعتمدة -->
+    <div class="mushaf-modal-backdrop" id="appSourcesModal" style="display: none; z-index: 1060;">
+        <div class="mushaf-modal-window" style="max-width: 620px; max-height: 88vh; overflow-y: auto; border: 2px solid var(--emerald);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; border-bottom: 1px solid rgba(16, 185, 129, 0.3); padding-bottom: 0.6rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fa-solid fa-book-journal-whills" style="color: var(--emerald); font-size: 1.2rem;"></i>
+                    <h3 style="font-size: 1.1rem; color: #a7f3d0; font-weight: 800; margin: 0;">
+                        المصادر والمراجع التراثية المعتمدة
+                    </h3>
+                </div>
+                <div style="display: flex; gap: 0.4rem;">
+                    <button class="tier-btn" onclick="backToSettingsFromSources()" style="padding: 0.3rem 0.65rem; font-size: 0.75rem;">
+                        <i class="fa-solid fa-arrow-right"></i> رجوع للإعدادات
+                    </button>
+                    <button class="btn-dismiss-modal" onclick="closeAppSourcesModal()" style="position: static; width: 32px; height: 32px;">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </div>
 
-                        <!-- المصدر 3 -->
-                        <div style="background: rgba(255,255,255,0.03); border-right: 3px solid #38bdf8; padding: 0.55rem 0.75rem; border-radius: 6px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٣. ملاك التأويل القاطع بذوي الإلحاد والتعطيل في توجيه المتشابه اللفظ من آي التنزيل</div>
-                                <span style="font-size: 0.68rem; color: #38bdf8; font-family: monospace;">ت ٧٠٨هـ</span>
-                            </div>
-                            <div style="font-size: 0.74rem; color: #38bdf8; margin-top: 0.15rem; font-weight: 600;">
-                                للحافظ المقرئ أبي جعفر أحمد بن إبراهيم بن الزبير الثقفي العاصمي الغرناطي
-                            </div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45;">
-                                <strong style="color: #cbd5e1;">التحقيق والشهرة:</strong> ميزان السياق القرآني الأعظم، وسر تعليل فوارق العبارات بمناسبة مقاصد السور، ورَدّ توهم التناقض (حقق في رسائل علمية رفيعة منها تحقيق د. سعيد الفلاح بدار الغرب الإسلامي).
-                            </div>
-                        </div>
+            <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 0.8rem;">
+                كافة المتشابهات والتوجيهات البيانية والضوابط المنظومة في التطبيق محررة بدقة وفق التحقيق المعتمد لأمهات كتب علم المتشابه اللفظي لكبار أئمة التفسير والقراءات:
+            </div>
 
-                        <!-- المصدر 4 -->
-                        <div style="background: rgba(255,255,255,0.03); border-right: 3px solid #fbbf24; padding: 0.55rem 0.75rem; border-radius: 6px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٤. هداية المرتاب وغاية الحفاظ والطلاب في تبيين متشابه الكتاب</div>
-                                <span style="font-size: 0.68rem; color: #fbbf24; font-family: monospace;">ت ٦٤٣هـ</span>
-                            </div>
-                            <div style="font-size: 0.74rem; color: #fbbf24; margin-top: 0.15rem; font-weight: 600;">
-                                للإمام المقرئ المفسر النحوي علم الدين أبي الحسن علي بن محمد الهمداني السخاوي
-                            </div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45;">
-                                <strong style="color: #cbd5e1;">التحقيق والشهرة:</strong> المنظومة اللامية الأشهر عالمياً في حصر المتشابهات اللفظية (تلميذ الإمام الشاطبي، وتمييزاً له عن المؤرخ المتأخر شمس الدين السخاوي ت ٩٠٢هـ؛ شُرحت المنظومة بشروح جليلة منها شرح الشيخ علي الضباع شيخ المقارئ المصرية).
-                            </div>
-                        </div>
-
-                        <!-- المصدر 5 -->
-                        <div style="background: rgba(255,255,255,0.03); border-right: 3px solid #c084fc; padding: 0.55rem 0.75rem; border-radius: 6px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٥. كشف المعاني في متشابه المثاني</div>
-                                <span style="font-size: 0.68rem; color: #c084fc; font-family: monospace;">ت ٧٣٣هـ</span>
-                            </div>
-                            <div style="font-size: 0.74rem; color: #c084fc; margin-top: 0.15rem; font-weight: 600;">
-                                لشيخ الإسلام قاضي القضاة بدر الدين أبي عبد الله محمد بن إبراهيم بن جماعة الكناني الحموي
-                            </div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45;">
-                                <strong style="color: #cbd5e1;">التحقيق والشهرة:</strong> التحقيق الإيجازي اللطيف والربط المعنوي المتقن بين الآيات المتشابهة في مبانيها ومعانيها (حققه د. عبد الجواد خلف، وطبع بدار الوفاء).
-                            </div>
-                        </div>
-
-                        <!-- المصدر 6 -->
-                        <div style="background: rgba(255,255,255,0.03); border-right: 3px solid #f43f5e; padding: 0.55rem 0.75rem; border-radius: 6px;">
-                            <div style="display: flex; justify-content: space-between; align-items: baseline;">
-                                <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٦. فتح الرحمن بكشف ما يلتبس في القرآن</div>
-                                <span style="font-size: 0.68rem; color: #fb7185; font-family: monospace;">ت ٩٢٦هـ</span>
-                            </div>
-                            <div style="font-size: 0.74rem; color: #fb7185; margin-top: 0.15rem; font-weight: 600;">
-                                لشيخ الإسلام زين الدين أبي يحيى زكريا بن محمد بن أحمد بن زكريا الأنصاري السنيكي القاهري
-                            </div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem; line-height: 1.45;">
-                                <strong style="color: #cbd5e1;">التحقيق والشهرة:</strong> الجامع المحرر الخاتم لتحقيقات المتقدمين، مع التوجيه النحوي والتفسيري المقارن لكل موضع مشكل (حققه العلامة المحدث د. نور الدين عتر بدار القرآن بدمشق).
-                            </div>
-                        </div>
-
+            <div style="display: flex; flex-direction: column; gap: 0.65rem;">
+                <!-- المصدر 1 -->
+                <div style="background: rgba(0,0,0,0.3); border-right: 3px solid var(--gold); padding: 0.6rem 0.8rem; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">١. البرهان في توجيه متشابه القرآن لما فيه من الحجة والبيان</div>
+                        <span style="font-size: 0.68rem; color: var(--gold); font-family: monospace;">ت ~٥٠٥هـ</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: var(--gold); margin-top: 0.15rem; font-weight: 600;">
+                        لتاج القراء، برهان الدين أبي القاسم محمود بن حمزة بن نصر الكرماني
+                    </div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        عمدة ضبط الفوارق اللفظية والتقديم والتأخير، ويُعرف أيضاً باسم «أسرار التكرار في القرآن».
                     </div>
                 </div>
 
-                <!-- 5. بطاقة الإصدار والهوية -->
-                <div style="text-align: center; padding: 0.6rem; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 0.4rem;">
-                    <span style="font-size: 0.75rem; color: var(--gold-light); font-weight: 700;">
-                        مِعْرَاجُ الإِتْقَان فِي مُتَشَابِهَاتِ القُرْآن • الإصدار 2.0 (المؤسس)
-                    </span>
-                    <p style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.2rem;">
-                        المنظومة المعرفية البصرية لضبط المتشابهات بالتدبر والمصحف المكاني
-                    </p>
+                <!-- المصدر 2 -->
+                <div style="background: rgba(0,0,0,0.3); border-right: 3px solid #34d399; padding: 0.6rem 0.8rem; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٢. درة التنزيل وغرة التأويل في بيان الآيات المتشابهات</div>
+                        <span style="font-size: 0.68rem; color: #34d399; font-family: monospace;">ت ٤٢٠هـ</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: #34d399; margin-top: 0.15rem; font-weight: 600;">
+                        للإمام أبي عبد الله محمد بن عبد الله الأصبهاني الخطيب الإسكافي
+                    </div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        أعظم مصنف في كشف دقائق البلاغة القرآنية وفلسفة التعبير المعجز في المتشابه اللفظي.
+                    </div>
+                </div>
+
+                <!-- المصدر 3 -->
+                <div style="background: rgba(0,0,0,0.3); border-right: 3px solid #38bdf8; padding: 0.6rem 0.8rem; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٣. ملاك التأويل القاطع بذوي الإلحاد والتعطيل</div>
+                        <span style="font-size: 0.68rem; color: #38bdf8; font-family: monospace;">ت ٧٠٨هـ</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: #38bdf8; margin-top: 0.15rem; font-weight: 600;">
+                        للعلامة أبي جعفر أحمد بن إبراهيم بن الزبير الثقفي الغرناطي
+                    </div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        الموسوعة الأندلسية الكبرى في توجيه متشابه التنزيل وربطه بسياق السور ومقاصدها.
+                    </div>
+                </div>
+
+                <!-- المصدر 4 -->
+                <div style="background: rgba(0,0,0,0.3); border-right: 3px solid #f59e0b; padding: 0.6rem 0.8rem; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٤. كشف المعاني في متشابه المثاني</div>
+                        <span style="font-size: 0.68rem; color: #f59e0b; font-family: monospace;">ت ٧٣٣هـ</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: #f59e0b; margin-top: 0.15rem; font-weight: 600;">
+                        لقاضي القضاة بدر الدين محمد بن إبراهيم بن جماعة الكناني الشافعي
+                    </div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        محرر دقيق في إيجاز الفروق والضوابط المنطقية للحفاظ والقراء.
+                    </div>
+                </div>
+
+                <!-- المصدر 5 -->
+                <div style="background: rgba(0,0,0,0.3); border-right: 3px solid #a855f7; padding: 0.6rem 0.8rem; border-radius: 6px;">
+                    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+                        <div style="font-weight: 700; color: #fff; font-size: 0.84rem;">٥. فتح الرحمن بكشف ما يلتبس في القرآن</div>
+                        <span style="font-size: 0.68rem; color: #a855f7; font-family: monospace;">ت ٩٢٦هـ</span>
+                    </div>
+                    <div style="font-size: 0.74rem; color: #a855f7; margin-top: 0.15rem; font-weight: 600;">
+                        لشيخ الإسلام أبي يحيى زكريا بن محمد بن أحمد الأنصاري
+                    </div>
+                    <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+                        خلاصة جامعة ومهذبة لكتب المتقدمين مع تحريرات فقهية ولغوية فريدة.
+                    </div>
                 </div>
             </div>
         </div>
@@ -207293,7 +207719,98 @@
         let isDimmed = false;
         let currentFontSize = 1.65;
 
+        
+        // --- إدارة مظهر المنظومة (Dark / Light Theme) ---
+        let currentAppTheme = 'dark';
+        try {
+            const savedTheme = localStorage.getItem('miraj_theme');
+            if (savedTheme) currentAppTheme = savedTheme;
+        } catch(e) {}
+
+        function applyAppTheme(theme) {
+            currentAppTheme = theme;
+            if (document.body) {
+                if (theme === 'light') {
+                    document.body.classList.add('light-theme');
+                } else {
+                    document.body.classList.remove('light-theme');
+                }
+            }
+
+            const btnQuick = document.getElementById('btnThemeQuick');
+            if (btnQuick) {
+                btnQuick.innerHTML = theme === 'light' ? '<i class="fa-solid fa-moon"></i>' : '<i class="fa-solid fa-sun"></i>';
+                btnQuick.title = theme === 'light' ? 'التحويل للوضع الداكن (الليلي)' : 'التحويل للوضع الفاتح (النهاري)';
+            }
+
+            const btnD = document.getElementById('btnThemeDark');
+            const btnL = document.getElementById('btnThemeLight');
+            if (btnD && btnL) {
+                btnD.classList.toggle('active', theme === 'dark');
+                btnL.classList.toggle('active', theme === 'light');
+            }
+
+            try {
+                localStorage.setItem('miraj_theme', theme);
+            } catch(e) {}
+        }
+
+        function setAppTheme(theme) {
+            applyAppTheme(theme);
+        }
+
+        function toggleThemeQuick() {
+            applyAppTheme(currentAppTheme === 'light' ? 'dark' : 'light');
+        }
+
+        // --- التحكم بالشاشات الثانوية المنبثقة المنفصلة ---
+        function openAppImportanceModal() {
+            closeSettingsModal();
+            const m = document.getElementById('appImportanceModal');
+            if (m) m.style.display = 'flex';
+        }
+
+        function closeAppImportanceModal() {
+            const m = document.getElementById('appImportanceModal');
+            if (m) m.style.display = 'none';
+        }
+
+        function backToSettingsFromImportance() {
+            closeAppImportanceModal();
+            openSettingsModal();
+        }
+
+        function openAppSourcesModal() {
+            closeSettingsModal();
+            const m = document.getElementById('appSourcesModal');
+            if (m) m.style.display = 'flex';
+        }
+
+        function closeAppSourcesModal() {
+            const m = document.getElementById('appSourcesModal');
+            if (m) m.style.display = 'none';
+        }
+
+        function backToSettingsFromSources() {
+            closeAppSourcesModal();
+            openSettingsModal();
+        }
+
+        // --- التمرير السريع للآية المقارنة المحددة في العمود الثاني ---
+        function scrollToVerseCard(idx, btn) {
+            const card = document.getElementById(`verse-stage-card-${idx}`);
+            if (card) {
+                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                card.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.7)';
+                setTimeout(() => { card.style.boxShadow = ''; }, 1200);
+            }
+            document.querySelectorAll('.comp-verse-chip').forEach((c, i) => {
+                c.classList.toggle('active', i === idx);
+            });
+        }
+
         function init() {
+            applyAppTheme(currentAppTheme);
             buildJuzRibbon();
             buildAtlasRibbon();
             renderHorizonChips();
@@ -207611,8 +208128,35 @@
             const versesStack = document.getElementById('versesStack');
             versesStack.innerHTML = '';
 
+            // 1. شريط فهرس المواضع المقارنة في رأس العمود الثاني (يوضح عدد الآيات ويتيح القفز السريع)
+            if (cluster.verses && cluster.verses.length > 1) {
+                const compBar = document.createElement('div');
+                compBar.className = 'verses-comparator-bar';
+                compBar.innerHTML = `
+                    <div class="comp-bar-head">
+                        <span class="comp-bar-label">
+                            <i class="fa-solid fa-code-compare"></i> المواضع المقارنة في هذه المسألة (${cluster.verses.length} مواضع):
+                        </span>
+                    </div>
+                    <div class="comp-pills-row">
+                        ${cluster.verses.map((cv, ci) => {
+                            let cvSurah = cv.surahName || cv.surah || '';
+                            cvSurah = getCleanSurahTitle(cvSurah);
+                            const cvAyah = cv.ayah || cv.verseNum || '';
+                            return `<button class="comp-verse-chip ${ci === 0 ? 'active' : ''}" onclick="scrollToVerseCard(${ci}, this)" title="انتقل إلى موضع ${cvSurah} [آية ${cvAyah}]">
+                                <span class="chip-order">موضع #${ci + 1}</span>
+                                <span class="chip-name">${cvSurah}</span>
+                                <span class="chip-ayah">[آية ${cvAyah}]</span>
+                            </button>`;
+                        }).join('')}
+                    </div>
+                `;
+                versesStack.appendChild(compBar);
+            }
+
             cluster.verses.forEach((v, vIndex) => {
                 const card = document.createElement('div');
+                card.id = `verse-stage-card-${vIndex}`;
                 card.className = `verse-stage-card ${isDimmed ? 'dim-mode' : ''}`;
                 
                 // تحديد اسم السورة بدقة للموضع
@@ -207639,6 +208183,7 @@
                 card.innerHTML = `
                     <div class="card-meta-bar">
                         <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
+                            <span class="verse-order-badge">موضع ${vIndex + 1} من ${cluster.verses.length}</span>
                             <span class="pill-ayah-num">آية ${vAyah}</span>
                             <span class="pill-quarter-name">${vQuarter}</span>
                             <span class="pill-surah-tag ${isOtherSurah ? 'other-surah' : 'same-surah-gold'}" title="${isOtherSurah ? 'موضع مقارن من سورة أخرى: ' + verseSurah : 'موضع من نفس السورة: ' + curSurahName}">
@@ -207658,22 +208203,39 @@
                 versesStack.appendChild(card);
             });
 
-            // تحديث الميزان الدلالي
+            // تحديث الميزان الدلالي مع ضمان التوافق الكامل مع عدد الآيات
             const scaleDeck = document.getElementById('scaleDeck');
             scaleDeck.innerHTML = '';
 
-            cluster.scale.forEach((s, sIdx) => {
+            let activeScale = Array.isArray(cluster.scale) ? [...cluster.scale] : [];
+
+            // إذا كان عدد الآيات المعروضة أكبر من كفات الميزان، نُكمل كفات الميزان تلقائياً لجميع الآيات المقارنة
+            if (cluster.verses && cluster.verses.length > activeScale.length) {
+                for (let vi = activeScale.length; vi < cluster.verses.length; vi++) {
+                    const extraV = cluster.verses[vi];
+                    const extraSurah = getCleanSurahTitle(extraV.surahName || extraV.surah || '');
+                    const extraAyah = extraV.ayah || extraV.verseNum || '';
+                    let extraToken = extraV.tokens ? extraV.tokens.join(' ') : '';
+                    activeScale.push({
+                        word: `${extraSurah} [آية ${extraAyah}]${extraToken ? ': ' + extraToken : ''}`,
+                        note: 'موضع الموازنة المقابل في النظم القرآني'
+                    });
+                }
+            }
+
+            activeScale.forEach((s, sIdx) => {
                 const plate = document.createElement('div');
                 plate.className = 'scale-plate';
+                const colorVar = sIdx === 0 ? 'var(--diff-1-text)' : (sIdx === 1 ? 'var(--diff-2-text)' : (sIdx === 2 ? 'var(--diff-3-text)' : 'var(--gold-light)'));
                 plate.innerHTML = `
-                    <span class="plate-word" style="color: ${sIdx === 0 ? 'var(--diff-1-text)' : (sIdx === 1 ? 'var(--diff-2-text)' : 'var(--diff-3-text)')}">
+                    <span class="plate-word" style="color: ${colorVar};">
                         ${s.word}
                     </span>
                     <span class="plate-meaning">${s.note || s.weight || ''}</span>
                 `;
                 scaleDeck.appendChild(plate);
 
-                if (sIdx < cluster.scale.length - 1) {
+                if (sIdx < activeScale.length - 1) {
                     const pivot = document.createElement('div');
                     pivot.className = 'scale-pivot-icon';
                     pivot.innerHTML = `<i class="fa-solid fa-arrows-left-right"></i>`;
