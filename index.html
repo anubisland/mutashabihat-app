@@ -3220,396 +3220,415 @@
         /* =========================================================
            الوضع الفاتح المصحفي الفاخر (Royal Mushaf Light Theme)
            ========================================================= */
+        
+        /* ==========================================================================
+           الوضع الفاتح المصحفي المطور فائق الدقة والاحترافية والتباين اللوني
+           ========================================================================== */
         body.light-theme {
-            --bg-night: #f7f5ed !important; /* ورق المصحف الفاخر العاجي */
-            --bg-card: #ffffff !important;  /* كروت بيضاء نقية واضحة */
-            --bg-card-inner: #f1ece1 !important;
+            --bg-night: #f8fafc !important;
+            --bg-card: #ffffff !important;
+            --bg-card-inner: #f1f5f9 !important;
             --emerald: #059669 !important;
-            --emerald-glow: rgba(5, 150, 105, 0.2) !important;
+            --emerald-glow: rgba(5, 150, 105, 0.18) !important;
             --gold: #b45309 !important;
             --gold-light: #92400e !important;
             --gold-glow: rgba(180, 83, 9, 0.15) !important;
-            --border-line: rgba(180, 83, 9, 0.22) !important;
-            --text-main: #0f172a !important; /* نصوص كحلية داكنة فائقة الوضوح */
-            --text-muted: #64748b !important;
-            --quran-text: #020617 !important;
-            --diff-1-bg: rgba(2, 132, 199, 0.12) !important;
-            --diff-1-text: #0369a1 !important;
-            --diff-1-border: #0284c7 !important;
-            --diff-2-bg: rgba(5, 150, 105, 0.12) !important;
-            --diff-2-text: #047857 !important;
-            --diff-2-border: #059669 !important;
-            --diff-3-bg: rgba(217, 119, 6, 0.12) !important;
-            --diff-3-text: #b45309 !important;
-            --diff-3-border: #d97706 !important;
+            --border-line: #cbd5e1 !important;
+            --text-main: #0f172a !important; /* أسود كحلي ناصع */
+            --text-muted: #475569 !important; /* رمادي فحمي مقروء */
+            --quran-text: #000000 !important;
             background-color: var(--bg-night) !important;
             color: var(--text-main) !important;
         }
 
-        /* تكييف عناصر الواجهة في الوضع الفاتح */
-        body.light-theme .master-navy-header {
-            background: linear-gradient(135deg, #0d1e38 0%, #15294a 100%) !important;
+        /* 1. شريط القوائم الأفقية: مصحف الأجزاء الثلاثين */
+        body.light-theme #juzNavigationRibbon {
+            background: #f1f5f9 !important;
+            border-bottom: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
         }
-
-        body.light-theme .controls-utility-bar {
-            background: #ffffff !important;
-            border-bottom: 1px solid #e2e8f0 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
-        }
-
-        body.light-theme .perspective-master-switch-bar {
-            background: #f1ede2 !important;
-            border-bottom: 1px solid #e2ded5 !important;
-        }
-
-        body.light-theme .perspective-tab {
-            color: #475569 !important;
-            background: rgba(255, 255, 255, 0.6) !important;
-            border-color: #cbd5e1 !important;
-        }
-
-        body.light-theme .perspective-tab.active {
-            background: #ffffff !important;
-            color: #047857 !important;
-            border-color: #059669 !important;
-            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.15) !important;
-        }
-
-        body.light-theme .surah-select-control {
-            background: #f8fafc !important;
+        body.light-theme .juz-ribbon-title {
             color: #0f172a !important;
-            border-color: #cbd5e1 !important;
+            font-weight: 800 !important;
         }
-
-        body.light-theme .juz-top-subfilters {
-            background: #f8fafc !important;
-            border-color: #cbd5e1 !important;
+        body.light-theme .juz-chip-btn {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
         }
-
-        body.light-theme .juz-top-tab {
-            color: #475569 !important;
-        }
-
-        body.light-theme .juz-top-tab.active {
-            background: #ecfdf5 !important;
-            border-color: #059669 !important;
-            color: #047857 !important;
-        }
-
-        body.light-theme .juz-tab-count {
-            background: #e2e8f0 !important;
+        body.light-theme .juz-chip-btn span:first-child {
             color: #0f172a !important;
-            border-color: #cbd5e1 !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .juz-chip-sub {
+            color: #475569 !important;
+            font-weight: 600 !important;
+        }
+        body.light-theme .juz-chip-btn:hover {
+            background: #f0fdf4 !important;
+            border-color: #059669 !important;
+        }
+        body.light-theme .juz-chip-btn.active {
+            background: #059669 !important;
+            border-color: #047857 !important;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.35) !important;
+        }
+        body.light-theme .juz-chip-btn.active span,
+        body.light-theme .juz-chip-btn.active .juz-chip-sub {
+            color: #ffffff !important;
         }
 
+        /* 2. شريط القوائم الأفقية: أطلس القرآن كاملاً */
+        body.light-theme #quranAtlasRibbon {
+            background: #f1f5f9 !important;
+            border-bottom: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .atlas-title-tag {
+            color: #0f172a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .atlas-stats-badge {
+            background: #ffffff !important;
+            color: #059669 !important;
+            border: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .atlas-family-btn {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #1e293b !important;
+            font-weight: 700 !important;
+        }
+        body.light-theme .atlas-family-btn.active {
+            background: #0284c7 !important;
+            border-color: #0369a1 !important;
+            color: #ffffff !important;
+        }
+
+        /* 3. شريط مسار السورة / مسار الجزء الأفقي */
+        body.light-theme .surah-horizon-bar {
+            background: #f8fafc !important;
+            border-bottom: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .horizon-bar-label,
+        body.light-theme #horizonSurahLabel {
+            color: #0f172a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .timeline-pin-chip {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #1e293b !important;
+            font-weight: 700 !important;
+        }
+        body.light-theme .timeline-pin-chip:hover {
+            border-color: #b45309 !important;
+            background: #fef3c7 !important;
+            color: #92400e !important;
+        }
+        body.light-theme .timeline-pin-chip.active {
+            background: #b45309 !important;
+            border-color: #92400e !important;
+            color: #ffffff !important;
+            box-shadow: 0 2px 8px rgba(180, 83, 9, 0.35) !important;
+        }
+
+        /* 4. العمود الأول (مواضع الضبط): تباين فائق ونقاء بصري */
         body.light-theme .clusters-sidebar {
-            background: #fdfcf9 !important;
-            border-left: 1px solid #e2ded5 !important;
+            background: #f8fafc !important;
+            border-left: 1.5px solid #cbd5e1 !important;
         }
-
+        body.light-theme .sidebar-head {
+            border-bottom: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .sidebar-head h2 {
+            color: #0f172a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme #clustersCount {
+            background: #f1f5f9 !important;
+            color: #059669 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            font-weight: 800 !important;
+        }
         body.light-theme .cluster-entry-card {
             background: #ffffff !important;
-            border: 1px solid #e5e0d4 !important;
-            color: #0f172a !important;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
         }
-
         body.light-theme .cluster-entry-card:hover {
-            border-color: #b45309 !important;
-            background: #fbf9f4 !important;
+            border-color: #059669 !important;
+            background: #f8fafc !important;
         }
-
         body.light-theme .cluster-entry-card.active {
             background: #f0fdf4 !important;
             border-color: #059669 !important;
-            border-right: 4px solid #059669 !important;
+            border-right: 4.5px solid #059669 !important;
+            box-shadow: 0 2px 10px rgba(5, 150, 105, 0.15) !important;
+        }
+        body.light-theme .cluster-entry-card h4,
+        body.light-theme .cluster-entry-card .entry-card-title {
+            color: #0f172a !important; /* أسود كحلي ناصع مقروء */
+            font-weight: 800 !important;
+        }
+        body.light-theme .cluster-entry-card p,
+        body.light-theme .cluster-entry-card .entry-card-sub,
+        body.light-theme .cluster-entry-card .entry-card-dabit {
+            color: #334155 !important; /* رمادي فحمي داكن */
+            font-weight: 600 !important;
+        }
+        body.light-theme .entry-card-ayahs-count {
+            color: #475569 !important;
+            font-weight: 700 !important;
+        }
+        /* كبسولات الضبط داخل بطاقات العمود الأول */
+        body.light-theme .entry-category-pill,
+        body.light-theme .category-pill-tag {
+            background: #fef3c7 !important;
+            color: #92400e !important;
+            border: 1px solid #fde68a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .entry-cross-badge,
+        body.light-theme .badge-cross {
+            background: #e0f2fe !important;
+            color: #0369a1 !important;
+            border: 1px solid #bae6fd !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .entry-intra-badge,
+        body.light-theme .badge-intra {
+            background: #dcfce7 !important;
+            color: #15803d !important;
+            border: 1px solid #bbf7d0 !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .cluster-entry-card .entry-surah-ref {
+            color: #0369a1 !important;
+            font-weight: 800 !important;
         }
 
-        body.light-theme .cluster-entry-card h4 {
-            color: #0f172a !important;
-        }
-
-        body.light-theme .cluster-entry-card p {
-            color: #64748b !important;
-        }
-
+        /* 5. العمود الثاني (مسرح الآيات والموضع النشط) */
         body.light-theme .workspace-center {
-            background: #f7f5ed !important;
+            background: #f8fafc !important;
         }
-
         body.light-theme .stage-title-deck {
             background: #ffffff !important;
-            border-color: #e5e0d4 !important;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
         }
-
         body.light-theme #stageTitle {
-            color: #0f172a !important;
+            color: #0f172a !important; /* أسود ناصع حاد */
+            font-weight: 900 !important;
         }
-
         body.light-theme #stageSub {
-            color: #64748b !important;
+            color: #334155 !important;
+            font-weight: 700 !important;
+        }
+        body.light-theme #stageIndexBadge {
+            background: #0f172a !important;
+            color: #ffffff !important;
+            border: none !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme #stageCategoryPill {
+            background: #fef3c7 !important;
+            color: #92400e !important;
+            border: 1px solid #fde68a !important;
+            font-weight: 800 !important;
         }
 
+        /* 6. بطاقات الآيات ونصوص الرسم العثماني */
         body.light-theme .verse-stage-card {
             background: #ffffff !important;
-            border-color: #e5e0d4 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            border: 1.5px solid #cbd5e1 !important;
+            border-right: 4px solid #059669 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
         }
-
-        body.light-theme .quran-script-body {
-            background: #fbf9f4 !important;
+        body.light-theme .verse-order-badge {
+            background: #fef3c7 !important;
+            color: #92400e !important;
+            border: 1px solid #fde68a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .pill-ayah-num {
+            background: #f1f5f9 !important;
             color: #0f172a !important;
-            border-right: 3px solid #059669 !important;
+            border: 1px solid #cbd5e1 !important;
+            font-weight: 800 !important;
         }
-
+        body.light-theme .pill-quarter-name {
+            background: #f8fafc !important;
+            color: #334155 !important;
+            border: 1px solid #cbd5e1 !important;
+            font-weight: 600 !important;
+        }
+        body.light-theme .pill-surah-tag.same-surah-gold {
+            background: #fef3c7 !important;
+            color: #92400e !important;
+            border: 1px solid #fde68a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .pill-surah-tag.other-surah {
+            background: #e0f2fe !important;
+            color: #0369a1 !important;
+            border: 1px solid #bae6fd !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .spatial-pill {
+            background: #f0fdf4 !important;
+            color: #15803d !important;
+            border: 1.5px solid #86efac !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .spatial-pill:hover {
+            background: #dcfce7 !important;
+            border-color: #4ade80 !important;
+        }
+        body.light-theme .quran-script-body {
+            background: #fbfbf9 !important;
+            color: #000000 !important; /* أسود صريح تام الوضوح */
+            border-right: 3.5px solid #059669 !important;
+        }
         body.light-theme .quran-quote-mark {
             color: #b45309 !important;
+            font-weight: 800 !important;
         }
 
+        /* 7. التمييز اللوني الفائق لكلمات الفروق (Diff Tokens) بتناسق نهاري متوهج */
+        body.light-theme .diff-token.token-cyan,
+        body.light-theme .diff-token.token-a {
+            background: #e0f2fe !important;
+            color: #0284c7 !important;
+            border: 1.5px solid #0284c7 !important;
+            font-weight: 800 !important;
+            box-shadow: 0 1px 3px rgba(2, 132, 199, 0.15) !important;
+        }
+        body.light-theme .diff-token.token-emerald,
+        body.light-theme .diff-token.token-b {
+            background: #dcfce7 !important;
+            color: #15803d !important;
+            border: 1.5px solid #16a34a !important;
+            font-weight: 800 !important;
+            box-shadow: 0 1px 3px rgba(22, 163, 74, 0.15) !important;
+        }
+        body.light-theme .diff-token.token-amber,
+        body.light-theme .diff-token.token-c {
+            background: #fef3c7 !important;
+            color: #b45309 !important;
+            border: 1.5px solid #d97706 !important;
+            font-weight: 800 !important;
+            box-shadow: 0 1px 3px rgba(217, 119, 6, 0.15) !important;
+        }
+
+        /* 8. الميزان البصري */
         body.light-theme .scale-contrast-deck {
             background: #ffffff !important;
-            border-color: #e5e0d4 !important;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
         }
-
         body.light-theme .scale-plate {
             background: #f8fafc !important;
-            border-color: #e2e8f0 !important;
+            border: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .scale-plate .plate-word {
+            font-weight: 800 !important;
+        }
+        body.light-theme .scale-plate .plate-meaning {
+            color: #334155 !important;
+            font-weight: 600 !important;
         }
 
-        body.light-theme .plate-meaning {
-            color: #475569 !important;
-        }
-
+        /* 9. العمود الثالث (سر التفرقة بالسياق) */
         body.light-theme .tadabbur-deck {
-            background: #fdfcf9 !important;
-            border-right: 1px solid #e2ded5 !important;
+            background: #f8fafc !important;
+            border-right: 1.5px solid #cbd5e1 !important;
         }
-
+        body.light-theme .deck-head h2,
+        body.light-theme #contextDeckSurahTitle {
+            color: #0f172a !important;
+            font-weight: 800 !important;
+        }
         body.light-theme .tadabbur-item-row {
             background: #ffffff !important;
-            border-color: #e5e0d4 !important;
+            border: 1.5px solid #cbd5e1 !important;
+            border-right: 4px solid #b45309 !important;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
+        }
+        body.light-theme .tadabbur-item-row h4,
+        body.light-theme .tadabbur-item-row .tadabbur-title {
+            color: #92400e !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .tadabbur-item-row p,
+        body.light-theme .tadabbur-item-row .tadabbur-body {
+            color: #1e293b !important;
+            line-height: 1.7 !important;
+        }
+
+        /* 10. شريط العمليات العلوي */
+        body.light-theme .controls-utility-bar {
+            background: #ffffff !important;
+            border-bottom: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .surah-select-control {
+            background: #f8fafc !important;
             color: #0f172a !important;
-            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03) !important;
+            border: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .juz-top-subfilters {
+            background: #f1f5f9 !important;
+            border: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .juz-top-tab {
+            color: #475569 !important;
+        }
+        body.light-theme .juz-top-tab.active {
+            background: #ffffff !important;
+            border-color: #059669 !important;
+            color: #047857 !important;
+            box-shadow: 0 2px 6px rgba(5, 150, 105, 0.2) !important;
+        }
+        body.light-theme .juz-tab-count {
+            background: #e2e8f0 !important;
+            color: #0f172a !important;
         }
 
-        body.light-theme .tadabbur-item-row p {
-            color: #334155 !important;
+        /* 11. النوافذ المنبثقة والشاشات الثانوية في الوضع الفاتح */
+        body.light-theme .mushaf-modal-backdrop {
+            background: rgba(15, 23, 42, 0.75) !important;
         }
-
         body.light-theme .mushaf-modal-window {
             background: #ffffff !important;
             color: #0f172a !important;
             border-color: #b45309 !important;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
         }
-
-        body.light-theme .mushaf-page-frame {
-            background: #fefce8 !important;
-        }
-
-        body.light-theme .btn-action-tool {
-            background: #ffffff !important;
-            color: #334155 !important;
-            border-color: #cbd5e1 !important;
-        }
-
-        body.light-theme .btn-action-tool:hover {
-            background: #f1f5f9 !important;
+        body.light-theme .mushaf-modal-window h3,
+        body.light-theme .mushaf-modal-window h4 {
             color: #0f172a !important;
         }
-
-        body.light-theme .font-sizer-group {
-            background: #f1f5f9 !important;
-            border-color: #cbd5e1 !important;
+        body.light-theme .mushaf-modal-window p,
+        body.light-theme .mushaf-modal-window span,
+        body.light-theme .mushaf-modal-window div {
+            color: #1e293b;
         }
-
-        body.light-theme .btn-font-size {
-            color: #0f172a !important;
+        body.light-theme .settings-opt-box {
+            background: #f8fafc !important;
+            border: 1.5px solid #e2e8f0 !important;
         }
-
-        body.light-theme .font-size-display {
-            color: #b45309 !important;
-        }
-
-        /* --- شريط فهرس المواضع المقارنة في رأس العمود الثاني --- */
-        .verses-comparator-bar {
-            background: rgba(13, 26, 21, 0.7);
-            border: 1px solid var(--border-line);
-            border-radius: 10px;
-            padding: 0.5rem 0.85rem;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            animation: fadeIn 0.25s ease-out;
-        }
-
-        body.light-theme .verses-comparator-bar {
-            background: #ffffff !important;
-            border-color: #e2ded5 !important;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04) !important;
-        }
-
-        .comp-bar-head {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .comp-bar-label {
-            font-size: 0.82rem;
-            font-weight: 800;
-            color: var(--gold-light);
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        body.light-theme .comp-bar-label {
-            color: #b45309 !important;
-        }
-
-        .comp-pills-row {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            flex-wrap: wrap;
-        }
-
-        .comp-verse-chip {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            padding: 0.25rem 0.65rem;
-            color: #cbd5e1;
-            font-size: 0.75rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        body.light-theme .comp-verse-chip {
-            background: #f1f5f9 !important;
-            border-color: #cbd5e1 !important;
-            color: #334155 !important;
-        }
-
-        .comp-verse-chip:hover {
-            background: rgba(255, 255, 255, 0.12);
-            color: #ffffff;
-            border-color: var(--gold);
-        }
-
-        .comp-verse-chip.active {
-            background: rgba(16, 185, 129, 0.25) !important;
-            border-color: var(--emerald) !important;
-            color: #6ee7b7 !important;
-            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
-        }
-
-        body.light-theme .comp-verse-chip.active {
-            background: #ecfdf5 !important;
-            border-color: #059669 !important;
-            color: #047857 !important;
-        }
-
-        .chip-order {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 0.05rem 0.35rem;
-            border-radius: 5px;
-            font-size: 0.68rem;
-            font-weight: 800;
-        }
-
-        body.light-theme .chip-order {
-            background: #e2e8f0 !important;
-            color: #0f172a !important;
-        }
-
-        .verse-order-badge {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            color: var(--gold-light);
-            font-size: 0.7rem;
-            font-weight: 800;
-            padding: 0.15rem 0.5rem;
-            border-radius: 6px;
-        }
-
-        body.light-theme .verse-order-badge {
-            background: #fef3c7 !important;
-            border-color: #d97706 !important;
-            color: #92400e !important;
-        }
-
-        /* زر الشاشات الفرعية بالإعدادات */
-        .settings-subscreen-trigger {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 10px;
-            padding: 0.75rem 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            width: 100%;
-            text-align: right;
-            font-family: 'Cairo', sans-serif;
-        }
-
         body.light-theme .settings-subscreen-trigger {
             background: #f8fafc !important;
-            border-color: #cbd5e1 !important;
+            border: 1.5px solid #cbd5e1 !important;
         }
-
-        .settings-subscreen-trigger:hover {
-            background: rgba(212, 175, 55, 0.12);
-            border-color: var(--gold);
-            transform: translateX(-3px);
-        }
-
         body.light-theme .settings-subscreen-trigger:hover {
             background: #fef9ee !important;
             border-color: #b45309 !important;
         }
-
-    
-        /* تكييف دليل التشغيل في الوضع الفاتح */
         body.light-theme #userGuideModal .mushaf-modal-window {
-            background: #ffffff !important;
-            color: #0f172a !important;
             border-color: #0284c7 !important;
         }
-        body.light-theme #userGuideModal div[style*="background: rgba(0,0,0,0.3)"] {
-            background: #f8fafc !important;
-            border-color: #e2e8f0 !important;
-        }
-        body.light-theme #userGuideModal div[style*="background: rgba(255,255,255,0.03)"] {
-            background: #ffffff !important;
-            border-color: #e2e8f0 !important;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04) !important;
-        }
-        body.light-theme #userGuideModal p, 
-        body.light-theme #userGuideModal span, 
-        body.light-theme #userGuideModal div {
-            color: #1e293b;
-        }
-        body.light-theme #userGuideModal strong[style*="color: var(--gold-light)"] {
-            color: #b45309 !important;
-        }
-        body.light-theme #userGuideModal strong[style*="color: #6ee7b7"] {
-            color: #059669 !important;
-        }
-        body.light-theme #userGuideModal strong[style*="color: #7dd3fc"] {
-            color: #0284c7 !important;
+        body.light-theme #appSourcesModal .mushaf-modal-window {
+            border-color: #059669 !important;
         }
 
     </style>
@@ -4226,7 +4245,8 @@
                     </p>
                 </div>
             </div>
-        </div>iv>
+        </div>
+    </div>
 
     
     <!-- الشاشة الثانوية الأولى: رسالة وأهمية المنظومة المعرفية واستخداماتها -->
@@ -207941,11 +207961,16 @@
 
         // --- التحكم بالشاشات الثانوية المنبثقة المنفصلة ---
         
-        // --- التحكم بنافذة دليل تشغيل المنظومة (User Guide) ---
+        
+        // --- التحكم بالشاشات الثانوية المنبثقة المستقلة بدقة متناهية ---
         function openUserGuideModal() {
-            closeSettingsModal();
+            const s = document.getElementById('settingsModal');
+            if (s) s.style.display = 'none';
             const m = document.getElementById('userGuideModal');
-            if (m) m.style.display = 'flex';
+            if (m) {
+                m.style.display = 'flex';
+                m.style.zIndex = '1080';
+            }
         }
 
         function closeUserGuideModal() {
@@ -207959,9 +207984,13 @@
         }
 
         function openAppImportanceModal() {
-            closeSettingsModal();
+            const s = document.getElementById('settingsModal');
+            if (s) s.style.display = 'none';
             const m = document.getElementById('appImportanceModal');
-            if (m) m.style.display = 'flex';
+            if (m) {
+                m.style.display = 'flex';
+                m.style.zIndex = '1080';
+            }
         }
 
         function closeAppImportanceModal() {
@@ -207975,9 +208004,13 @@
         }
 
         function openAppSourcesModal() {
-            closeSettingsModal();
+            const s = document.getElementById('settingsModal');
+            if (s) s.style.display = 'none';
             const m = document.getElementById('appSourcesModal');
-            if (m) m.style.display = 'flex';
+            if (m) {
+                m.style.display = 'flex';
+                m.style.zIndex = '1080';
+            }
         }
 
         function closeAppSourcesModal() {
@@ -207990,7 +208023,6 @@
             openSettingsModal();
         }
 
-        // --- التمرير السريع للآية المقارنة المحددة في العمود الثاني ---
         function scrollToVerseCard(idx, btn) {
             const card = document.getElementById(`verse-stage-card-${idx}`);
             if (card) {
