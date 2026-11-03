@@ -1,5 +1,5 @@
-// Service Worker for "معراج الإتقان في متشابهات القرآن"
-const CACHE_NAME = 'miraj-itqan-v118-light-contrast-master-perfected';
+// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v120
+const CACHE_NAME = 'miraj-itqan-v120-clean-dark-restored';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -12,10 +12,11 @@ const STATIC_ASSETS = [
 ];
 
 self.addEventListener('install', event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
       return cache.addAll(STATIC_ASSETS);
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
@@ -23,20 +24,27 @@ self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys => {
       return Promise.all(
-        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+        keys.map(key => {
+          if (key !== CACHE_NAME) {
+            console.log('Purging old cache:', key);
+            return caches.delete(key);
+          }
+        })
       );
     }).then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', event => {
-  // Network first for navigation / index.html to get fresh updates, fallback to cache
-  if (event.request.mode === 'navigate' || event.request.url.includes('index.html')) {
+  // Always network-first with no-store for HTML navigation to ensure immediate updates without cache lag
+  if (event.request.mode === 'navigate' || event.request.url.includes('index.html') || event.request.destination === 'document') {
     event.respondWith(
-      fetch(event.request)
+      fetch(event.request, { cache: 'no-store' })
         .then(response => {
-          const resClone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, resClone));
+          if (response && response.status === 200) {
+            const resClone = response.clone();
+            caches.open(CACHE_NAME).then(cache => cache.put(event.request, resClone));
+          }
           return response;
         })
         .catch(() => caches.match(event.request).then(res => res || caches.match('./index.html')))
@@ -44,7 +52,7 @@ self.addEventListener('fetch', event => {
     return;
   }
 
-  // Cache first for assets, fallback to network
+  // Assets: cache first, fallback to network
   event.respondWith(
     caches.match(event.request).then(cachedResponse => {
       if (cachedResponse) {

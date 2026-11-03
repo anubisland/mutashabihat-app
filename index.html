@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>مِعْرَاجُ الإِتْقَان | المنظومة المعرفية البصرية لضبط متشابهات القرآن</title>
     
     <!-- الهوية البصرية والأيقونة الرسمية للتطبيق (App Icon, Favicon & PWA Manifest) -->
@@ -4775,6 +4778,12 @@
                         <i class="fa-solid fa-chevron-left trigger-arrow" style="color: #6ee7b7; font-size: 0.95rem;"></i>
                     </button>
                 </div>
+                
+                <!-- زر التحديث الفوري ومسح الكاش -->
+                <button type="button" onclick="forceAppRefresh()" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.6rem; padding: 0.75rem 1rem; background: rgba(212, 175, 55, 0.15); border: 1.5px solid var(--gold); color: var(--gold-light); font-weight: 800; border-radius: 10px; cursor: pointer; transition: all 0.2s ease; font-family: 'Cairo', sans-serif; font-size: 0.86rem; margin-top: 0.5rem;" title="تحديث فوري للمنظومة وإفراغ الذاكرة المؤقتة">
+                    <i class="fa-solid fa-arrows-rotate"></i> تحديث المنظومة وإفراغ الذاكرة المؤقتة (Force Refresh)
+                </button>
+
                 <!-- تذييل الإصدار -->
                 <div style="text-align: center; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
                     <span style="font-size: 0.75rem; color: var(--gold); font-weight: 700;">
@@ -208563,6 +208572,26 @@
             openSettingsModal();
         }
 
+        
+        function forceAppRefresh() {
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    for (let reg of registrations) {
+                        reg.unregister();
+                    }
+                });
+            }
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    Promise.all(names.map(name => caches.delete(name))).then(() => {
+                        window.location.reload(true);
+                    });
+                });
+            } else {
+                window.location.reload(true);
+            }
+        }
+
         function init() {
             applyAppTheme(currentAppTheme);
             buildJuzRibbon();
@@ -209400,7 +209429,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
+        navigator.serviceWorker.register('./sw.js?v=120')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
