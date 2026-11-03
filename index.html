@@ -3631,6 +3631,205 @@
             border-color: #059669 !important;
         }
 
+    
+        /* ==========================================================================
+           1. أزرار الشاشات الثانوية في الإعدادات: تباين فائق وألوان مميزة في الداكن والفاتح
+           ========================================================================== */
+        .settings-subscreen-trigger {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: space-between !important;
+            width: 100% !important;
+            padding: 0.85rem 1.15rem !important;
+            border-radius: 12px !important;
+            cursor: pointer !important;
+            transition: all 0.25s ease !important;
+            text-align: right !important;
+            font-family: 'Cairo', sans-serif !important;
+            box-sizing: border-box !important;
+            margin: 0 !important;
+        }
+
+        /* الوضع الداكن الافتراضي (Dark Mode) */
+        .trigger-guide {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.18) 0%, rgba(13, 26, 21, 0.9) 100%) !important;
+            border: 1.5px solid #0284c7 !important;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4), 0 0 10px rgba(2, 132, 199, 0.2) !important;
+        }
+        .trigger-guide:hover {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.3) 0%, rgba(13, 26, 21, 0.95) 100%) !important;
+            border-color: #38bdf8 !important;
+            box-shadow: 0 4px 18px rgba(2, 132, 199, 0.4) !important;
+            transform: translateY(-2px);
+        }
+        .trigger-guide .trigger-title {
+            color: #7dd3fc !important;
+            font-weight: 800 !important;
+            font-size: 0.94rem !important;
+            margin-bottom: 0.15rem;
+        }
+        .trigger-guide .trigger-desc {
+            color: #e2e8f0 !important;
+            font-size: 0.74rem !important;
+        }
+
+        .trigger-importance {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(13, 26, 21, 0.9) 100%) !important;
+            border: 1.5px solid var(--gold) !important;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4), 0 0 10px rgba(212, 175, 55, 0.2) !important;
+        }
+        .trigger-importance:hover {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(13, 26, 21, 0.95) 100%) !important;
+            border-color: var(--gold-light) !important;
+            box-shadow: 0 4px 18px rgba(212, 175, 55, 0.4) !important;
+            transform: translateY(-2px);
+        }
+        .trigger-importance .trigger-title {
+            color: var(--gold-light) !important;
+            font-weight: 800 !important;
+            font-size: 0.94rem !important;
+            margin-bottom: 0.15rem;
+        }
+        .trigger-importance .trigger-desc {
+            color: #e2e8f0 !important;
+            font-size: 0.74rem !important;
+        }
+
+        .trigger-sources {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.18) 0%, rgba(13, 26, 21, 0.9) 100%) !important;
+            border: 1.5px solid var(--emerald) !important;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4), 0 0 10px rgba(16, 185, 129, 0.2) !important;
+        }
+        .trigger-sources:hover {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.3) 0%, rgba(13, 26, 21, 0.95) 100%) !important;
+            border-color: #34d399 !important;
+            box-shadow: 0 4px 18px rgba(16, 185, 129, 0.4) !important;
+            transform: translateY(-2px);
+        }
+        .trigger-sources .trigger-title {
+            color: #6ee7b7 !important;
+            font-weight: 800 !important;
+            font-size: 0.94rem !important;
+            margin-bottom: 0.15rem;
+        }
+        .trigger-sources .trigger-desc {
+            color: #e2e8f0 !important;
+            font-size: 0.74rem !important;
+        }
+
+        /* الوضع الفاتح (Light Mode) */
+        body.light-theme .trigger-guide {
+            background: #f0f9ff !important;
+            border: 2px solid #0284c7 !important;
+            box-shadow: 0 2px 8px rgba(2, 132, 199, 0.12) !important;
+        }
+        body.light-theme .trigger-guide:hover {
+            background: #e0f2fe !important;
+            border-color: #0369a1 !important;
+        }
+        body.light-theme .trigger-guide .trigger-title {
+            color: #0369a1 !important;
+        }
+        body.light-theme .trigger-guide .trigger-desc {
+            color: #334155 !important;
+        }
+
+        body.light-theme .trigger-importance {
+            background: #fefce8 !important;
+            border: 2px solid #d97706 !important;
+            box-shadow: 0 2px 8px rgba(217, 119, 6, 0.12) !important;
+        }
+        body.light-theme .trigger-importance:hover {
+            background: #fef3c7 !important;
+            border-color: #b45309 !important;
+        }
+        body.light-theme .trigger-importance .trigger-title {
+            color: #92400e !important;
+        }
+        body.light-theme .trigger-importance .trigger-desc {
+            color: #334155 !important;
+        }
+
+        body.light-theme .trigger-sources {
+            background: #ecfdf5 !important;
+            border: 2px solid #059669 !important;
+            box-shadow: 0 2px 8px rgba(5, 150, 105, 0.12) !important;
+        }
+        body.light-theme .trigger-sources:hover {
+            background: #dcfce7 !important;
+            border-color: #047857 !important;
+        }
+        body.light-theme .trigger-sources .trigger-title {
+            color: #047857 !important;
+        }
+        body.light-theme .trigger-sources .trigger-desc {
+            color: #334155 !important;
+        }
+
+        /* ==========================================================================
+           2. تكبير خط الشرح في سر التفرقة بالسياق وشرح ضابط الحفظ (Typography Scale)
+           ========================================================================== */
+        /* بطاقات سر التفرقة بالسياق */
+        .tadabbur-item-row {
+            padding: 0.85rem 1.05rem !important;
+            margin-bottom: 0.75rem !important;
+            border-radius: 10px !important;
+        }
+        .tadabbur-item-row strong {
+            font-size: 1.08rem !important; /* تكبير عنوان الفقرة */
+            font-weight: 800 !important;
+            margin-bottom: 0.35rem !important;
+            line-height: 1.5 !important;
+        }
+        .tadabbur-item-row p {
+            font-size: 1.02rem !important; /* تكبير نص الشرح والتحليل البياني */
+            line-height: 1.85 !important; /* تباعد أسطر مريح وفسيح */
+            text-align: justify !important;
+            margin: 0 !important;
+        }
+
+        /* ضابط الحفظ المنظوم وشرحه في العمود الثالث */
+        .rhyme-deck-box {
+            padding: 0.95rem 1.15rem !important;
+            margin-bottom: 0.85rem !important;
+        }
+        .rhyme-verse-line {
+            font-family: 'Amiri', 'Traditional Arabic', serif !important;
+            font-size: 1.35rem !important; /* تكبير بيت النظم */
+            line-height: 2.1 !important;
+            margin-bottom: 0.6rem !important;
+            font-weight: 700 !important;
+        }
+        .rhyme-rule-summary {
+            font-size: 1.02rem !important; /* تكبير شرح ضابط الحفظ */
+            line-height: 1.8 !important;
+            padding-top: 0.6rem !important;
+        }
+        .rhyme-rule-summary strong {
+            font-size: 1.08rem !important;
+            font-weight: 800 !important;
+        }
+
+        /* العمود الأول: عناوين وشروح بطاقات المواضع وضوابط الحفظ */
+        .entry-title {
+            font-size: 0.98rem !important; /* تكبير عنوان الموضع */
+            font-weight: 800 !important;
+            line-height: 1.5 !important;
+            margin-bottom: 0.35rem !important;
+        }
+        .entry-card-sub, .entry-card-dabit {
+            font-size: 0.92rem !important; /* تكبير الشرح والضابط */
+            line-height: 1.65 !important;
+        }
+        .entry-order-badge {
+            font-size: 0.82rem !important;
+            font-weight: 800 !important;
+        }
+        .entry-category-pill {
+            font-size: 0.78rem !important;
+            font-weight: 800 !important;
+        }
+
     </style>
 </head>
 <body>
@@ -4200,41 +4399,49 @@
                 <div style="height: 1px; background: rgba(255, 255, 255, 0.1); margin: 0.3rem 0;"></div>
 
                 <!-- زران أنيقان للشاشات الثانوية عند الطلب دون إرغام المستخدم على القراءة الإجبارية -->
-                <div style="display: flex; flex-direction: column; gap: 0.65rem;">
-                    
-                    <button class="settings-subscreen-trigger" onclick="openUserGuideModal()" style="border-right: 3px solid #38bdf8;">
-                        <div style="display: flex; align-items: center; gap: 0.65rem;">
-                            <i class="fa-solid fa-circle-question" style="color: #38bdf8; font-size: 1.15rem;"></i>
-                            <div>
-                                <div style="font-weight: 800; font-size: 0.86rem; color: #7dd3fc;">دليل تشغيل واستخدام المنظومة (User Guide)</div>
-                                <div style="font-size: 0.7rem; color: var(--text-muted);">شرح مبسط وسلس للمناظير الثلاثة وأعمدة الشاشة والأدوات الذكية</div>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 0.4rem;">
+                    <!-- 1. دليل التشغيل والاستخدام -->
+                    <button class="settings-subscreen-trigger trigger-guide" onclick="openUserGuideModal()" type="button" title="فتح دليل تشغيل واستخدام المنظومة">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="background: rgba(2, 132, 199, 0.2); width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid #0284c7; flex-shrink: 0;">
+                                <i class="fa-solid fa-book-open-reader" style="color: #38bdf8; font-size: 1.15rem;"></i>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="trigger-title">دليل تشغيل واستخدام المنظومة (User Guide)</div>
+                                <div class="trigger-desc">شرح مبسط وسلس للمناظير الثلاثة وأعمدة الشاشة والأدوات الذكية</div>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-left" style="color: #38bdf8; font-size: 0.85rem;"></i>
-                    </button>
-                    <button class="settings-subscreen-trigger" onclick="openAppImportanceModal()">
-                        <div style="display: flex; align-items: center; gap: 0.65rem;">
-                            <i class="fa-solid fa-star-and-crescent" style="color: var(--gold); font-size: 1.15rem;"></i>
-                            <div>
-                                <div style="font-weight: 800; font-size: 0.86rem; color: var(--gold-light);">رسالة وأهمية المنظومة المعرفية واستخداماتها</div>
-                                <div style="font-size: 0.7rem; color: var(--text-muted);">دليل الحفاظ والمقرئين لمسارات الضبط الخمسة</div>
-                            </div>
-                        </div>
-                        <i class="fa-solid fa-chevron-left" style="color: var(--gold); font-size: 0.85rem;"></i>
+                        <i class="fa-solid fa-chevron-left trigger-arrow" style="color: #38bdf8; font-size: 0.95rem;"></i>
                     </button>
 
-                    <button class="settings-subscreen-trigger" onclick="openAppSourcesModal()">
-                        <div style="display: flex; align-items: center; gap: 0.65rem;">
-                            <i class="fa-solid fa-book-journal-whills" style="color: var(--emerald); font-size: 1.15rem;"></i>
-                            <div>
-                                <div style="font-weight: 800; font-size: 0.86rem; color: #6ee7b7;">التوثيق الأكاديمي والمصادر التراثية المعتمدة</div>
-                                <div style="font-size: 0.7rem; color: var(--text-muted);">أمهات كتب علم المتشابه اللفظي لكبار الأئمة</div>
+                    <!-- 2. رسالة وأهمية المنظومة -->
+                    <button class="settings-subscreen-trigger trigger-importance" onclick="openAppImportanceModal()" type="button" title="فتح رسالة وأهمية المنظومة">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="background: rgba(212, 175, 55, 0.2); width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--gold); flex-shrink: 0;">
+                                <i class="fa-solid fa-star-and-crescent" style="color: var(--gold-light); font-size: 1.15rem;"></i>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="trigger-title">رسالة وأهمية المنظومة المعرفية واستخداماتها</div>
+                                <div class="trigger-desc">دليل الحفاظ والمقرئين لمسارات الضبط الخمسة وطرق الانتفاع</div>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-left" style="color: #6ee7b7; font-size: 0.85rem;"></i>
+                        <i class="fa-solid fa-chevron-left trigger-arrow" style="color: var(--gold-light); font-size: 0.95rem;"></i>
+                    </button>
+
+                    <!-- 3. التوثيق والمصادر التراثية -->
+                    <button class="settings-subscreen-trigger trigger-sources" onclick="openAppSourcesModal()" type="button" title="فتح المصادر التراثية المعتمدة">
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="background: rgba(16, 185, 129, 0.2); width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--emerald); flex-shrink: 0;">
+                                <i class="fa-solid fa-book-journal-whills" style="color: #6ee7b7; font-size: 1.15rem;"></i>
+                            </div>
+                            <div style="text-align: right;">
+                                <div class="trigger-title">التوثيق الأكاديمي والمصادر التراثية المعتمدة</div>
+                                <div class="trigger-desc">أمهات كتب علم المتشابه اللفظي لكبار أئمة التفسير والقراءات</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-chevron-left trigger-arrow" style="color: #6ee7b7; font-size: 0.95rem;"></i>
                     </button>
                 </div>
-
                 <!-- تذييل الإصدار -->
                 <div style="text-align: center; margin-top: 0.4rem; padding-top: 0.4rem; border-top: 1px solid rgba(255, 255, 255, 0.06);">
                     <span style="font-size: 0.75rem; color: var(--gold); font-weight: 700;">
