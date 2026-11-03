@@ -3870,6 +3870,72 @@
             border: 1px solid #cbd5e1 !important;
         }
 
+        
+        /* تحسين تباين نصوص الشاشات الثانوية في الوضعين الداكن والفاتح */
+        .guide-section-intro {
+            font-size: 0.82rem;
+            color: #e2e8f0;
+            font-weight: 600;
+            line-height: 1.7;
+        }
+        body.light-theme .guide-section-intro {
+            color: #0f172a !important;
+            font-weight: 700 !important;
+            font-size: 0.85rem !important;
+        }
+
+        .sources-intro-text {
+            font-size: 0.86rem;
+            color: #f1f5f9;
+            font-weight: 600;
+            line-height: 1.8;
+            padding: 0.5rem 0.75rem;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 8px;
+            border-right: 3px solid var(--emerald);
+        }
+        body.light-theme .sources-intro-text {
+            color: #0f172a !important;
+            background: #f0fdf4 !important;
+            border-right: 4px solid #059669 !important;
+            font-weight: 700 !important;
+            font-size: 0.88rem !important;
+            border: 1px solid #bbf7d0 !important;
+            border-right-width: 4px !important;
+        }
+
+        /* ضمان التباين الفائق لكافة النصوص الباهتة في الوضع الفاتح داخل النوافذ الثلاث */
+        body.light-theme #userGuideModal [style*="color: #cbd5e1"],
+        body.light-theme #userGuideModal [style*="color: #94a3b8"],
+        body.light-theme #userGuideModal [style*="color: var(--text-muted)"],
+        body.light-theme #userGuideModal [style*="color: #f1f5f9"],
+        body.light-theme #appSourcesModal [style*="color: #cbd5e1"],
+        body.light-theme #appSourcesModal [style*="color: #94a3b8"],
+        body.light-theme #appSourcesModal [style*="color: var(--text-muted)"],
+        body.light-theme #appSourcesModal [style*="color: #f1f5f9"],
+        body.light-theme #appImportanceModal [style*="color: #cbd5e1"],
+        body.light-theme #appImportanceModal [style*="color: #94a3b8"],
+        body.light-theme #appImportanceModal [style*="color: var(--text-muted)"],
+        body.light-theme #appImportanceModal [style*="color: #f1f5f9"] {
+            color: #0f172a !important;
+            font-weight: 700 !important;
+        }
+
+        body.light-theme #userGuideModal p,
+        body.light-theme #userGuideModal span,
+        body.light-theme #userGuideModal div,
+        body.light-theme #userGuideModal li,
+        body.light-theme #appSourcesModal p,
+        body.light-theme #appSourcesModal span,
+        body.light-theme #appSourcesModal div,
+        body.light-theme #appSourcesModal li,
+        body.light-theme #appImportanceModal p,
+        body.light-theme #appImportanceModal span,
+        body.light-theme #appImportanceModal div,
+        body.light-theme #appImportanceModal li {
+            color: #0f172a !important;
+        }
+
         /* 2. نافذة المصادر والمراجع التراثية */
         body.light-theme #appSourcesModal .mushaf-modal-window {
             background: #ffffff !important;
@@ -4878,7 +4944,7 @@
                 </div>
             </div>
 
-            <div style="font-size: 0.82rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 0.8rem;">
+            <div class="sources-intro-text" style="line-height: 1.8; margin-bottom: 0.85rem;">
                 كافة المتشابهات والتوجيهات البيانية والضوابط المنظومة في التطبيق محررة بدقة وفق التحقيق المعتمد لأمهات كتب علم المتشابه اللفظي لكبار أئمة التفسير والقراءات:
             </div>
 
@@ -4993,7 +5059,7 @@
                     <div style="font-size: 0.92rem; font-weight: 800; color: #7dd3fc; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.45rem;">
                         <i class="fa-solid fa-layer-group"></i> 1. المناظير المعرفية الثلاثة (الشريط العلوي الأوسط):
                     </div>
-                    <div style="font-size: 0.76rem; color: #cbd5e1; margin-bottom: 0.65rem;">
+                    <div class="guide-section-intro" style="margin-bottom: 0.65rem;">
                         تتيح لك المنظومة دراسة المتشابهات من 3 أبعاد مختلفة وفق حاجتك في الحفظ والمراجعة:
                     </div>
                     <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.77rem;">
@@ -209429,7 +209495,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=120')
+        navigator.serviceWorker.register('./sw.js?v=121')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();

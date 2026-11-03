@@ -1,5 +1,5 @@
 // Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v120
-const CACHE_NAME = 'miraj-itqan-v120-clean-dark-restored';
+const CACHE_NAME = 'miraj-itqan-v121-modals-high-contrast';
 const STATIC_ASSETS = [
   './',
   './index.html',
