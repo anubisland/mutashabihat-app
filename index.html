@@ -3152,6 +3152,29 @@
         </button>
     </nav>
 
+    <!-- 1. شريط أجزاء القرآن الثلاثين التفاعلي (يظهر في نمط مصحف الأجزاء) -->
+    <div id="juzNavigationRibbon" class="juz-navigation-ribbon" style="display: none;">
+        <div class="juz-ribbon-top-row">
+            <div class="juz-ribbon-title">
+                <i class="fa-solid fa-layer-group"></i> مصحف الأجزاء الثلاثين — انقر على أي جزء للانتقال المباشر:
+            </div>
+        </div>
+        <div class="juz-chips-scroll" id="juzChipsTrack"></div>
+    </div>
+
+    <!-- 2. شريط أطلس المتشابهات الكبرى (يظهر في نمط أطلس القرآن) -->
+    <div id="quranAtlasRibbon" class="quran-atlas-ribbon" style="display: none;">
+        <div class="atlas-ribbon-header">
+            <div class="atlas-title-tag">
+                <i class="fa-solid fa-compass"></i> أطلس العائلات والتراكيب القرآنية الكبرى:
+            </div>
+            <div class="atlas-stats-badge">
+                <span id="atlasClustersCountBadge">2,401</span> موضعاً محققاً في عموم القرآن
+            </div>
+        </div>
+        <div class="atlas-families-track" id="atlasFamiliesTrack"></div>
+    </div>
+
 
 
     <!-- 2. شريط العمليات والتحكم (خارج الترويسة: اسم السورة، التكبير والتصغير، والأدوات) -->
@@ -3375,6 +3398,19 @@
             <div class="sidebar-head">
                 <h2><i class="fa-solid fa-list-check"></i> مواضع الضبط</h2>
                 <span class="entry-category-pill" id="clustersCount">10 مواضع كبرى</span>
+            </div>
+
+            <!-- أزرار الفرز الذكي لمتشابهات الجزء (واضحة وبارزة أعلى قائمة المواضع) -->
+            <div class="juz-subfilters-group" id="juzSubfiltersGroup" style="display: none; padding: 0.45rem 0.55rem; background: rgba(0, 0, 0, 0.35); border-bottom: 1px solid rgba(212, 175, 55, 0.25); gap: 0.3rem;">
+                <button class="juz-filter-btn active" id="juzFilterAll" onclick="setJuzSubFilter('all', this)" style="flex: 1; justify-content: center; font-size: 0.72rem; padding: 0.3rem 0.4rem;">
+                    الكل (<span id="juzCountAll">0</span>)
+                </button>
+                <button class="juz-filter-btn" id="juzFilterIntra" onclick="setJuzSubFilter('intra', this)" style="flex: 1; justify-content: center; font-size: 0.72rem; padding: 0.3rem 0.4rem;" title="الآيات التي تتشابه داخل هذا الجزء فقط">
+                    🎯 داخل الجزء (<span id="juzCountIntra">0</span>)
+                </button>
+                <button class="juz-filter-btn" id="juzFilterCross" onclick="setJuzSubFilter('cross', this)" style="flex: 1; justify-content: center; font-size: 0.72rem; padding: 0.3rem 0.4rem;" title="آيات في هذا الجزء تتشابه مع أجزاء أخرى">
+                    🔗 مع أجزاء أخرى (<span id="juzCountCross">0</span>)
+                </button>
             </div>
 
             <div class="clusters-scroll-viewport" id="clustersListContainer">
@@ -207086,8 +207122,10 @@
             if (btnSurah) btnSurah.classList.add('active');
 
             const juzRibbon = document.getElementById('juzNavigationRibbon');
+            const juzSubfilters = document.getElementById('juzSubfiltersGroup');
             const atlasRibbon = document.getElementById('quranAtlasRibbon');
             if (juzRibbon) juzRibbon.style.display = 'none';
+                if (juzSubfilters) juzSubfilters.style.display = 'none';
             if (atlasRibbon) atlasRibbon.style.display = 'none';
 
             activeIndex = 0;
@@ -207179,6 +207217,7 @@
             const surahWrap = surahSelector ? surahSelector.closest('.surah-selector-wrap') : null;
             const juzWrap = document.getElementById('juzSelectorWrap');
             const juzRibbon = document.getElementById('juzNavigationRibbon');
+            const juzSubfilters = document.getElementById('juzSubfiltersGroup');
             const atlasRibbon = document.getElementById('quranAtlasRibbon');
             const brandEl = document.getElementById('brandSurahTitle');
             const horizonLabel = document.getElementById('horizonSurahLabel');
@@ -207187,6 +207226,7 @@
                 if (surahWrap) surahWrap.style.display = 'inline-flex';
                 if (juzWrap) juzWrap.style.display = 'none';
                 if (juzRibbon) juzRibbon.style.display = 'none';
+                if (juzSubfilters) juzSubfilters.style.display = 'none';
                 if (atlasRibbon) atlasRibbon.style.display = 'none';
                 
                 const meta = surahsData[currentSurah];
@@ -207196,6 +207236,7 @@
                 if (surahWrap) surahWrap.style.display = 'none';
                 if (juzWrap) juzWrap.style.display = 'inline-flex';
                 if (juzRibbon) juzRibbon.style.display = 'flex';
+                if (juzSubfilters) juzSubfilters.style.display = 'flex';
                 if (atlasRibbon) atlasRibbon.style.display = 'none';
                 buildJuzRibbon();
 
@@ -207209,6 +207250,7 @@
                 if (surahWrap) surahWrap.style.display = 'none';
                 if (juzWrap) juzWrap.style.display = 'none';
                 if (juzRibbon) juzRibbon.style.display = 'none';
+                if (juzSubfilters) juzSubfilters.style.display = 'none';
                 if (atlasRibbon) atlasRibbon.style.display = 'flex';
                 buildAtlasRibbon();
 
@@ -207261,9 +207303,9 @@
                 let extraBadge = '';
                 if (currentMode === 'juz') {
                     if (c.isIntraJuz) {
-                        extraBadge = `<span class="badge-intra-juz"><i class="fa-solid fa-bullseye"></i> داخل الجزء</span>`;
+                        extraBadge = `<span class="badge-intra-juz"><i class="fa-solid fa-bullseye"></i> داخل الجزء نفسه</span>`;
                     } else if (c.isCrossJuz) {
-                        extraBadge = `<span class="badge-cross-juz"><i class="fa-solid fa-triangle-exclamation"></i> مزلَق جـ ${(c.otherJuz || []).join(', ')}</span>`;
+                        extraBadge = `<span class="badge-cross-juz"><i class="fa-solid fa-link"></i> تشابه مع جـ ${(c.otherJuz || []).join(' و ')}</span>`;
                     }
                 } else if (currentMode === 'quran') {
                     extraBadge = `<span class="badge-quran-surah">${c.surahName || ''} • جـ ${c.primaryJuz || ''}</span>`;
