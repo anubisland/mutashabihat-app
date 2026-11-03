@@ -673,7 +673,7 @@
         /* الخط المصحفي للرسم العثماني وعلامات التنصيص القرآنية */
         .quran-script-body {
             font-family: 'Amiri Quran', 'Scheherazade New', 'Amiri', 'Traditional Arabic', serif !important;
-            font-size: 1.62rem;
+            font-size: var(--quran-font-size, 1.65rem) !important;
             line-height: 2.35;
             color: #f8fafc;
             text-align: justify;
@@ -3128,7 +3128,95 @@
             color: #fff;
         }
 
-</style>
+
+        /* --- أزرار الفرز الذكي للأجزاء في الشريط العلوي (بجوار محدد الجزء) --- */
+        .juz-top-subfilters {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            background: rgba(4, 15, 12, 0.75);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            border-radius: 20px;
+            padding: 0.2rem 0.4rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+            margin-right: 0.35rem;
+            animation: fadeIn 0.25s ease-out;
+        }
+
+        .juz-top-tab {
+            background: transparent;
+            border: 1px solid transparent;
+            color: #94a3b8;
+            padding: 0.28rem 0.75rem;
+            border-radius: 14px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            white-space: nowrap;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .juz-top-tab:hover {
+            color: #f8fafc;
+            background: rgba(255, 255, 255, 0.07);
+        }
+
+        .juz-top-tab.active {
+            background: rgba(16, 185, 129, 0.22);
+            border-color: rgba(16, 185, 129, 0.6);
+            color: #6ee7b7;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        }
+
+        .juz-tab-count {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            padding: 0.05rem 0.45rem;
+            font-size: 0.72rem;
+            color: #fff;
+            font-weight: 800;
+        }
+
+        .juz-top-tab.active .juz-tab-count {
+            border-color: rgba(16, 185, 129, 0.7);
+            background: rgba(16, 185, 129, 0.35);
+            color: #a7f3d0;
+        }
+
+        /* --- تحسين وتفعيل نمط تركيز وإضاءة الفروق (Dim Mode) --- */
+        .verse-stage-card.dim-mode .quran-script-body {
+            color: rgba(248, 250, 252, 0.22) !important;
+            background: rgba(0, 0, 0, 0.82) !important;
+            border-right-color: rgba(212, 175, 55, 0.35) !important;
+            transition: all 0.25s ease;
+        }
+
+        .verse-stage-card.dim-mode .quran-quote-mark {
+            color: rgba(248, 250, 252, 0.12) !important;
+        }
+
+        .verse-stage-card.dim-mode .diff-token {
+            opacity: 1 !important;
+            transform: scale(1.08);
+            display: inline-block;
+            box-shadow: 0 0 18px currentColor, 0 3px 10px rgba(0, 0, 0, 0.8) !important;
+            border-width: 2px !important;
+            font-weight: 900 !important;
+            text-shadow: 0 0 14px currentColor !important;
+            animation: pulseGlow 1.8s infinite alternate ease-in-out;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: scale(1.05); filter: brightness(1.1); }
+            100% { transform: scale(1.1); filter: brightness(1.35); }
+        }
+
+    </style>
 </head>
 <body>
 
@@ -3290,6 +3378,24 @@
                 <option value="30">الجزء 30: عَمَّ يَتَسَاءَلُونَ (النبأ)</option>
             </select>
         </div>
+        <!-- أزرار الفرز الذكي لمتشابهات الجزء (مرتبة من اليمين إلى اليسار: داخل الجزء، أجزاء أخرى، الكل) -->
+        <div class="juz-top-subfilters" id="juzSubfiltersGroup" style="display: none;">
+            <button class="juz-top-tab" id="juzFilterIntra" onclick="setJuzSubFilter('intra', this)" title="المتشابهات التي تقع بين سور هذا الجزء فقط">
+                <i class="fa-solid fa-bullseye" style="color: #6ee7b7;"></i>
+                <span>داخل الجزء</span>
+                <span class="juz-tab-count" id="juzCountIntra">0</span>
+            </button>
+            <button class="juz-top-tab" id="juzFilterCross" onclick="setJuzSubFilter('cross', this)" title="آيات في هذا الجزء تشتبه مع آيات في أجزاء أخرى">
+                <i class="fa-solid fa-link" style="color: #38bdf8;"></i>
+                <span>أجزاء أخرى</span>
+                <span class="juz-tab-count" id="juzCountCross">0</span>
+            </button>
+            <button class="juz-top-tab active" id="juzFilterAll" onclick="setJuzSubFilter('all', this)" title="عرض جميع مواضع هذا الجزء">
+                <i class="fa-solid fa-layer-group" style="color: var(--gold-light);"></i>
+                <span>الكل</span>
+                <span class="juz-tab-count" id="juzCountAll">0</span>
+            </button>
+        </div>
         <div class="surah-selector-wrap">
             <i class="fa-solid fa-book-bookmark" style="color: var(--gold-light); font-size: 0.9rem;"></i>
             <select id="surahSelectDropdown" onchange="switchSurah(this.value)" class="surah-select-control">
@@ -3418,7 +3524,7 @@
                 <button class="btn-font-size btn-font-minus" onclick="adjustFontSize(-1)" title="تصغير حجم الخط A-">
                     <i class="fa-solid fa-minus"></i> A-
                 </button>
-                <span class="font-size-display" id="fontSizeLabel">1.28</span>
+                <span class="font-size-display" id="fontSizeLabel">1.65</span>
                 <button class="btn-font-size btn-font-plus" onclick="adjustFontSize(1)" title="تكبير حجم الخط A+">
                     <i class="fa-solid fa-plus"></i> A+
                 </button>
@@ -3431,8 +3537,8 @@
             <button class="btn-action-tool" onclick="scrollToScale()" style="background: rgba(212, 175, 55, 0.15); border-color: var(--gold); color: var(--gold-light);">
                 <i class="fa-solid fa-scale-balanced"></i> الميزان البصري
             </button>
-            <button class="btn-action-tool" onclick="toggleDimMode()" id="btnDimMode">
-                <i class="fa-solid fa-eye-low-vision"></i> تركيز الفروق
+            <button class="btn-action-tool" onclick="toggleDimMode()" id="btnDimMode" title="إضاءة الكلمات الفاصلة فقط وتعتيم باقي الآية لترسيخ الفارق البصري في ثوانٍ">
+                <i class="fa-solid fa-lightbulb" style="color: var(--gold-light);"></i> تركيز الفروق
             </button>
 
             <div class="search-box-wrap" onclick="openSmartSearchModal()" style="cursor: pointer;" title="انقر لفتح البحث القرآني الذكي الموحد">
@@ -3462,23 +3568,7 @@
                 <span class="entry-category-pill" id="clustersCount">10 مواضع كبرى</span>
             </div>
 
-            <!-- أزرار الفرز الذكي لمتشابهات الجزء (واضحة وبارزة أعلى قائمة المواضع) -->
-            <div class="juz-subfilters-container" id="juzSubfiltersGroup" style="display: none;">
-                <div class="juz-filter-tabs">
-                    <button class="juz-filter-tab active" id="juzFilterAll" onclick="setJuzSubFilter('all', this)" title="عرض جميع مواضع هذا الجزء">
-                        <span class="filter-tab-label"><i class="fa-solid fa-layer-group"></i> الكل</span>
-                        <span class="filter-tab-badge" id="juzCountAll">0</span>
-                    </button>
-                    <button class="juz-filter-tab" id="juzFilterIntra" onclick="setJuzSubFilter('intra', this)" title="المتشابهات التي تقع بين سور هذا الجزء فقط">
-                        <span class="filter-tab-label"><i class="fa-solid fa-bullseye"></i> داخل الجزء</span>
-                        <span class="filter-tab-badge" id="juzCountIntra">0</span>
-                    </button>
-                    <button class="juz-filter-tab" id="juzFilterCross" onclick="setJuzSubFilter('cross', this)" title="آيات في هذا الجزء تشتبه مع آيات في أجزاء أخرى">
-                        <span class="filter-tab-label"><i class="fa-solid fa-link"></i> أجزاء أخرى</span>
-                        <span class="filter-tab-badge" id="juzCountCross">0</span>
-                    </button>
-                </div>
-            </div>
+            
 
             <div class="clusters-scroll-viewport" id="clustersListContainer">
                 <!-- Dynamically populated -->
@@ -3626,6 +3716,45 @@
 
             <!-- خيارات الإعدادات -->
             <div style="display: flex; flex-direction: column; gap: 1rem;">
+                
+                <!-- قسم ميثاق ورسالة المنظومة المعرفية وأهميتها واستخداماتها -->
+                <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(212, 175, 55, 0.12) 100%); padding: 1.1rem 1.25rem; border-radius: 12px; border: 1.5px solid var(--gold); box-shadow: 0 4px 18px rgba(0,0,0,0.45); margin-bottom: 0.5rem;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.6rem; border-bottom: 1px solid rgba(212, 175, 55, 0.25); padding-bottom: 0.45rem;">
+                        <h4 style="font-size: 0.98rem; color: var(--gold-light); font-weight: 800; display: flex; align-items: center; gap: 0.5rem; margin: 0;">
+                            <i class="fa-solid fa-star-and-crescent" style="color: var(--gold);"></i>
+                            أهمية منظومة «معراج الإتقان» واستخداماتها
+                        </h4>
+                        <span style="font-size: 0.68rem; background: rgba(16, 185, 129, 0.2); color: #6ee7b7; padding: 2px 8px; border-radius: 10px; border: 1px solid rgba(16, 185, 129, 0.4); font-weight: 700;">دليل الحفاظ والمقرئين</span>
+                    </div>
+
+                    <p style="font-size: 0.8rem; color: #f1f5f9; line-height: 1.7; margin-bottom: 0.8rem; text-align: justify;">
+                        تُمثّل هذه المنظومة نقلة معرفية وتقنية فريدة لخدمة حفظة كتاب الله، حيث تجمع لأول مرة بين <strong style="color: var(--gold-light);">الرسم العثماني الأصيل</strong>، و<strong style="color: #6ee7b7;">الميزان البصري المقارن</strong>، و<strong style="color: #7dd3fc;">التدبر السياقي والتوجيه البياني</strong> لأئمة التفسير والقراءات، للانتقال بالحافظ من الحفظ التلقائي المجرد إلى الحفظ الاستيعابي الواعي المبرهن.
+                    </p>
+
+                    <div style="font-size: 0.82rem; font-weight: 800; color: var(--gold); margin-bottom: 0.45rem; display: flex; align-items: center; gap: 0.4rem;">
+                        <i class="fa-solid fa-compass"></i> مسارات واستخدامات المنظومة:
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.76rem; color: #cbd5e1; line-height: 1.55;">
+                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid var(--gold);">
+                            <span style="color: var(--gold-light); font-weight: 800;">١. ضبط السور (114 سورة):</span>
+                            <span>إتقان متشابهات كل سورة بمفردها ومعرفة فوارقها الداخلية لضمان سرد السورة غيباً دون تردد.</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid #10b981;">
+                            <span style="color: #6ee7b7; font-weight: 800;">٢. مصحف الأجزاء (30 جزءاً):</span>
+                            <span>فرز أوراد الحزب والجزء، والتمييز الفوري بين المتشابه الداخلي ورابط الأجزاء الخارجية لمنع الانتقال لسور أخرى أثناء الصلاة.</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid #38bdf8;">
+                            <span style="color: #7dd3fc; font-weight: 800;">٣. أطلس المتشابهات الكبرى:</span>
+                            <span>رؤية شمولية لعائلات الآيات المتكررة عبر القرآن كاملاً (قصص الأنبياء، صيغ النداء، والتوحيد).</span>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem; align-items: flex-start; background: rgba(0,0,0,0.25); padding: 0.45rem 0.65rem; border-radius: 8px; border-right: 3px solid #f59e0b;">
+                            <span style="color: #fcd34d; font-weight: 800;">٤. الميزان البصري وتركيز الفروق:</span>
+                            <span>تقنيات ذهنية بصرية تكشف دلالة الكلمة الفاصلة والتقديم والتأخير لتثبيت الموضع في الذاكرة الفوتوغرافية.</span>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- 1. نوع الخط القرآني -->
                 <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);">
                     <div style="font-size: 0.86rem; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
@@ -3645,16 +3774,16 @@
                 <div style="background: rgba(0,0,0,0.3); padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.08);">
                     <div style="font-size: 0.86rem; color: var(--gold); font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: space-between;">
                         <span><i class="fa-solid fa-text-height"></i> حجم الخط المعتمد:</span>
-                        <span id="settingsFontSizeVal" style="color: #fff; font-weight: 800;">1.28rem</span>
+                        <span id="settingsFontSizeVal" style="color: #fff; font-weight: 800;">1.65rem</span>
                     </div>
                     <div style="display: flex; align-items: center; gap: 0.75rem;">
-                        <button class="btn-font-sizer btn-font-minus" onclick="adjustFontSize(-0.05)" style="width: 36px; height: 36px;">
+                        <button class="btn-font-sizer btn-font-minus" onclick="adjustFontSize(-1)" style="width: 36px; height: 36px;">
                             <i class="fa-solid fa-minus"></i>
                         </button>
-                        <input type="range" min="1.0" max="1.9" step="0.05" value="1.28" id="sliderFontSize" 
+                        <input type="range" min="1.2" max="2.6" step="0.1" value="1.65" id="sliderFontSize" 
                                style="flex: 1; accent-color: var(--gold); cursor: pointer;" 
                                oninput="setExactFontSize(this.value)">
-                        <button class="btn-font-sizer btn-font-plus" onclick="adjustFontSize(0.05)" style="width: 36px; height: 36px;">
+                        <button class="btn-font-sizer btn-font-plus" onclick="adjustFontSize(1)" style="width: 36px; height: 36px;">
                             <i class="fa-solid fa-plus"></i>
                         </button>
                     </div>
@@ -207162,7 +207291,7 @@
         let currentSurah = 'baqarah';
         let activeIndex = 0;
         let isDimmed = false;
-        let currentFontSize = 1.28;
+        let currentFontSize = 1.65;
 
         function init() {
             buildJuzRibbon();
@@ -207235,7 +207364,7 @@
 
         function setJuzSubFilter(filter, btn) {
             juzSubFilter = filter;
-            document.querySelectorAll('.juz-filter-tab, .juz-filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.juz-top-tab, .juz-filter-tab, .juz-filter-btn').forEach(b => b.classList.remove('active'));
             if (btn) btn.classList.add('active');
 
             activeIndex = 0;
@@ -207303,7 +207432,7 @@
                 if (surahWrap) surahWrap.style.display = 'none';
                 if (juzWrap) juzWrap.style.display = 'inline-flex';
                 if (juzRibbon) juzRibbon.style.display = 'flex';
-                if (juzSubfilters) juzSubfilters.style.display = 'flex';
+                if (juzSubfilters) juzSubfilters.style.display = 'inline-flex';
                 if (atlasRibbon) atlasRibbon.style.display = 'none';
                 buildJuzRibbon();
 
@@ -207607,11 +207736,47 @@
 
         // ضبط حجم الخط الحي A+ / A-
         function adjustFontSize(delta) {
-            currentFontSize = +(currentFontSize + (delta * 0.05)).toFixed(2);
-            if (currentFontSize < 1.05) currentFontSize = 1.05;
-            if (currentFontSize > 1.65) currentFontSize = 1.65;
+            // خطوة ملحوظة وواضحة (0.15rem) مع نطاق رحب بين 1.2rem و 2.6rem
+            currentFontSize = +(currentFontSize + (delta * 0.15)).toFixed(2);
+            if (currentFontSize < 1.20) currentFontSize = 1.20;
+            if (currentFontSize > 2.60) currentFontSize = 2.60;
+            
+            // 1. تطبيق المتغير العام على مستوى المستند
             document.documentElement.style.setProperty('--quran-font-size', `${currentFontSize}rem`);
-            document.getElementById('fontSizeLabel').textContent = currentFontSize.toFixed(2);
+            
+            // 2. تطبيق فوري ومباشر على عناصر نصوص الآيات في الصفحة الحالية
+            document.querySelectorAll('.quran-script-body, .verse-stage-card .quran-script-body, .quran-ayah-body').forEach(el => {
+                el.style.fontSize = `${currentFontSize}rem`;
+            });
+
+            // 3. تحديث مؤشرات العرض في الشريط العلوي ونافذة الإعدادات
+            const lbl = document.getElementById('fontSizeLabel');
+            if (lbl) lbl.textContent = currentFontSize.toFixed(2);
+            
+            const settingsVal = document.getElementById('settingsFontSizeVal');
+            if (settingsVal) settingsVal.textContent = `${currentFontSize.toFixed(2)}rem`;
+            
+            const slider = document.getElementById('sliderFontSize');
+            if (slider) slider.value = currentFontSize;
+
+            try {
+                localStorage.setItem('miraj_quran_font_size', currentFontSize.toString());
+            } catch(e) {}
+        }
+
+        function setExactFontSize(val) {
+            currentFontSize = Number(val);
+            document.documentElement.style.setProperty('--quran-font-size', `${currentFontSize}rem`);
+            document.querySelectorAll('.quran-script-body, .verse-stage-card .quran-script-body, .quran-ayah-body').forEach(el => {
+                el.style.fontSize = `${currentFontSize}rem`;
+            });
+            const lbl = document.getElementById('fontSizeLabel');
+            if (lbl) lbl.textContent = currentFontSize.toFixed(2);
+            const settingsVal = document.getElementById('settingsFontSizeVal');
+            if (settingsVal) settingsVal.textContent = `${currentFontSize.toFixed(2)}rem`;
+            try {
+                localStorage.setItem('miraj_quran_font_size', currentFontSize.toString());
+            } catch(e) {}
         }
 
         // التمرير السريع للميزان البصري
@@ -207628,8 +207793,21 @@
         function toggleDimMode() {
             isDimmed = !isDimmed;
             const btn = document.getElementById('btnDimMode');
-            btn.style.color = isDimmed ? 'var(--gold-light)' : 'var(--text-main)';
-            btn.style.borderColor = isDimmed ? 'var(--gold)' : 'rgba(255, 255, 255, 0.1)';
+            if (btn) {
+                if (isDimmed) {
+                    btn.classList.add('active');
+                    btn.style.color = 'var(--gold-light)';
+                    btn.style.borderColor = 'var(--gold)';
+                    btn.style.background = 'rgba(212, 175, 55, 0.25)';
+                    btn.style.boxShadow = '0 0 14px rgba(212, 175, 55, 0.45)';
+                } else {
+                    btn.classList.remove('active');
+                    btn.style.color = 'var(--text-main)';
+                    btn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    btn.style.background = '';
+                    btn.style.boxShadow = '';
+                }
+            }
             document.querySelectorAll('.verse-stage-card').forEach(c => {
                 c.classList.toggle('dim-mode', isDimmed);
             });
