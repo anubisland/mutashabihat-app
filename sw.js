@@ -1,5 +1,5 @@
 // Service Worker for "معراج الإتقان في متشابهات القرآن"
-const CACHE_NAME = 'miraj-itqan-v107-juz-atlas';
+const CACHE_NAME = 'miraj-itqan-v108-royal-juz-bar';
 const STATIC_ASSETS = [
   './',
   './index.html',

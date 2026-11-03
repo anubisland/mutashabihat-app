@@ -2252,7 +2252,7 @@
                 padding: 0.12rem 0.25rem;
             }
 
-            .tier-selector-pills, .search-box-wrap, .btn-action-tool, .horizon-label {
+            .search-box-wrap, .btn-action-tool, .horizon-label {
                 display: none !important;
             }
 
@@ -2977,6 +2977,84 @@
             font-weight: 700;
         }
 
+
+        /* === الشريط الملكي لمبدل المناظير المعرفية (السور / الأجزاء / القرآن) === */
+        .perspective-master-switch-bar {
+            background: linear-gradient(180deg, rgba(8, 18, 38, 0.98), rgba(12, 28, 56, 0.95));
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+            padding: 0.45rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+            z-index: 95;
+            position: relative;
+        }
+
+        .perspective-tab {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1.5px solid rgba(212, 175, 55, 0.3);
+            color: var(--text-muted);
+            padding: 0.5rem 1.25rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            white-space: nowrap;
+        }
+
+        .perspective-tab:hover {
+            border-color: var(--gold-light);
+            color: #fff;
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .perspective-tab.active {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%);
+            border-color: #fef08a;
+            color: #ffffff;
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.6);
+            transform: translateY(-1px);
+        }
+
+        .perspective-tab i {
+            font-size: 1rem;
+            color: var(--gold-light);
+        }
+
+        .perspective-tab.active i {
+            color: #fef08a;
+            text-shadow: 0 0 8px rgba(254, 240, 138, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .perspective-master-switch-bar {
+                padding: 0.35rem 0.45rem;
+                gap: 0.35rem;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .perspective-tab {
+                flex: 1 1 0;
+                padding: 0.45rem 0.35rem;
+                font-size: 0.72rem;
+                gap: 0.35rem;
+                border-radius: 18px;
+            }
+
+            .perspective-tab i {
+                font-size: 0.85rem;
+            }
+        }
+
 </style>
 </head>
 <body>
@@ -3058,10 +3136,64 @@
         </svg>
     </div>
 
+    <!-- === الشريط الملكي لمبدل المناظير المعرفية (السور / الأجزاء / القرآن) بارز ومتاح للجميع === -->
+    <nav class="perspective-master-switch-bar" aria-label="أبعاد المنظومة المعرفية">
+        <button class="perspective-tab active" id="tabModeSurah" onclick="setTier('surah', this)" title="تصفح متشابهات السور (114 سورة كاملة)">
+            <i class="fa-solid fa-book-quran"></i>
+            <span>تصفح السور (114)</span>
+        </button>
+        <button class="perspective-tab" id="tabModeJuz" onclick="setTier('juz', this)" title="تصفح مصحف الأجزاء (30 جزءاً والمزلاقات)">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>مصحف الأجزاء (30)</span>
+        </button>
+        <button class="perspective-tab" id="tabModeQuran" onclick="setTier('quran', this)" title="أطلس المتشابهات الكبرى للقرآن كاملاً">
+            <i class="fa-solid fa-globe"></i>
+            <span>أطلس القرآن كاملاً</span>
+        </button>
+    </nav>
+
+
 
     <!-- 2. شريط العمليات والتحكم (خارج الترويسة: اسم السورة، التكبير والتصغير، والأدوات) -->
     <div class="controls-utility-bar">
         <!-- محدد السورة الذكي الموحد بدون أي تقسيم أو تفرقة -->
+        
+        <!-- محدد الجزء السريع (يظهر في نمط مصحف الأجزاء) -->
+        <div class="surah-selector-wrap" id="juzSelectorWrap" style="display: none;">
+            <i class="fa-solid fa-layer-group" style="color: #6ee7b7; font-size: 0.9rem;"></i>
+            <select id="juzSelectDropdown" onchange="switchJuz(Number(this.value))" class="surah-select-control" style="border-color: rgba(16, 185, 129, 0.4); color: #6ee7b7;">
+                <option value="1">الجزء 1: الم (البقرة)</option>
+                <option value="2">الجزء 2: سَيَقُولُ (البقرة)</option>
+                <option value="3">الجزء 3: تِلْكَ الرُّسُلُ (البقرة)</option>
+                <option value="4">الجزء 4: لَنْ تَنَالُوا (آل عمران)</option>
+                <option value="5">الجزء 5: وَالْمُحْصَنَاتُ (النساء)</option>
+                <option value="6">الجزء 6: لَا يُحِبُّ اللَّهُ (النساء)</option>
+                <option value="7">الجزء 7: وَإِذَا سَمِعُوا (المائدة)</option>
+                <option value="8">الجزء 8: وَلَوْ أَنَّنَا (الأنعام)</option>
+                <option value="9">الجزء 9: قَالَ الْمَلَأُ (الأعراف)</option>
+                <option value="10">الجزء 10: وَاعْلَمُوا (الأنفال)</option>
+                <option value="11">الجزء 11: يَعْتَذِرُونَ (التوبة)</option>
+                <option value="12">الجزء 12: وَمَا مِنْ دَابَّةٍ (هود)</option>
+                <option value="13">الجزء 13: وَمَا أُبَرِّئُ (يوسف)</option>
+                <option value="14">الجزء 14: رُبَمَا (الحجر)</option>
+                <option value="15">الجزء 15: سُبْحَانَ الَّذِي (الإسراء)</option>
+                <option value="16">الجزء 16: قَالَ أَلَمْ (الكهف)</option>
+                <option value="17">الجزء 17: اقْتَرَبَ لِلنَّاسِ (الأنبياء)</option>
+                <option value="18">الجزء 18: قَدْ أَفْلَحَ (المؤمنون)</option>
+                <option value="19">الجزء 19: وَقَالَ الَّذِينَ (الفرقان)</option>
+                <option value="20">الجزء 20: فَمَا كَانَ (النمل)</option>
+                <option value="21">الجزء 21: وَلَا تُجَادِلُوا (العنكبوت)</option>
+                <option value="22">الجزء 22: وَمَنْ يَقْنُتْ (الأحزاب)</option>
+                <option value="23">الجزء 23: وَمَا أَنْزَلْنَا (يس)</option>
+                <option value="24">الجزء 24: فَمَنْ أَظْلَمُ (الزمر)</option>
+                <option value="25">الجزء 25: إِلَيْهِ يُرَدُّ (فصلت)</option>
+                <option value="26">الجزء 26: حـم (الأحقاف)</option>
+                <option value="27">الجزء 27: قَالَ فَمَا خَطْبُكُمْ (الذاريات)</option>
+                <option value="28">الجزء 28: قَدْ سَمِعَ اللَّهُ (المجادلة)</option>
+                <option value="29">الجزء 29: تَبَارَكَ الَّذِي (الملك)</option>
+                <option value="30">الجزء 30: عَمَّ يَتَسَاءَلُونَ (النبأ)</option>
+            </select>
+        </div>
         <div class="surah-selector-wrap">
             <i class="fa-solid fa-book-bookmark" style="color: var(--gold-light); font-size: 0.9rem;"></i>
             <select id="surahSelectDropdown" onchange="switchSurah(this.value)" class="surah-select-control">
@@ -207020,11 +207152,32 @@
 
         function setTier(tier, btn) {
             currentMode = tier;
-            document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+            
+            // تحديث التبويبات العلوية والسفلية
+            document.querySelectorAll('.perspective-tab, .tier-btn').forEach(b => b.classList.remove('active'));
             if (btn) btn.classList.add('active');
+
+            const tabSurah = document.getElementById('tabModeSurah');
+            const tabJuz = document.getElementById('tabModeJuz');
+            const tabQuran = document.getElementById('tabModeQuran');
+            const btnSurah = document.getElementById('tierBtnSurah');
+            const btnJuz = document.getElementById('tierBtnJuz');
+            const btnQuran = document.getElementById('tierBtnQuran');
+
+            if (tier === 'surah') {
+                if (tabSurah) tabSurah.classList.add('active');
+                if (btnSurah) btnSurah.classList.add('active');
+            } else if (tier === 'juz') {
+                if (tabJuz) tabJuz.classList.add('active');
+                if (btnJuz) btnJuz.classList.add('active');
+            } else if (tier === 'quran') {
+                if (tabQuran) tabQuran.classList.add('active');
+                if (btnQuran) btnQuran.classList.add('active');
+            }
 
             const surahSelector = document.getElementById('surahSelectDropdown');
             const surahWrap = surahSelector ? surahSelector.closest('.surah-selector-wrap') : null;
+            const juzWrap = document.getElementById('juzSelectorWrap');
             const juzRibbon = document.getElementById('juzNavigationRibbon');
             const atlasRibbon = document.getElementById('quranAtlasRibbon');
             const brandEl = document.getElementById('brandSurahTitle');
@@ -207032,6 +207185,7 @@
 
             if (tier === 'surah') {
                 if (surahWrap) surahWrap.style.display = 'inline-flex';
+                if (juzWrap) juzWrap.style.display = 'none';
                 if (juzRibbon) juzRibbon.style.display = 'none';
                 if (atlasRibbon) atlasRibbon.style.display = 'none';
                 
@@ -207040,6 +207194,7 @@
                 if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-route"></i> مسار ${meta.name}:`;
             } else if (tier === 'juz') {
                 if (surahWrap) surahWrap.style.display = 'none';
+                if (juzWrap) juzWrap.style.display = 'inline-flex';
                 if (juzRibbon) juzRibbon.style.display = 'flex';
                 if (atlasRibbon) atlasRibbon.style.display = 'none';
                 buildJuzRibbon();
@@ -207047,8 +207202,12 @@
                 const jMeta = JUZ_METADATA[selectedJuz - 1];
                 if (brandEl) brandEl.textContent = `مِعْرَاجُ الإِتْقَان | مُتَشَابِهَاتُ ${jMeta.name} • ${jMeta.startAyah} (${jMeta.surah})`;
                 if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-layer-group"></i> مسار ${jMeta.name}:`;
+                
+                const juzSelectEl = document.getElementById('juzSelectDropdown');
+                if (juzSelectEl) juzSelectEl.value = selectedJuz;
             } else if (tier === 'quran') {
                 if (surahWrap) surahWrap.style.display = 'none';
+                if (juzWrap) juzWrap.style.display = 'none';
                 if (juzRibbon) juzRibbon.style.display = 'none';
                 if (atlasRibbon) atlasRibbon.style.display = 'flex';
                 buildAtlasRibbon();
@@ -207063,15 +207222,24 @@
             loadCluster(0);
         }
 
-        // مسار السورة الأفقي
+        // مسار السورة / الجزء / القرآن الأفقي
         function renderHorizonChips() {
             const track = document.getElementById('horizonTrack');
+            if (!track) return;
             track.innerHTML = '';
             const clusters = getCurrentClusters();
             clusters.forEach((c, idx) => {
                 const chip = document.createElement('div');
                 chip.className = `timeline-pin-chip ${idx === activeIndex ? 'active' : ''}`;
-                chip.innerHTML = `<span class="chip-num">#${idx + 1}</span> <span>آية ${c.verses[0].ayah} • ${c.title.split(':')[0]}</span>`;
+                let chipText = '';
+                if (currentMode === 'juz') {
+                    chipText = `${c.surahName || ''} [${c.verses[0].ayah}]`;
+                } else if (currentMode === 'quran') {
+                    chipText = `${c.surahName || ''} • جـ ${c.primaryJuz || ''}`;
+                } else {
+                    chipText = `آية ${c.verses[0].ayah} • ${(c.title || '').split(':')[0]}`;
+                }
+                chip.innerHTML = `<span class="chip-num">#${idx + 1}</span> <span>${chipText}</span>`;
                 chip.onclick = () => loadCluster(idx);
                 track.appendChild(chip);
             });
@@ -207090,22 +207258,34 @@
                 card.id = `cluster-card-${idx}`;
                 card.onclick = () => loadCluster(idx);
 
+                let extraBadge = '';
+                if (currentMode === 'juz') {
+                    if (c.isIntraJuz) {
+                        extraBadge = `<span class="badge-intra-juz"><i class="fa-solid fa-bullseye"></i> داخل الجزء</span>`;
+                    } else if (c.isCrossJuz) {
+                        extraBadge = `<span class="badge-cross-juz"><i class="fa-solid fa-triangle-exclamation"></i> مزلَق جـ ${(c.otherJuz || []).join(', ')}</span>`;
+                    }
+                } else if (currentMode === 'quran') {
+                    extraBadge = `<span class="badge-quran-surah">${c.surahName || ''} • جـ ${c.primaryJuz || ''}</span>`;
+                }
+
                 const pills = c.verses.map(v => {
                     let sLabel = v.surahName || (v.surah ? (typeof v.surah === 'string' ? v.surah : '') : '');
-                    const curName = (surahsData[currentSurah].name || '').trim();
+                    let curName = (currentMode === 'surah' && surahsData[currentSurah]) ? (surahsData[currentSurah].name || '').trim() : (c.surahName || '').trim();
                     const isOther = sLabel ? !isSameSurah(sLabel, curName) : false;
                     if (sLabel && isOther) {
                         const cleanLabel = getCleanSurahTitle(sLabel);
                         return `<span class="ayah-chip-tag" style="border-color: rgba(56, 189, 248, 0.4); color: #7dd3fc;" title="سورة ${cleanLabel}">${cleanLabel}: ${v.ayah}</span>`;
                     }
-                    return `<span class="ayah-chip-tag">آية ${v.ayah}</span>`;
+                    return `<span class="ayah-chip-tag">${sLabel ? getCleanSurahTitle(sLabel) + ': ' : ''}آية ${v.ayah}</span>`;
                 }).join('');
 
                 card.innerHTML = `
                     <div class="entry-top-meta">
-                        <div style="display: flex; align-items: center; gap: 0.4rem;">
+                        <div style="display: flex; align-items: center; gap: 0.4rem; flex-wrap: wrap;">
                             <span class="entry-order-badge">#${idx + 1}</span>
                             <span class="entry-category-pill">${c.category || (c.category === 'cross_surah' ? 'متشابه بين السور' : (c.category === 'intra_surah' ? 'متشابه داخلي' : 'ضبط المتشابه'))}</span>
+                            ${extraBadge}
                         </div>
                         <span class="entry-count-pill">${c.verses.length} آيات</span>
                     </div>
@@ -207115,7 +207295,6 @@
                 container.appendChild(card);
             });
 
-            // حاجز أمان سفلي إضافي يمنع انقطاع المسألة الأخيرة في أي جهاز لوحي (تابلت) أو موبايل
             const spacer = document.createElement('div');
             spacer.style.height = '5rem';
             spacer.style.flexShrink = '0';
@@ -207123,8 +207302,6 @@
             container.appendChild(spacer);
         }
 
-        // تحميل الموضع النشط وتثبيت واجهة العرض التلقائية في العمود الثاني والثالث
-        
         function normalizeSurahName(name) {
             return (name || '')
                 .replace(/^سورة\s+/, '')
