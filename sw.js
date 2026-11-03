@@ -1,5 +1,5 @@
 // Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v120
-const CACHE_NAME = 'miraj-itqan-v126-fatiha-all-verses-complete';
+const CACHE_NAME = 'miraj-itqan-v127-quiz-light-contrast-master';
 const STATIC_ASSETS = [
   './',
   './index.html',
