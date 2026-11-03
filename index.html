@@ -109644,6 +109644,22 @@
                             "إِنَّ ٱللَّهَ هُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ"
                         ],
                         "contextNote": "لقمان 26: التوكيد بحرف إنّ الناصب لاسم الجلالة"
+                    },
+                    {
+                        "surah": "الحج",
+                        "surahName": "سورة الحج",
+                        "ayah": 64,
+                        "page": 339,
+                        "juz": 17,
+                        "quarter": "الحزب 34 • الربع 4",
+                        "pos": "الآية 64",
+                        "textHtml": "لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ <span class=\"diff-token token-teal\">وَإِنَّ ٱللَّهَ لَهُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ</span>",
+                        "html": "لَّهُۥ مَا فِى ٱلسَّمَٰوَٰتِ وَمَا فِى ٱلْأَرْضِ ۗ <span class=\"diff-token token-teal\">وَإِنَّ ٱللَّهَ لَهُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ</span>",
+                        "keyPhrase": "وَإِنَّ ٱللَّهَ لَهُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ",
+                        "tokens": [
+                            "وَإِنَّ ٱللَّهَ لَهُوَ ٱلْغَنِىُّ ٱلْحَمِيدُ"
+                        ],
+                        "contextNote": "الحج 64: بالواو العاطفة واللام المزحلقة في الخبر توكيداً لعظمة الملك"
                     }
                 ],
                 "quiz": {
@@ -208784,7 +208800,54 @@
             }
         }
 
+        
+        // مزامنة تلقائية لجميع المسائل: تضمن التطابق التام 100% بين كفات الميزان وبطاقات الآيات
+        function synchronizeAllClustersWithScale() {
+            if (typeof surahsData === 'undefined') return;
+            for (const [sId, sData] of Object.entries(surahsData)) {
+                if (!sData.clusters) continue;
+                sData.clusters.forEach(c => {
+                    if (!c.scale || !c.verses || c.scale.length <= c.verses.length) return;
+                    
+                    c.scale.forEach((s, sIdx) => {
+                        const sText = s.word || s.text || '';
+                        const match = sText.match(/^([^s\[:]+(?:\s+[^s\[:]+)?)\s*\[(\d+)(?:-\d+)?\](?::\s*\(([^)]+)\))?/);
+                        if (match) {
+                            const sName = match[1].replace(/^[«"'s]+|[»"'s]+$/g, '').trim();
+                            const aNum = parseInt(match[2]);
+                            const vText = match[3] ? match[3].trim() : (s.note || sText);
+
+                            const exists = c.verses.some(v => {
+                                const vA = parseInt(v.ayah || v.verseNum || 0);
+                                const vS = (v.surah || v.surahName || '').replace(/^سورة\s+/, '').trim();
+                                return vA === aNum && (vS === '' || isSameSurah(vS, sName));
+                            });
+
+                            if (!exists) {
+                                const colorClass = sIdx === 0 ? 'token-cyan token-a' : (sIdx === 1 ? 'token-emerald token-b' : 'token-amber token-c');
+                                const highlightedHtml = vText.includes('diff-token') ? vText : `<span class="diff-token ${colorClass}">${vText}</span>`;
+                                c.verses.push({
+                                    surah: sName,
+                                    surahName: sName.startsWith('سورة') ? sName : 'سورة ' + sName,
+                                    ayah: aNum,
+                                    pos: `الآية ${aNum}`,
+                                    quarter: s.weight || s.note || '',
+                                    page: '—',
+                                    textHtml: highlightedHtml,
+                                    html: highlightedHtml,
+                                    keyPhrase: vText,
+                                    tokens: [vText],
+                                    contextNote: s.note || s.weight || `${sName} [${aNum}]`
+                                });
+                            }
+                        }
+                    });
+                });
+            }
+        }
+
         function init() {
+            synchronizeAllClustersWithScale();
             applyAppTheme(currentAppTheme);
             buildJuzRibbon();
             buildAtlasRibbon();
@@ -209620,7 +209683,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=124')
+        navigator.serviceWorker.register('./sw.js?v=125')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();

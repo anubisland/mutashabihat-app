@@ -1,5 +1,5 @@
 // Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v120
-const CACHE_NAME = 'miraj-itqan-v124-exact-identical-fonts';
+const CACHE_NAME = 'miraj-itqan-v125-full-scale-verses-sync';
 const STATIC_ASSETS = [
   './',
   './index.html',
