@@ -3240,6 +3240,15 @@
             --text-main: #0f172a !important; /* أسود كحلي ناصع */
             --text-muted: #475569 !important; /* رمادي فحمي مقروء */
             --quran-text: #000000 !important;
+            --diff-1-bg: #f0f9ff !important;
+            --diff-1-text: #0284c7 !important; /* كحلي ناصع فائق التباين */
+            --diff-1-border: #7dd3fc !important;
+            --diff-2-bg: #ecfdf5 !important;
+            --diff-2-text: #047857 !important; /* زمردي داكن فائق التباين */
+            --diff-2-border: #6ee7b7 !important;
+            --diff-3-bg: #fefce8 !important;
+            --diff-3-text: #b45309 !important; /* عنبري داكن بارز */
+            --diff-3-border: #fde68a !important;
             background-color: var(--bg-night) !important;
             color: var(--text-main) !important;
         }
@@ -3871,6 +3880,105 @@
         }
 
         
+        
+        /* تباين أزرار المناظير المعرفية الثلاثة في الترويسة العليا */
+        body.light-theme .perspective-tab {
+            background: rgba(15, 23, 42, 0.92) !important;
+            border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+            color: #ffffff !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .perspective-tab i {
+            color: #fbbf24 !important;
+        }
+        body.light-theme .perspective-tab:hover {
+            background: rgba(212, 175, 55, 0.25) !important;
+            border-color: #fef08a !important;
+            color: #ffffff !important;
+        }
+        body.light-theme .perspective-tab.active {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%) !important;
+            border-color: #fef08a !important;
+            color: #ffffff !important;
+            box-shadow: 0 0 16px rgba(212, 175, 55, 0.6) !important;
+        }
+        body.light-theme .perspective-tab.active i {
+            color: #fef08a !important;
+            text-shadow: 0 0 8px rgba(254, 240, 138, 0.8) !important;
+        }
+
+        /* تباين شريط البحث القرآني الذكي */
+        body.light-theme .search-box-wrap input {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #0f172a !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06) !important;
+            font-weight: 700 !important;
+        }
+        body.light-theme .search-box-wrap input::placeholder {
+            color: #475569 !important;
+            font-weight: 600 !important;
+            opacity: 1 !important;
+        }
+        body.light-theme .search-box-wrap i {
+            color: #0284c7 !important;
+        }
+        body.light-theme .search-box-wrap:hover input,
+        body.light-theme .search-box-wrap input:focus {
+            border-color: #0284c7 !important;
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2) !important;
+        }
+
+        /* تباين الميزان البصري المقارن في الوضع الفاتح */
+        body.light-theme .scale-contrast-deck {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+        }
+        body.light-theme .scale-plate {
+            border-radius: 8px !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04) !important;
+            padding: 0.6rem 0.5rem !important;
+        }
+        body.light-theme .scale-plate-0 {
+            background: #f0f9ff !important;
+            border: 1.5px solid #7dd3fc !important;
+        }
+        body.light-theme .scale-plate-0 .plate-word {
+            color: #0284c7 !important;
+            font-weight: 800 !important;
+            font-size: 1.25rem !important;
+        }
+        body.light-theme .scale-plate-1 {
+            background: #ecfdf5 !important;
+            border: 1.5px solid #6ee7b7 !important;
+        }
+        body.light-theme .scale-plate-1 .plate-word {
+            color: #047857 !important;
+            font-weight: 800 !important;
+            font-size: 1.25rem !important;
+        }
+        body.light-theme .scale-plate-2 {
+            background: #fefce8 !important;
+            border: 1.5px solid #fde68a !important;
+        }
+        body.light-theme .scale-plate-2 .plate-word {
+            color: #b45309 !important;
+            font-weight: 800 !important;
+            font-size: 1.25rem !important;
+        }
+        body.light-theme .scale-plate .plate-meaning {
+            color: #0f172a !important;
+            font-weight: 700 !important;
+            font-size: 0.82rem !important;
+            margin-top: 0.35rem !important;
+        }
+        body.light-theme .scale-pivot-icon {
+            color: #b45309 !important;
+            opacity: 1 !important;
+            font-size: 1.15rem !important;
+        }
+
         /* تحسين تباين نصوص الشاشات الثانوية في الوضعين الداكن والفاتح */
         .guide-section-intro {
             font-size: 0.82rem;
@@ -209046,7 +209154,7 @@
 
             activeScale.forEach((s, sIdx) => {
                 const plate = document.createElement('div');
-                plate.className = 'scale-plate';
+                plate.className = `scale-plate scale-plate-${sIdx}`;
                 const colorVar = sIdx === 0 ? 'var(--diff-1-text)' : (sIdx === 1 ? 'var(--diff-2-text)' : (sIdx === 2 ? 'var(--diff-3-text)' : 'var(--gold-light)'));
                 plate.innerHTML = `
                     <span class="plate-word" style="color: ${colorVar};">
@@ -209495,7 +209603,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=121')
+        navigator.serviceWorker.register('./sw.js?v=122')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
