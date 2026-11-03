@@ -2721,6 +2721,262 @@
             background: rgba(212, 175, 55, 0.04);
         }
 
+
+        /* === تصميم شريط أجزاء القرآن وأطلس القرآن الكبرى (Perspective Navigation) === */
+        .juz-navigation-ribbon {
+            background: rgba(10, 25, 47, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 0.3s ease;
+        }
+
+        .juz-ribbon-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .juz-ribbon-title {
+            color: var(--gold-light);
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .juz-chips-scroll {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            overflow-x: auto;
+            padding: 0.35rem 0.2rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--gold) rgba(0, 0, 0, 0.3);
+        }
+
+        .juz-chip-btn {
+            background: rgba(15, 23, 42, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            color: var(--text-light);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.15rem;
+            min-width: 4.8rem;
+        }
+
+        .juz-chip-btn:hover {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.15);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .juz-chip-btn.active {
+            background: linear-gradient(135deg, #1e3a8a, #0d9488);
+            border-color: var(--gold-light);
+            color: #fff;
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.45);
+        }
+
+        .juz-chip-sub {
+            font-size: 0.65rem;
+            opacity: 0.8;
+            color: var(--gold-light);
+        }
+
+        .juz-subfilters-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .juz-filter-btn {
+            background: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--text-muted);
+            padding: 0.3rem 0.75rem;
+            border-radius: 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .juz-filter-btn:hover {
+            border-color: var(--gold);
+            color: var(--text-light);
+        }
+
+        .juz-filter-btn.active {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            color: var(--gold-light);
+        }
+
+        .juz-filter-btn.warning-glow.active {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: #f87171;
+            color: #fca5a5;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.3);
+        }
+
+        /* === شريط أطلس المتشابهات الكبرى للقرآن === */
+        .quran-atlas-ribbon {
+            background: rgba(10, 25, 47, 0.95);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.55rem 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            animation: fadeInDown 0.3s ease;
+        }
+
+        .atlas-ribbon-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .atlas-title-tag {
+            color: var(--gold-light);
+            font-size: 0.88rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .atlas-stats-badge {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold);
+            color: var(--gold-light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .atlas-families-track {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            overflow-x: auto;
+            padding: 0.25rem 0.1rem;
+            scrollbar-width: thin;
+        }
+
+        .atlas-family-btn {
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            color: #bae6fd;
+            padding: 0.35rem 0.8rem;
+            border-radius: 16px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .atlas-family-btn:hover {
+            border-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.15);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .atlas-family-btn.active {
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.3), rgba(212, 175, 55, 0.25));
+            border-color: var(--gold-light);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.35);
+        }
+
+        /* === لافتة تنبيه المزلَق الحفظي بين الأجزاء === */
+        .cross-juz-portal-banner {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(245, 158, 11, 0.12));
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            border-right: 4px solid #f59e0b;
+            border-radius: 10px;
+            padding: 0.65rem 0.95rem;
+            margin-bottom: 0.85rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        .portal-badge {
+            color: #fbbf24;
+            font-size: 0.82rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .portal-text {
+            color: #fef3c7;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        /* وسام داخل الجزء ومزلَق على كارت القائمة */
+        .badge-intra-juz {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #6ee7b7;
+            padding: 0.1rem 0.45rem;
+            border-radius: 10px;
+            font-size: 0.66rem;
+            font-weight: 700;
+        }
+
+        .badge-cross-juz {
+            background: rgba(245, 158, 11, 0.2);
+            border: 1px solid rgba(245, 158, 11, 0.5);
+            color: #fde047;
+            padding: 0.1rem 0.45rem;
+            border-radius: 10px;
+            font-size: 0.66rem;
+            font-weight: 700;
+        }
+
+        .badge-quran-surah {
+            background: rgba(56, 189, 248, 0.18);
+            border: 1px solid rgba(56, 189, 248, 0.4);
+            color: #7dd3fc;
+            padding: 0.1rem 0.45rem;
+            border-radius: 10px;
+            font-size: 0.66rem;
+            font-weight: 700;
+        }
+
 </style>
 </head>
 <body>
@@ -206498,32 +206754,310 @@
 
         ;
 
+        // === متغيرات المحرك المعرفي ثلاثي الأبعاد (Perspective Engine) ===
+        let currentMode = 'surah'; // 'surah' | 'juz' | 'quran'
+        let selectedJuz = 1;
+        let juzSubFilter = 'all'; // 'all' | 'intra' | 'cross'
+        let quranAtlasFamily = 'all';
+
+        // بيانات الأجزاء الثلاثين
+        const JUZ_METADATA = [
+            { num: 1, name: "الجزء الأول", startAyah: "الم", surah: "البقرة", page: 1 },
+            { num: 2, name: "الجزء الثاني", startAyah: "سَيَقُولُ", surah: "البقرة", page: 22 },
+            { num: 3, name: "الجزء الثالث", startAyah: "تِلْكَ الرُّسُلُ", surah: "البقرة", page: 42 },
+            { num: 4, name: "الجزء الرابع", startAyah: "لَنْ تَنَالُوا", surah: "آل عمران", page: 62 },
+            { num: 5, name: "الجزء الخامس", startAyah: "وَالْمُحْصَنَاتُ", surah: "النساء", page: 82 },
+            { num: 6, name: "الجزء السادس", startAyah: "لَا يُحِبُّ اللَّهُ", surah: "النساء", page: 102 },
+            { num: 7, name: "الجزء السابع", startAyah: "وَإِذَا سَمِعُوا", surah: "المائدة", page: 122 },
+            { num: 8, name: "الجزء الثامن", startAyah: "وَلَوْ أَنَّنَا", surah: "الأنعام", page: 142 },
+            { num: 9, name: "الجزء التاسع", startAyah: "قَالَ الْمَلَأُ", surah: "الأعراف", page: 162 },
+            { num: 10, name: "الجزء العاشر", startAyah: "وَاعْلَمُوا", surah: "الأنفال", page: 182 },
+            { num: 11, name: "الجزء الحادي عشر", startAyah: "يَعْتَذِرُونَ", surah: "التوبة", page: 202 },
+            { num: 12, name: "الجزء الثاني عشر", startAyah: "وَمَا مِنْ دَابَّةٍ", surah: "هود", page: 222 },
+            { num: 13, name: "الجزء الثالث عشر", startAyah: "وَمَا أُبَرِّئُ", surah: "يوسف", page: 242 },
+            { num: 14, name: "الجزء الرابع عشر", startAyah: "رُبَمَا", surah: "الحجر", page: 262 },
+            { num: 15, name: "الجزء الخامس عشر", startAyah: "سُبْحَانَ الَّذِي", surah: "الإسراء", page: 282 },
+            { num: 16, name: "الجزء السادس عشر", startAyah: "قَالَ أَلَمْ", surah: "الكهف", page: 302 },
+            { num: 17, name: "الجزء السابع عشر", startAyah: "اقْتَرَبَ لِلنَّاسِ", surah: "الأنبياء", page: 322 },
+            { num: 18, name: "الجزء الثامن عشر", startAyah: "قَدْ أَفْلَحَ", surah: "المؤمنون", page: 342 },
+            { num: 19, name: "الجزء التاسع عشر", startAyah: "وَقَالَ الَّذِينَ", surah: "الفرقان", page: 362 },
+            { num: 20, name: "الجزء العشرون", startAyah: "فَمَا كَانَ", surah: "النمل", page: 382 },
+            { num: 21, name: "الجزء الحادي والعشرون", startAyah: "وَلَا تُجَادِلُوا", surah: "العنكبوت", page: 402 },
+            { num: 22, name: "الجزء الثاني والعشرون", startAyah: "وَمَنْ يَقْنُتْ", surah: "الأحزاب", page: 422 },
+            { num: 23, name: "الجزء الثالث والعشرون", startAyah: "وَمَا أَنْزَلْنَا", surah: "يس", page: 442 },
+            { num: 24, name: "الجزء الرابع والعشرون", startAyah: "فَمَنْ أَظْلَمُ", surah: "الزمر", page: 462 },
+            { num: 25, name: "الجزء الخامس والعشرون", startAyah: "إِلَيْهِ يُرَدُّ", surah: "فصلت", page: 482 },
+            { num: 26, name: "الجزء السادس والعشرون", startAyah: "حـم", surah: "الأحقاف", page: 502 },
+            { num: 27, name: "الجزء السابع والعشرون", startAyah: "قَالَ فَمَا خَطْبُكُمْ", surah: "الذاريات", page: 522 },
+            { num: 28, name: "الجزء الثامن والعشرون", startAyah: "قَدْ سَمِعَ اللَّهُ", surah: "المجادلة", page: 542 },
+            { num: 29, name: "الجزء التاسع والعشرون", startAyah: "تَبَارَكَ الَّذِي", surah: "الملك", page: 562 },
+            { num: 30, name: "الجزء الثلاثون", startAyah: "عَمَّ يَتَسَاءَلُونَ", surah: "النبأ", page: 582 }
+        ];
+
+        // عائلات أطلس المتشابهات الكبرى للقرآن كاملاً
+        const ATLAS_FAMILIES = [
+            { id: 'all', name: 'الكل في القرآن (2,401)', icon: 'fa-globe', keywords: [] },
+            { id: 'hamd', name: 'خماسية فواتح الحمد', icon: 'fa-hand-holding-heart', keywords: ['الحمد لله', 'فواتح الحمد'] },
+            { id: 'musabbihat', name: 'سباعية المسبحات', icon: 'fa-star-and-crescent', keywords: ['سبح', 'يسبح', 'المسبحات'] },
+            { id: 'subhanahu', name: 'عائلة التنزيه (سبحانه)', icon: 'fa-shield-halved', keywords: ['سبحانه', 'تعالى عما'] },
+            { id: 'basir_khabir', name: 'عائلة (بصير / خبير)', icon: 'fa-scale-balanced', keywords: ['بصير', 'خبير', 'عليم خبير'] },
+            { id: 'tajri_tahtaha', name: 'عائلة (تجري تحتها الأنهار)', icon: 'fa-water', keywords: ['تجري من تحتها', 'تجري تحتها'] },
+            { id: 'yaqtulun', name: 'عائلة (يقتلون النبيين)', icon: 'fa-book-quran', keywords: ['يقتلون', 'النبيين', 'الأنبياء', 'بغير حق'] },
+            { id: 'waman_adhlam', name: 'عائلة (ومن أظلم)', icon: 'fa-feather-pointed', keywords: ['ومن أظلم', 'افترى على الله'] }
+        ];
+
+        function getJuzFromPage(page) {
+            if (!page || page < 1) return 1;
+            if (page <= 21) return 1;
+            if (page >= 582) return 30;
+            return Math.floor((page - 2) / 20) + 1;
+        }
+
+        function getJuzFromHizb(quarterStr) {
+            if (!quarterStr) return null;
+            const m = quarterStr.match(/الحزب\s+(\d+)/);
+            if (m) {
+                return Math.ceil(parseInt(m[1], 10) / 2);
+            }
+            return null;
+        }
+
+        function getVerseJuz(v) {
+            return getJuzFromHizb(v.quarter) || getJuzFromPage(v.page) || 1;
+        }
+
+        function getJuzClusters(juzNum, filter = 'all') {
+            const list = [];
+            for (const sKey of Object.keys(surahsData)) {
+                const surah = surahsData[sKey];
+                for (const c of surah.clusters) {
+                    const versesJuz = c.verses.map(v => getVerseJuz(v));
+                    if (versesJuz.includes(juzNum)) {
+                        const isIntra = versesJuz.every(j => j === juzNum);
+                        const otherJuz = [...new Set(versesJuz.filter(j => j !== juzNum))];
+                        const enriched = Object.assign({}, c, {
+                            surahKey: sKey,
+                            surahName: surah.name,
+                            primaryJuz: juzNum,
+                            isIntraJuz: isIntra,
+                            isCrossJuz: !isIntra,
+                            otherJuz: otherJuz
+                        });
+                        if (filter === 'intra' && !isIntra) continue;
+                        if (filter === 'cross' && isIntra) continue;
+                        list.push(enriched);
+                    }
+                }
+            }
+            return list;
+        }
+
+        function getQuranAtlasClusters(familyId = 'all') {
+            const list = [];
+            const fam = ATLAS_FAMILIES.find(f => f.id === familyId) || ATLAS_FAMILIES[0];
+            
+            for (const sKey of Object.keys(surahsData)) {
+                const surah = surahsData[sKey];
+                for (const c of surah.clusters) {
+                    let matches = false;
+                    if (fam.id === 'all') {
+                        matches = true;
+                    } else {
+                        const fullText = (c.title + ' ' + c.category + ' ' + c.rule + ' ' + (c.dabit || '')).toLowerCase();
+                        matches = fam.keywords.some(kw => fullText.includes(kw));
+                    }
+                    if (matches) {
+                        const vJuz = getVerseJuz(c.verses[0]);
+                        list.push(Object.assign({}, c, {
+                            surahKey: sKey,
+                            surahName: surah.name,
+                            primaryJuz: vJuz
+                        }));
+                    }
+                }
+            }
+            return list;
+        }
+
+        function buildJuzRibbon() {
+            const track = document.getElementById('juzChipsTrack');
+            if (!track) return;
+            track.innerHTML = '';
+            
+            JUZ_METADATA.forEach(j => {
+                const btn = document.createElement('button');
+                btn.className = `juz-chip-btn ${j.num === selectedJuz ? 'active' : ''}`;
+                btn.id = `juz-btn-${j.num}`;
+                btn.onclick = () => switchJuz(j.num);
+                btn.innerHTML = `<span>الجزء ${j.num}</span><span class="juz-chip-sub">${j.startAyah} (${j.surah})</span>`;
+                track.appendChild(btn);
+            });
+
+            updateJuzCounts();
+        }
+
+        function updateJuzCounts() {
+            const all = getJuzClusters(selectedJuz, 'all');
+            const intra = getJuzClusters(selectedJuz, 'intra');
+            const cross = getJuzClusters(selectedJuz, 'cross');
+            
+            const elAll = document.getElementById('juzCountAll');
+            const elIntra = document.getElementById('juzCountIntra');
+            const elCross = document.getElementById('juzCountCross');
+            if (elAll) elAll.textContent = all.length;
+            if (elIntra) elIntra.textContent = intra.length;
+            if (elCross) elCross.textContent = cross.length;
+        }
+
+        function buildAtlasRibbon() {
+            const track = document.getElementById('atlasFamiliesTrack');
+            if (!track) return;
+            track.innerHTML = '';
+
+            ATLAS_FAMILIES.forEach(fam => {
+                const btn = document.createElement('button');
+                btn.className = `atlas-family-btn ${fam.id === quranAtlasFamily ? 'active' : ''}`;
+                btn.id = `atlas-fam-${fam.id}`;
+                btn.onclick = () => setAtlasFamily(fam.id, btn);
+                btn.innerHTML = `<i class="fa-solid ${fam.icon}"></i> ${fam.name}`;
+                track.appendChild(btn);
+            });
+        }
+
         let currentSurah = 'baqarah';
         let activeIndex = 0;
         let isDimmed = false;
         let currentFontSize = 1.28;
 
         function init() {
+            buildJuzRibbon();
+            buildAtlasRibbon();
             renderHorizonChips();
             renderSidebarList(getCurrentClusters());
             loadCluster(0);
         }
 
         function getCurrentClusters() {
+            if (currentMode === 'juz') {
+                return getJuzClusters(selectedJuz, juzSubFilter);
+            } else if (currentMode === 'quran') {
+                return getQuranAtlasClusters(quranAtlasFamily);
+            }
             return surahsData[currentSurah].clusters;
         }
 
         function switchSurah(surahKey) {
             currentSurah = surahKey;
+            currentMode = 'surah';
+            document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+            const btnSurah = document.getElementById('tierBtnSurah');
+            if (btnSurah) btnSurah.classList.add('active');
+
+            const juzRibbon = document.getElementById('juzNavigationRibbon');
+            const atlasRibbon = document.getElementById('quranAtlasRibbon');
+            if (juzRibbon) juzRibbon.style.display = 'none';
+            if (atlasRibbon) atlasRibbon.style.display = 'none';
+
             activeIndex = 0;
             const meta = surahsData[currentSurah];
 
-            // تحديث شريط المسار
             const brandEl = document.getElementById('brandSurahTitle');
             if (brandEl) brandEl.textContent = `مِعْرَاجُ الإِتْقَان | مُتَشَابِهَاتُ ${meta.name}`;
-            document.getElementById('horizonSurahLabel').innerHTML = `<i class="fa-solid fa-route"></i> مسار ${meta.name} (${meta.totalAyahs} آية):`;
+            const horizonLabel = document.getElementById('horizonSurahLabel');
+            if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-route"></i> مسار ${meta.name}:`;
 
-            // تحديث المسار الأفقي والقائمة والتحميل وفق النمط المختار
+            renderHorizonChips();
+            renderSidebarList(getCurrentClusters());
+            loadCluster(0);
+        }
+
+        function switchJuz(juzNum) {
+            selectedJuz = juzNum;
+            document.querySelectorAll('.juz-chip-btn').forEach(b => {
+                b.classList.toggle('active', b.id === `juz-btn-${juzNum}`);
+            });
+            
+            const activeChip = document.getElementById(`juz-btn-${juzNum}`);
+            if (activeChip) {
+                activeChip.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            updateJuzCounts();
+
+            const jMeta = JUZ_METADATA[selectedJuz - 1];
+            const brandEl = document.getElementById('brandSurahTitle');
+            const horizonLabel = document.getElementById('horizonSurahLabel');
+            if (brandEl) brandEl.textContent = `مِعْرَاجُ الإِتْقَان | مُتَشَابِهَاتُ ${jMeta.name} • ${jMeta.startAyah} (${jMeta.surah})`;
+            if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-layer-group"></i> مسار ${jMeta.name}:`;
+
+            activeIndex = 0;
+            renderHorizonChips();
+            renderSidebarList(getCurrentClusters());
+            loadCluster(0);
+        }
+
+        function setJuzSubFilter(filter, btn) {
+            juzSubFilter = filter;
+            document.querySelectorAll('.juz-filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            activeIndex = 0;
+            renderHorizonChips();
+            renderSidebarList(getCurrentClusters());
+            loadCluster(0);
+        }
+
+        function setAtlasFamily(familyId, btn) {
+            quranAtlasFamily = familyId;
+            document.querySelectorAll('.atlas-family-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            activeIndex = 0;
+            renderHorizonChips();
+            renderSidebarList(getCurrentClusters());
+            loadCluster(0);
+        }
+
+        function setTier(tier, btn) {
+            currentMode = tier;
+            document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const surahSelector = document.getElementById('surahSelectDropdown');
+            const surahWrap = surahSelector ? surahSelector.closest('.surah-selector-wrap') : null;
+            const juzRibbon = document.getElementById('juzNavigationRibbon');
+            const atlasRibbon = document.getElementById('quranAtlasRibbon');
+            const brandEl = document.getElementById('brandSurahTitle');
+            const horizonLabel = document.getElementById('horizonSurahLabel');
+
+            if (tier === 'surah') {
+                if (surahWrap) surahWrap.style.display = 'inline-flex';
+                if (juzRibbon) juzRibbon.style.display = 'none';
+                if (atlasRibbon) atlasRibbon.style.display = 'none';
+                
+                const meta = surahsData[currentSurah];
+                if (brandEl) brandEl.textContent = `مِعْرَاجُ الإِتْقَان | مُتَشَابِهَاتُ ${meta.name}`;
+                if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-route"></i> مسار ${meta.name}:`;
+            } else if (tier === 'juz') {
+                if (surahWrap) surahWrap.style.display = 'none';
+                if (juzRibbon) juzRibbon.style.display = 'flex';
+                if (atlasRibbon) atlasRibbon.style.display = 'none';
+                buildJuzRibbon();
+
+                const jMeta = JUZ_METADATA[selectedJuz - 1];
+                if (brandEl) brandEl.textContent = `مِعْرَاجُ الإِتْقَان | مُتَشَابِهَاتُ ${jMeta.name} • ${jMeta.startAyah} (${jMeta.surah})`;
+                if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-layer-group"></i> مسار ${jMeta.name}:`;
+            } else if (tier === 'quran') {
+                if (surahWrap) surahWrap.style.display = 'none';
+                if (juzRibbon) juzRibbon.style.display = 'none';
+                if (atlasRibbon) atlasRibbon.style.display = 'flex';
+                buildAtlasRibbon();
+
+                if (brandEl) brandEl.textContent = `مِعْرَاجُ الإِتْقَان | أطلس المتشابهات الكبرى للقرآن كاملاً`;
+                if (horizonLabel) horizonLabel.innerHTML = `<i class="fa-solid fa-globe"></i> أطلس القرآن الكريم:`;
+            }
+
+            activeIndex = 0;
             renderHorizonChips();
             renderSidebarList(getCurrentClusters());
             loadCluster(0);
@@ -206673,7 +207207,7 @@
                 }
                 verseSurah = verseSurah.replace(/^سورة\s+سورة/, 'سورة').trim();
                 
-                const curSurahName = (surahsData[currentSurah].name || '').replace(/^سورة\s+سورة/, 'سورة').trim();
+                const curSurahName = ((currentMode === 'surah' && surahsData[currentSurah]) ? surahsData[currentSurah].name : (cluster.surahName || (cluster.verses[0] && cluster.verses[0].surah) || '')).replace(/^سورة\s+سورة/, 'سورة').trim();
                 const isOtherSurah = !isSameSurah(verseSurah, curSurahName);
                 const surahLabelShort = isOtherSurah ? getCleanSurahTitle(verseSurah) : getCleanSurahTitle(curSurahName);
 
@@ -206831,7 +207365,7 @@
         function openTestModal() {
             const allClusters = getCurrentClusters();
             const cluster = allClusters[activeIndex];
-            const surahName = surahsData[currentSurah].name;
+            const surahName = (currentMode === 'surah' && surahsData[currentSurah]) ? surahsData[currentSurah].name : (cluster.surahName || (cluster.verses[0] && cluster.verses[0].surah) || 'القرآن الكريم');
             const target = (cluster.verses && cluster.verses.length > 0) ? cluster.verses[0] : null;
 
             if (!target) return;
@@ -207042,15 +207576,7 @@
         }
 
         // اختيار النطاق الهرمي (سورة / جزء / مصحف)
-        function setTier(tier, btn) {
-            document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            if (tier === 'juz') {
-                alert("تم تفعيل نمط: (متشابهات الأجزاء). جاري إبراز روابط أرباع الجزء.");
-            } else if (tier === 'quran') {
-                alert("تم تفعيل نمط: (متشابهات عموم القرآن). يمكنك التنقل بين السور عبر قائمة السور بالأعلى.");
-            }
-        }
+        // Main setTier handles perspective switching
 
         // تبديل الشاشات في وضع الموبايل
         function mobileSwitchTab(tab, btn) {
