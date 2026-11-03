@@ -3444,12 +3444,7 @@
             border-right: 4px solid #059669 !important;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05) !important;
         }
-        body.light-theme .verse-order-badge {
-            background: #fef3c7 !important;
-            color: #92400e !important;
-            border: 1px solid #fde68a !important;
-            font-weight: 800 !important;
-        }
+        body.light-theme 
         body.light-theme .pill-ayah-num {
             background: #f1f5f9 !important;
             color: #0f172a !important;
@@ -4013,6 +4008,159 @@
             background: #f1f5f9 !important;
             color: #0f172a !important;
             border: 1px solid #cbd5e1 !important;
+        }
+
+    
+        /* ==========================================================================
+           إصلاح التباين الشامل للوضع الفاتح (حل مشكلة الصندوق الأسود وضابط الحفظ والعناوين)
+           ========================================================================== */
+        /* 1. صندوق عنوان الموضع الرئيسي في العمود الثاني (لم يعد أسوداً أبداً) */
+        body.light-theme .active-stage-banner {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
+        }
+        body.light-theme .active-stage-banner #stageTitle,
+        body.light-theme #stageTitle {
+            color: #0f172a !important; /* أسود كحلي ناصع فائق الوضوح */
+            font-weight: 900 !important;
+        }
+        body.light-theme .active-stage-banner #stageSub,
+        body.light-theme #stageSub {
+            color: #334155 !important; /* رمادي فحمي داكن مقروء */
+            font-weight: 700 !important;
+        }
+        body.light-theme .stage-index-badge,
+        body.light-theme #stageIndexBadge {
+            background: #0f172a !important;
+            color: #ffffff !important;
+            border: none !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .stage-titles .entry-category-pill,
+        body.light-theme #stageCategoryPill {
+            background: #fef3c7 !important;
+            color: #92400e !important;
+            border: 1px solid #fde68a !important;
+            font-weight: 800 !important;
+        }
+
+        /* 2. عناوين بطاقات مواضع الضبط في العمود الأول */
+        body.light-theme .entry-title {
+            color: #0f172a !important; /* أسود كحلي ناصع بدلاً من الأبيض القديم */
+            font-weight: 800 !important;
+            font-size: 0.98rem !important;
+        }
+        body.light-theme .cluster-entry-card {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+        }
+        body.light-theme .cluster-entry-card.active {
+            background: #f0fdf4 !important;
+            border-color: #059669 !important;
+            border-right: 4.5px solid #059669 !important;
+        }
+        body.light-theme .cluster-entry-card.active .entry-title {
+            color: #065f46 !important;
+        }
+        body.light-theme .entry-order-badge {
+            background: #0f172a !important;
+            color: #ffffff !important;
+        }
+        body.light-theme .entry-count-pill {
+            background: #f1f5f9 !important;
+            color: #334155 !important;
+            border: 1px solid #cbd5e1 !important;
+            font-weight: 700 !important;
+        }
+        body.light-theme .badge-intra-juz {
+            background: #dcfce7 !important;
+            color: #15803d !important;
+            border: 1px solid #bbf7d0 !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .badge-cross-juz {
+            background: #e0f2fe !important;
+            color: #0369a1 !important;
+            border: 1px solid #bae6fd !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .entry-ayahs-chips .chip {
+            background: #f1f5f9 !important;
+            color: #0369a1 !important;
+            border: 1px solid #cbd5e1 !important;
+            font-weight: 700 !important;
+        }
+
+        /* 3. ضابط الحفظ في العمود الثالث (حل مشكلة عدم ظهوره نهائياً) */
+        body.light-theme .rhyme-deck-box {
+            background: #ffffff !important;
+            border: 1.5px solid #d97706 !important;
+            box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08) !important;
+        }
+        body.light-theme .rhyme-verse-line,
+        body.light-theme #rhymeText {
+            color: #92400e !important; /* برونزي عنبري داكن مقروء */
+            font-weight: 800 !important;
+            font-size: 1.35rem !important;
+        }
+        body.light-theme .rhyme-rule-summary,
+        body.light-theme #ruleSummary {
+            color: #0f172a !important; /* أسود كحلي ناصع تام الوضوح بدلاً من الفضي الباهت */
+            font-size: 1.05rem !important;
+            line-height: 1.85 !important;
+            border-top: 1.5px dashed #cbd5e1 !important;
+        }
+        body.light-theme .rhyme-rule-summary strong,
+        body.light-theme #ruleSummary strong {
+            color: #b45309 !important;
+            font-weight: 800 !important;
+            font-size: 1.08rem !important;
+        }
+
+        /* 4. سر التفرقة بالسياق واللطائف التدبرية في العمود الثالث */
+        body.light-theme .tadabbur-item-row {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            border-right: 4.5px solid #b45309 !important;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03) !important;
+        }
+        body.light-theme .tadabbur-item-row strong {
+            color: #92400e !important;
+            font-weight: 800 !important;
+            font-size: 1.08rem !important;
+        }
+        body.light-theme .tadabbur-item-row p {
+            color: #0f172a !important; /* أسود كحلي ناصع مقروء */
+            font-size: 1.05rem !important;
+            line-height: 1.85 !important;
+        }
+
+        /* 5. وسوم الآيات ومعاينة المصحف في العمود الثاني */
+        body.light-theme .spatial-pill {
+            background: #f0fdf4 !important;
+            color: #15803d !important;
+            border: 1.5px solid #86efac !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .spatial-pill span {
+            color: #15803d !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .spatial-pill i {
+            color: #059669 !important;
+        }
+        body.light-theme .pill-surah-tag.same-surah-gold {
+            background: #fef3c7 !important;
+            color: #92400e !important;
+            border: 1px solid #fde68a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .pill-ayah-num {
+            background: #f1f5f9 !important;
+            color: #0f172a !important;
+            border: 1.5px solid #cbd5e1 !important;
+            font-weight: 800 !important;
         }
 
     </style>
@@ -208415,18 +208563,6 @@
             openSettingsModal();
         }
 
-        function scrollToVerseCard(idx, btn) {
-            const card = document.getElementById(`verse-stage-card-${idx}`);
-            if (card) {
-                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                card.style.boxShadow = '0 0 20px rgba(212, 175, 55, 0.7)';
-                setTimeout(() => { card.style.boxShadow = ''; }, 1200);
-            }
-            document.querySelectorAll('.comp-verse-chip').forEach((c, i) => {
-                c.classList.toggle('active', i === idx);
-            });
-        }
-
         function init() {
             applyAppTheme(currentAppTheme);
             buildJuzRibbon();
@@ -208746,35 +208882,8 @@
             const versesStack = document.getElementById('versesStack');
             versesStack.innerHTML = '';
 
-            // 1. شريط فهرس المواضع المقارنة في رأس العمود الثاني (يوضح عدد الآيات ويتيح القفز السريع)
-            if (cluster.verses && cluster.verses.length > 1) {
-                const compBar = document.createElement('div');
-                compBar.className = 'verses-comparator-bar';
-                compBar.innerHTML = `
-                    <div class="comp-bar-head">
-                        <span class="comp-bar-label">
-                            <i class="fa-solid fa-code-compare"></i> المواضع المقارنة في هذه المسألة (${cluster.verses.length} مواضع):
-                        </span>
-                    </div>
-                    <div class="comp-pills-row">
-                        ${cluster.verses.map((cv, ci) => {
-                            let cvSurah = cv.surahName || cv.surah || '';
-                            cvSurah = getCleanSurahTitle(cvSurah);
-                            const cvAyah = cv.ayah || cv.verseNum || '';
-                            return `<button class="comp-verse-chip ${ci === 0 ? 'active' : ''}" onclick="scrollToVerseCard(${ci}, this)" title="انتقل إلى موضع ${cvSurah} [آية ${cvAyah}]">
-                                <span class="chip-order">موضع #${ci + 1}</span>
-                                <span class="chip-name">${cvSurah}</span>
-                                <span class="chip-ayah">[آية ${cvAyah}]</span>
-                            </button>`;
-                        }).join('')}
-                    </div>
-                `;
-                versesStack.appendChild(compBar);
-            }
-
             cluster.verses.forEach((v, vIndex) => {
                 const card = document.createElement('div');
-                card.id = `verse-stage-card-${vIndex}`;
                 card.className = `verse-stage-card ${isDimmed ? 'dim-mode' : ''}`;
                 
                 // تحديد اسم السورة بدقة للموضع
@@ -208801,7 +208910,6 @@
                 card.innerHTML = `
                     <div class="card-meta-bar">
                         <div style="display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap;">
-                            <span class="verse-order-badge">موضع ${vIndex + 1} من ${cluster.verses.length}</span>
                             <span class="pill-ayah-num">آية ${vAyah}</span>
                             <span class="pill-quarter-name">${vQuarter}</span>
                             <span class="pill-surah-tag ${isOtherSurah ? 'other-surah' : 'same-surah-gold'}" title="${isOtherSurah ? 'موضع مقارن من سورة أخرى: ' + verseSurah : 'موضع من نفس السورة: ' + curSurahName}">
