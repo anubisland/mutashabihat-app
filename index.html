@@ -3055,6 +3055,79 @@
             }
         }
 
+
+        /* === تصميم تبويبات فرز الجزء الثلاثية الأنيقة (الكل / داخل الجزء / أجزاء أخرى) === */
+        .juz-subfilters-container {
+            padding: 0.45rem 0.65rem;
+            background: rgba(8, 19, 14, 0.95);
+            border-bottom: 1.5px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .juz-filter-tabs {
+            display: flex;
+            gap: 0.35rem;
+            background: rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            border-radius: 12px;
+            padding: 0.25rem;
+        }
+
+        .juz-filter-tab {
+            flex: 1 1 0;
+            background: transparent;
+            border: 1px solid transparent;
+            color: var(--text-muted);
+            padding: 0.35rem 0.25rem;
+            border-radius: 9px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2rem;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+        }
+
+        .juz-filter-tab:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(212, 175, 55, 0.3);
+        }
+
+        .juz-filter-tab.active {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.28), rgba(13, 148, 136, 0.35));
+            border-color: var(--gold-light);
+            color: #fef08a;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.35);
+        }
+
+        .filter-tab-label {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.72rem;
+            white-space: nowrap;
+        }
+
+        .filter-tab-badge {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.05rem 0.45rem;
+            border-radius: 10px;
+            font-size: 0.68rem;
+            font-weight: 800;
+            color: var(--gold-light);
+        }
+
+        .juz-filter-tab.active .filter-tab-badge {
+            background: rgba(212, 175, 55, 0.4);
+            border-color: #fef08a;
+            color: #fff;
+        }
+
 </style>
 </head>
 <body>
@@ -3337,18 +3410,7 @@
             </select>
         </div>
 
-        <!-- محدد النطاق الهرمي (سورة / جزء / مصحف) -->
-        <div class="tier-selector-pills">
-            <button class="tier-btn active" onclick="setTier('surah', this)">
-                <i class="fa-solid fa-crosshairs"></i> داخل السورة
-            </button>
-            <button class="tier-btn" onclick="setTier('juz', this)">
-                <i class="fa-solid fa-layer-group"></i> داخل الجزء
-            </button>
-            <button class="tier-btn" onclick="setTier('quran', this)">
-                <i class="fa-solid fa-book-open"></i> عموم القرآن
-            </button>
-        </div>
+
 
         <div class="header-actions">
             <!-- أداة التحكم الحي بحجم الخط القرآني A- / A+ واضحة وبارزة بالكامل -->
@@ -3401,16 +3463,21 @@
             </div>
 
             <!-- أزرار الفرز الذكي لمتشابهات الجزء (واضحة وبارزة أعلى قائمة المواضع) -->
-            <div class="juz-subfilters-group" id="juzSubfiltersGroup" style="display: none; padding: 0.45rem 0.55rem; background: rgba(0, 0, 0, 0.35); border-bottom: 1px solid rgba(212, 175, 55, 0.25); gap: 0.3rem;">
-                <button class="juz-filter-btn active" id="juzFilterAll" onclick="setJuzSubFilter('all', this)" style="flex: 1; justify-content: center; font-size: 0.72rem; padding: 0.3rem 0.4rem;">
-                    الكل (<span id="juzCountAll">0</span>)
-                </button>
-                <button class="juz-filter-btn" id="juzFilterIntra" onclick="setJuzSubFilter('intra', this)" style="flex: 1; justify-content: center; font-size: 0.72rem; padding: 0.3rem 0.4rem;" title="الآيات التي تتشابه داخل هذا الجزء فقط">
-                    🎯 داخل الجزء (<span id="juzCountIntra">0</span>)
-                </button>
-                <button class="juz-filter-btn" id="juzFilterCross" onclick="setJuzSubFilter('cross', this)" style="flex: 1; justify-content: center; font-size: 0.72rem; padding: 0.3rem 0.4rem;" title="آيات في هذا الجزء تتشابه مع أجزاء أخرى">
-                    🔗 مع أجزاء أخرى (<span id="juzCountCross">0</span>)
-                </button>
+            <div class="juz-subfilters-container" id="juzSubfiltersGroup" style="display: none;">
+                <div class="juz-filter-tabs">
+                    <button class="juz-filter-tab active" id="juzFilterAll" onclick="setJuzSubFilter('all', this)" title="عرض جميع مواضع هذا الجزء">
+                        <span class="filter-tab-label"><i class="fa-solid fa-layer-group"></i> الكل</span>
+                        <span class="filter-tab-badge" id="juzCountAll">0</span>
+                    </button>
+                    <button class="juz-filter-tab" id="juzFilterIntra" onclick="setJuzSubFilter('intra', this)" title="المتشابهات التي تقع بين سور هذا الجزء فقط">
+                        <span class="filter-tab-label"><i class="fa-solid fa-bullseye"></i> داخل الجزء</span>
+                        <span class="filter-tab-badge" id="juzCountIntra">0</span>
+                    </button>
+                    <button class="juz-filter-tab" id="juzFilterCross" onclick="setJuzSubFilter('cross', this)" title="آيات في هذا الجزء تشتبه مع آيات في أجزاء أخرى">
+                        <span class="filter-tab-label"><i class="fa-solid fa-link"></i> أجزاء أخرى</span>
+                        <span class="filter-tab-badge" id="juzCountCross">0</span>
+                    </button>
+                </div>
             </div>
 
             <div class="clusters-scroll-viewport" id="clustersListContainer">
@@ -207168,7 +207235,7 @@
 
         function setJuzSubFilter(filter, btn) {
             juzSubFilter = filter;
-            document.querySelectorAll('.juz-filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.juz-filter-tab, .juz-filter-btn').forEach(b => b.classList.remove('active'));
             if (btn) btn.classList.add('active');
 
             activeIndex = 0;
@@ -207487,13 +207554,14 @@
 
             // تحديث التدبر في العمود الثالث
             const meta = surahsData[currentSurah] || { name: 'سورة البقرة' };
+            const activeSurahName = ((currentMode === 'surah' && surahsData[currentSurah]) ? surahsData[currentSurah].name : (cluster.surahName || (cluster.verses[0] && cluster.verses[0].surah) || 'القرآن الكريم')).replace(/^سورة\s+سورة/, 'سورة').trim();
             const contextTitleEl = document.getElementById('contextDeckSurahTitle');
             if (contextTitleEl) {
-                contextTitleEl.textContent = `سر التفرقة بالسياق في ${meta.name}`;
+                contextTitleEl.textContent = `سر التفرقة بالسياق في ${activeSurahName}`;
             }
             const quizBtnTextEl = document.getElementById('launchQuizBtnText');
             if (quizBtnTextEl) {
-                quizBtnTextEl.textContent = `اختبر حفظك لهذا الموضع في ${meta.name}`;
+                quizBtnTextEl.textContent = `اختبر حفظك لهذا الموضع في ${activeSurahName}`;
             }
 
             const tadabburList = document.getElementById('tadabburList');
