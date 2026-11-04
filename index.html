@@ -4457,6 +4457,94 @@
             border: 1.5px solid #fca5a5 !important;
         }
 
+        /* صندوق تنبيه تجربة الأجهزة في دليل الاستخدام */
+        body.light-theme .guide-device-tip-box {
+            background: #fffbeb !important;
+            border: 1.5px solid #fcd34d !important;
+            box-shadow: 0 2px 8px rgba(217, 119, 6, 0.08) !important;
+        }
+        body.light-theme .guide-device-tip-box strong {
+            color: #92400e !important;
+        }
+        body.light-theme .guide-device-tip-box div {
+            color: #78350f !important;
+        }
+
+        /* تحسينات الموبايل: تقليص الشريط العلوي وشبكة الميزان الثنائية 2x2 */
+        @media (max-width: 768px) {
+            /* تقليص مساحة شريط الأجزاء الثلاثين لمنع ابتلاع الشاشة */
+            .juz-navigation-ribbon {
+                padding: 0.3rem 0.5rem !important;
+                gap: 0.3rem !important;
+            }
+            .juz-ribbon-top-row {
+                display: none !important; /* إخفاء النص المطول لإفساح المجال للمحتوى القرآني */
+            }
+            .juz-chips-scroll {
+                padding: 0.2rem 0 !important;
+                gap: 0.3rem !important;
+            }
+            .juz-chip-pill {
+                padding: 0.3rem 0.6rem !important;
+                font-size: 0.74rem !important;
+            }
+
+            /* الميزان البصري على الموبايل: شبكة ثنائية 2x2 مريحة تمنع عصر الكلمات */
+            .scale-contrast-deck {
+                display: grid !important;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.55rem !important;
+                padding: 0.6rem !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                align-items: stretch !important;
+            }
+
+            .scale-contrast-deck .scale-pivot-icon {
+                display: none !important;
+            }
+
+            .scale-plate {
+                min-width: 0 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 0.65rem 0.45rem !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                min-height: 110px !important;
+                border-radius: 10px !important;
+            }
+
+            /* إذا كان عدد الكفات فردياً (مثل 3 أو 5)، تأخذ الكفة الأخيرة عرض الشاشة كاملاً */
+            .scale-plate.scale-span-full {
+                grid-column: 1 / -1 !important;
+            }
+
+            .scale-plate .plate-word {
+                font-size: 1.15rem !important;
+                line-height: 1.6 !important;
+                text-align: center !important;
+                word-break: normal !important;
+                white-space: normal !important;
+                margin-bottom: 0.35rem !important;
+            }
+
+            .scale-plate .plate-meaning {
+                font-size: 0.74rem !important;
+                line-height: 1.45 !important;
+                text-align: center !important;
+                word-break: normal !important;
+                padding-top: 0.35rem !important;
+                border-top: 1px dashed rgba(255, 255, 255, 0.15) !important;
+            }
+
+            body.light-theme .scale-plate .plate-meaning {
+                border-top: 1px dashed #cbd5e1 !important;
+                color: #334155 !important;
+            }
+        }
+
         /* زر فتح المسبار في الشريط العلوي والعمود الثالث في الوضع الفاتح */
         body.light-theme .btn-action-tool[onclick*="openTestModal"] {
             background: #ecfdf5 !important;
@@ -4913,7 +5001,7 @@
             <i class="fa-solid fa-list-check"></i>
             <span>المواضع</span>
         </button>
-        <button class="mob-nav-btn" onclick="scrollToScale()">
+        <button class="mob-nav-btn" onclick="scrollToScale(this)">
             <i class="fa-solid fa-scale-balanced"></i>
             <span>الميزان</span>
         </button>
@@ -5293,6 +5381,22 @@
 
             <!-- محتوى الدليل المقسم بأسلوب بصري تفاعلي مريح -->
             <div style="display: flex; flex-direction: column; gap: 1rem; font-size: 0.84rem; line-height: 1.7; color: #f1f5f9;">
+
+                <!-- تنبيه لتجربة بصرية ومكانية فائقة عبر مختلف الأجهزة -->
+                <div class="guide-device-tip-box" style="background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(180, 83, 9, 0.08)); border: 1.5px solid rgba(245, 158, 11, 0.45); border-radius: 12px; padding: 0.85rem 1rem; display: flex; align-items: flex-start; gap: 0.75rem;">
+                    <div style="background: rgba(245, 158, 11, 0.2); width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 0.1rem; border: 1px solid rgba(245, 158, 11, 0.4);">
+                        <i class="fa-solid fa-display" style="color: #fbbf24; font-size: 1.05rem;"></i>
+                    </div>
+                    <div>
+                        <strong style="color: #fbbf24; font-size: 0.92rem; display: block; margin-bottom: 0.3rem;">
+                            <i class="fa-solid fa-circle-info"></i> تنبيه لتجربة بصرية ومكانية فائقة:
+                        </strong>
+                        <div style="font-size: 0.83rem; line-height: 1.65; color: #fef3c7;">
+                            صُممت المنظومة أساساً لتقديم شاشة ثلاثية الأعمدة متكاملة (مواضع الضبط + المقارنة والميزان + التوجيه والتدبر في مشهد واحد متزامن). وتتحقق هذه التجربة المثالية على <strong>أجهزة الكمبيوتر واللابتوب والأجهزة اللوحية (التابلت) في الوضع الأفقي (Landscape)</strong>.<br>
+                            أما على <strong>شاشات الهواتف المحمولة والوضع الرأسي</strong>، فيتم تكييف الواجهة تلقائياً وبذكاء عبر <strong>الألسنة السفلية التفاعلية</strong> (الآيات • المواضع • الميزان • التدبر • المسبار) لتسهيل القراءة والمراجعة السلسة بيد واحدة دون تداخل.
+                        </div>
+                    </div>
+                </div>
 
                 <!-- 1. المناظير المعرفية الثلاثة -->
                 <div style="background: rgba(0,0,0,0.3); padding: 0.85rem 1.05rem; border-radius: 10px; border: 1px solid rgba(56, 189, 248, 0.25);">
@@ -209432,7 +209536,9 @@
 
             activeScale.forEach((s, sIdx) => {
                 const plate = document.createElement('div');
-                plate.className = `scale-plate scale-plate-${sIdx}`;
+                const isOddTotal = (activeScale.length % 2 !== 0);
+                const isLastOfOdd = isOddTotal && (sIdx === activeScale.length - 1);
+                plate.className = `scale-plate scale-plate-${sIdx}` + (isLastOfOdd ? ' scale-span-full' : '');
                 const colorVar = sIdx === 0 ? 'var(--diff-1-text)' : (sIdx === 1 ? 'var(--diff-2-text)' : (sIdx === 2 ? 'var(--diff-3-text)' : 'var(--gold-light)'));
                 plate.innerHTML = `
                     <span class="plate-word" style="color: ${colorVar};">
@@ -209547,12 +209653,23 @@
             } catch(e) {}
         }
 
-        // التمرير السريع للميزان البصري
-        function scrollToScale() {
+        // التمرير السريع للميزان البصري مع تفعيل التبويب وضمان ظهوره على الهاتف
+        function scrollToScale(btn) {
+            if (btn) {
+                document.querySelectorAll('.mob-nav-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            const center = document.getElementById('workspaceCenter');
+            const sidebar = document.getElementById('clustersSidebar');
+            const insights = document.getElementById('workspaceInsights');
+            if (sidebar) sidebar.style.display = 'none';
+            if (insights) insights.style.display = 'none';
+            if (center) center.style.display = 'flex';
+
             const scale = document.getElementById('scaleDeck');
             if (scale) {
-                scale.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                scale.style.boxShadow = '0 0 25px rgba(212, 175, 55, 0.5)';
+                scale.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                scale.style.boxShadow = '0 0 25px rgba(212, 175, 55, 0.6)';
                 setTimeout(() => { scale.style.boxShadow = 'none'; }, 2000);
             }
         }
@@ -209897,7 +210014,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=127')
+        navigator.serviceWorker.register('./sw.js?v=128')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
