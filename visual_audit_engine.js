@@ -322,6 +322,32 @@ async function runHeadlessChromeTests() {
     await takeScreenshot('audit_mobile_light_theme.png');
     console.log('[Light Theme Mobile Screenshot Captured]');
 
+    // F) TEST 4: User Guide Modal Verification (Desktop Landscape 1280x800 & Mobile 380x820)
+    console.log('\n=========================================');
+    console.log('TEST SUITE 4: User Guide Modal Verification');
+    console.log('=========================================');
+    await evalCode(`document.body.classList.remove('light-theme');`);
+    await send('Emulation.setDeviceMetricsOverride', {
+        width: 1280,
+        height: 800,
+        deviceScaleFactor: 1.5,
+        mobile: false
+    });
+    await evalCode(`openUserGuideModal();`);
+    await new Promise(r => setTimeout(r, 600));
+    await takeScreenshot('audit_user_guide_desktop.png');
+    console.log('[User Guide Desktop Screenshot Captured]');
+
+    await send('Emulation.setDeviceMetricsOverride', {
+        width: 380,
+        height: 820,
+        deviceScaleFactor: 2,
+        mobile: true
+    });
+    await new Promise(r => setTimeout(r, 600));
+    await takeScreenshot('audit_user_guide_mobile.png');
+    console.log('[User Guide Mobile Screenshot Captured]');
+
     console.log('\n>>> VISUAL AUDIT COMPLETE <<<');
     ws.close();
     chromeProcess.kill();

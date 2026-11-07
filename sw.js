@@ -1,5 +1,5 @@
-// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v136
-const CACHE_NAME = 'miraj-itqan-v136-search-restored-perfect';
+// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v137
+const CACHE_NAME = 'miraj-itqan-v137-full-user-guide-and-search';
 const STATIC_ASSETS = [
   './',
   './index.html',
