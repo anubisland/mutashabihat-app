@@ -4087,6 +4087,36 @@
             box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.2) !important;
         }
 
+        /* تباين أداة تكبير وتصغير الخط وزر تركيز الفروق في الوضع الفاتح */
+        body.light-theme .font-sizer-group {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08) !important;
+        }
+        body.light-theme .btn-font-minus {
+            color: #dc2626 !important;
+            border-right: 1px solid #e2e8f0 !important;
+        }
+        body.light-theme .btn-font-minus:hover {
+            background: #fee2e2 !important;
+        }
+        body.light-theme .font-size-display {
+            color: #0f172a !important;
+            font-weight: 800 !important;
+        }
+        body.light-theme .btn-font-plus {
+            color: #16a34a !important;
+            border-left: 1px solid #e2e8f0 !important;
+        }
+        body.light-theme .btn-font-plus:hover {
+            background: #dcfce7 !important;
+        }
+        body.light-theme #btnDimMode {
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            color: #0f172a !important;
+        }
+
         /* تباين الميزان البصري المقارن في الوضع الفاتح */
         body.light-theme .scale-contrast-deck {
             background: #ffffff !important;
@@ -209059,6 +209089,12 @@
                         const otherJuz = [...new Set(versesJuz.filter(j => j !== juzNum))];
                         // تحديد الآية المحورية التي تقع داخل هذا الجزء بالتحديد لتمثيل الموضع تسلسلياً
                         const targetVerse = c.verses.find(v => getVerseJuz(v) === juzNum) || c.verses[0];
+                        // ترتيب الآيات بحيث تبدأ العرض دائماً بآية هذا الجزء المحوري
+                        const sortedVerses = [...c.verses].sort((v1, v2) => {
+                            const inJ1 = getVerseJuz(v1) === juzNum ? 0 : 1;
+                            const inJ2 = getVerseJuz(v2) === juzNum ? 0 : 1;
+                            return inJ1 - inJ2;
+                        });
                         const enriched = Object.assign({}, c, {
                             surahKey: sKey,
                             surahName: surah.name,
@@ -209067,6 +209103,7 @@
                             isCrossJuz: !isIntra,
                             otherJuz: otherJuz,
                             targetVerse: targetVerse,
+                            verses: sortedVerses,
                             juzAyah: Number(targetVerse.ayah) || 0,
                             juzPage: Number(targetVerse.page) || 0
                         });
