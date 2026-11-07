@@ -209027,13 +209027,18 @@
                     if (versesJuz.includes(juzNum)) {
                         const isIntra = versesJuz.every(j => j === juzNum);
                         const otherJuz = [...new Set(versesJuz.filter(j => j !== juzNum))];
+                        // تحديد الآية المحورية التي تقع داخل هذا الجزء بالتحديد لتمثيل الموضع تسلسلياً
+                        const targetVerse = c.verses.find(v => getVerseJuz(v) === juzNum) || c.verses[0];
                         const enriched = Object.assign({}, c, {
                             surahKey: sKey,
                             surahName: surah.name,
                             primaryJuz: juzNum,
                             isIntraJuz: isIntra,
                             isCrossJuz: !isIntra,
-                            otherJuz: otherJuz
+                            otherJuz: otherJuz,
+                            targetVerse: targetVerse,
+                            juzAyah: Number(targetVerse.ayah) || 0,
+                            juzPage: Number(targetVerse.page) || 0
                         });
                         if (filter === 'intra' && !isIntra) continue;
                         if (filter === 'cross' && isIntra) continue;
@@ -209041,6 +209046,12 @@
                     }
                 }
             }
+            // ترتيب مواضع الجزء ترتيباً مصحفياً دقيقاً حسب تسلسل التلاوة داخل الجزء (رقم الصفحة ثم رقم الآية)
+            list.sort((a, b) => {
+                const pDiff = (a.juzPage || 0) - (b.juzPage || 0);
+                if (pDiff !== 0) return pDiff;
+                return (a.juzAyah || 0) - (b.juzAyah || 0);
+            });
             return list;
         }
 
@@ -209343,6 +209354,9 @@
 
         function switchJuz(juzNum) {
             selectedJuz = juzNum;
+            const juzSelect = document.getElementById('juzSelectDropdown');
+            if (juzSelect) juzSelect.value = String(juzNum);
+
             document.querySelectorAll('.juz-chip-btn').forEach(b => {
                 b.classList.toggle('active', b.id === `juz-btn-${juzNum}`);
             });
@@ -209435,6 +209449,8 @@
             } else if (tier === 'juz') {
                 if (surahWrap) surahWrap.style.display = 'none';
                 if (juzWrap) juzWrap.style.display = 'inline-flex';
+                const juzSelect = document.getElementById('juzSelectDropdown');
+                if (juzSelect) juzSelect.value = String(selectedJuz);
                 if (juzRibbon) juzRibbon.style.display = 'flex';
                 if (juzSubfilters) juzSubfilters.style.display = 'inline-flex';
                 if (atlasRibbon) atlasRibbon.style.display = 'none';
@@ -209475,7 +209491,9 @@
                 chip.className = `timeline-pin-chip ${idx === activeIndex ? 'active' : ''}`;
                 let chipText = '';
                 if (currentMode === 'juz') {
-                    chipText = `${c.surahName || ''} [${c.verses[0].ayah}]`;
+                    const targetV = c.targetVerse || (c.verses ? (c.verses.find(v => getVerseJuz(v) === selectedJuz) || c.verses[0]) : { ayah: '' });
+                    const sName = targetV.surahName || (targetV.surah && typeof targetV.surah === 'string' ? targetV.surah : (c.surahName || ''));
+                    chipText = `${sName} [${targetV.ayah}]`;
                 } else if (currentMode === 'quran') {
                     chipText = `${c.surahName || ''} • جـ ${c.primaryJuz || ''}`;
                 } else {
@@ -209606,7 +209624,7 @@
             centerCol.scrollTop = 0;
 
             // في وضع الموبايل: عند اختيار موضع ينتقل تلقائياً لشاشة الآيات والشرح
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 900) {
                 const centerBtn = document.querySelector('.mob-nav-btn[onclick*="center"]');
                 if (centerBtn) mobileSwitchTab('center', centerBtn);
             }
@@ -210162,7 +210180,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=131')
+        navigator.serviceWorker.register('./sw.js?v=132')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
