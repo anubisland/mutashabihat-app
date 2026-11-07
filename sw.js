@@ -1,5 +1,5 @@
-// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v134
-const CACHE_NAME = 'miraj-itqan-v134-audited-mobile-tablet-perfection';
+// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v135
+const CACHE_NAME = 'miraj-itqan-v135-canonical-quranic-architecture-perfection';
 const STATIC_ASSETS = [
   './',
   './index.html',

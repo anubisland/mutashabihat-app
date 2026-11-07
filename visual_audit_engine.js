@@ -102,7 +102,12 @@ async function runHeadlessChromeTests() {
     function send(method, params = {}) {
         return new Promise((resolve, reject) => {
             const id = msgId++;
+            const t = setTimeout(() => {
+                callbacks.delete(id);
+                reject(new Error(`Timeout waiting for CDP method: ${method}`));
+            }, 15000);
             callbacks.set(id, (msg) => {
+                clearTimeout(t);
                 if (msg.error) reject(msg.error);
                 else resolve(msg.result);
             });
@@ -208,7 +213,13 @@ async function runHeadlessChromeTests() {
     console.log('Surah Mode Audit Issues:', audit.issues);
     await takeScreenshot('audit_mobile_surah.png');
 
-    // B) Switch to Juz Mode & Check Juz 4
+    // B1) Switch to Juz Mode & Check Juz 1
+    console.log('\n--- Switching to Juz Mode: Juz 1 ---');
+    await evalCode(`setTier('juz'); switchJuz(1);`);
+    await new Promise(r => setTimeout(r, 600));
+    await takeScreenshot('audit_mobile_juz1.png');
+
+    // B2) Switch to Juz Mode & Check Juz 4
     console.log('\n--- Switching to Juz Mode: Juz 4 ---');
     await evalCode(`setTier('juz'); switchJuz(4);`);
     await new Promise(r => setTimeout(r, 600));
