@@ -2127,205 +2127,332 @@
             }
         }
 
-        /* الموبايل والتابلت في الوضع الرأسي (Mobile & Tablet Portrait up to 900px) */
+        /* =========================================================================
+           الهندسة المعمارية الشاملة للموبايل والتابلت في الوضع الرأسي (Mobile & Tablet Portrait)
+           انضباط بصري مطلق 100%: صفر قص نصوص، صفر تجاوز أفقي، ومساحة قراءة عظمى لكتاب الله
+           ========================================================================= */
         @media (max-width: 900px) {
-            /* 1. الترويسة على الموبايل: نظام صفين أنيق ومتناسق يمنع أي انضغاط أو تداخل */
-            .master-navy-header {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.45rem 0.65rem;
-                gap: 0.35rem 0;
-                max-width: 100vw;
-                box-sizing: border-box;
+            html, body {
+                overflow-x: hidden !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
             }
 
-            /* الصف 1 يميناً: الشعار واسم التطبيق */
+            /* 1. الترويسة الرئيسية: شريط واحد مدمج وأنيق يمنع أي قص للأحرف */
+            .master-navy-header {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                padding: 0.35rem 0.55rem !important;
+                gap: 0.25rem 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
             .brand-zone {
-                order: 1;
-                gap: 0.55rem;
-                max-width: calc(100% - 46px);
-                flex-shrink: 0;
+                order: 1 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.45rem !important;
+                max-width: calc(100% - 44px) !important;
+                flex-shrink: 1 !important;
+                min-width: 0 !important;
+            }
+
+            .brand-titles {
+                min-width: 0 !important;
+                overflow: hidden !important;
             }
 
             .brand-titles h1 {
-                font-size: 0.96rem;
-                white-space: nowrap;
+                font-size: 0.88rem !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                letter-spacing: 0 !important;
+                margin: 0 !important;
             }
 
-            /* إخفاء السطر التوضيحي الطويل على شاشات الموبايل الضيقة لمنع انفجار عرض الشاشة */
             .brand-titles p {
                 display: none !important;
             }
 
             .quran-3d-gold-box {
-                width: 38px !important;
-                height: 38px !important;
-                border-radius: 9px !important;
-                border-width: 2px !important;
-                box-shadow: 
-                    0 2px 0 #b38a22,
-                    0 3px 1px #785a10,
-                    0 4px 10px rgba(0, 0, 0, 0.4),
-                    0 0 12px rgba(212, 175, 55, 0.6) !important;
+                width: 32px !important;
+                height: 32px !important;
+                border-radius: 8px !important;
+                flex-shrink: 0 !important;
             }
 
-            .quran-icon-symbol {
-                font-size: 1.35rem !important;
+            .quran-brand-emblem-svg {
+                width: 24px !important;
+                height: 24px !important;
             }
 
-            /* الصف 1 يساراً: أيقونة الإعدادات */
             .header-actions-zone {
-                order: 2;
-                flex-shrink: 0;
+                order: 2 !important;
+                flex-shrink: 0 !important;
             }
 
             .header-action-btn {
-                width: 36px;
-                height: 36px;
-                font-size: 1rem;
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 0.9rem !important;
             }
 
-            /* الصف 2: البسملة الشريفة تتوسط الشاشة تحت الشعار براحة وفخامة */
             .header-center-zone {
-                order: 3;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-                margin-top: 0.25rem;
-                padding: 0;
+                order: 3 !important;
+                width: 100% !important;
+                display: flex !important;
+                justify-content: center !important;
+                margin: 0.15rem 0 0 0 !important;
+                padding: 0 !important;
             }
 
             .basmala-badge, .basmala-glorious-badge {
-                font-size: 0.94rem !important;
-                padding: 0.16rem 1.1rem !important;
-                letter-spacing: 0.4px;
-                white-space: nowrap;
+                font-size: 0.84rem !important;
+                padding: 0.12rem 0.85rem !important;
+                letter-spacing: 0.3px !important;
+                white-space: nowrap !important;
+                border-radius: 12px !important;
             }
 
-            /* 2. شريط الأدوات على الموبايل */
+            /* 2. شريط الأبعاد المعرفية الثلاثة (السور / الأجزاء / الأطلس) بدون أي قص */
+            .perspective-master-switch-bar {
+                padding: 0.25rem 0.4rem !important;
+                gap: 0.3rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+            }
+
+            .perspective-tab {
+                flex: 1 1 0 !important;
+                min-width: 0 !important;
+                padding: 0.32rem 0.2rem !important;
+                font-size: 0.72rem !important;
+                gap: 0.25rem !important;
+                border-radius: 14px !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                justify-content: center !important;
+            }
+
+            .perspective-tab i {
+                font-size: 0.8rem !important;
+                flex-shrink: 0 !important;
+            }
+
+            .perspective-tab span {
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
+            }
+
+            /* 3. شريط كبسولات الأجزاء الثلاثين عند تفعيل مصحف الأجزاء */
+            .juz-navigation-ribbon {
+                padding: 0.25rem 0.4rem !important;
+                gap: 0.25rem !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .juz-ribbon-top-row {
+                display: none !important;
+            }
+
+            .juz-chips-scroll {
+                padding: 0.15rem 0 !important;
+                gap: 0.28rem !important;
+            }
+
+            .juz-chip-pill, .juz-chip {
+                padding: 0.25rem 0.55rem !important;
+                font-size: 0.72rem !important;
+                border-radius: 10px !important;
+            }
+
+            /* 4. شريط أدوات الفرز والتحكم */
             .controls-utility-bar {
-                padding: 0.35rem 0.55rem;
-                gap: 0.4rem;
-                max-width: 100vw;
-                box-sizing: border-box;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
+                padding: 0.25rem 0.45rem !important;
+                gap: 0.3rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: space-between !important;
+                align-items: center !important;
             }
 
             .surah-selector-wrap {
-                flex: 1 1 auto;
-                min-width: 0;
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+                padding: 0.25rem 0.5rem !important;
             }
 
             .surah-select-control {
-                width: 100%;
-                font-size: 0.78rem;
-                padding: 0.28rem 0.4rem;
-                text-overflow: ellipsis;
-                white-space: nowrap;
+                width: 100% !important;
+                font-size: 0.76rem !important;
+                padding: 0.2rem 0.3rem !important;
+                text-overflow: ellipsis !important;
+                white-space: nowrap !important;
             }
 
-            .font-size-adjuster {
-                flex-shrink: 0;
-                gap: 0.2rem;
+            /* أزرار فرز الجزء الثلاثية تأخذ العرض كاملاً بنسبة 1/3 دون أي تجاوز */
+            .juz-top-subfilters {
+                width: 100% !important;
+                display: flex !important;
+                justify-content: space-between !important;
+                margin: 0 !important;
+                padding: 0.15rem 0.2rem !important;
+                box-sizing: border-box !important;
+                gap: 0.25rem !important;
             }
 
-            .btn-font-sizer {
-                width: 28px;
-                height: 28px;
-                font-size: 0.7rem;
+            .juz-top-tab {
+                flex: 1 1 0 !important;
+                min-width: 0 !important;
+                padding: 0.25rem 0.2rem !important;
+                font-size: 0.7rem !important;
+                gap: 0.25rem !important;
+                justify-content: center !important;
+                white-space: nowrap !important;
+                border-radius: 10px !important;
             }
 
-            .font-size-display {
-                min-width: 30px;
-                font-size: 0.72rem;
-                padding: 0.12rem 0.25rem;
+            .juz-tab-count {
+                padding: 0.05rem 0.25rem !important;
+                font-size: 0.64rem !important;
             }
 
-            .search-box-wrap, .btn-action-tool, .horizon-label {
-                display: none !important;
+            .font-size-adjuster, .font-sizer-group {
+                flex-shrink: 0 !important;
+                scale: 0.9 !important;
+                transform-origin: left center !important;
+            }
+
+            /* 5. شريط المسار الأفقي */
+            .surah-horizon-bar {
+                padding: 0.25rem 0.45rem !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+            }
+
+            #horizonSurahLabel {
+                display: none !important; /* إخفاء النص المطول لإفساح العرض للمسار الرقمي */
             }
 
             .horizon-track {
                 margin: 0 !important;
                 width: 100% !important;
-                padding: 0.2rem 0 !important;
-            }
-
-            /* 3. شريط المسار الأفقي */
-            .surah-horizon-bar {
-                padding: 0.3rem 0.55rem;
-                max-width: 100vw;
-                overflow-x: auto;
-                -webkit-overflow-scrolling: touch;
-            }
-
-            .horizon-scroll-track {
-                gap: 0.35rem;
+                padding: 0.15rem 0 !important;
             }
 
             .timeline-pin-chip {
-                font-size: 0.7rem;
-                padding: 0.22rem 0.55rem;
+                font-size: 0.68rem !important;
+                padding: 0.2rem 0.45rem !important;
             }
 
-            /* 4. مساحة العمل المركزية */
+            /* 6. بطاقة الموضع الحالية (Active Stage Banner): مدمجة وأنيقة لمنع التهام الشاشة */
+            .active-stage-banner {
+                padding: 0.45rem 0.65rem !important;
+                margin-bottom: 0.45rem !important;
+                border-radius: 8px !important;
+                gap: 0.35rem !important;
+            }
+
+            .stage-index-badge {
+                font-size: 0.66rem !important;
+                padding: 0.12rem 0.45rem !important;
+            }
+
+            .entry-category-pill {
+                font-size: 0.66rem !important;
+                padding: 0.12rem 0.45rem !important;
+            }
+
+            .active-stage-banner h2, #stageTitle {
+                font-size: 0.92rem !important;
+                line-height: 1.4 !important;
+                margin: 0.15rem 0 !important;
+            }
+
+            .active-stage-banner p, #stageSub {
+                font-size: 0.72rem !important;
+                line-height: 1.35 !important;
+                margin: 0.1rem 0 0 0 !important;
+            }
+
+            /* 7. مساحة العمل المركزية والآيات الشريفة: أولوية عظمى للمحتوى القرآني */
             .app-main-workspace {
-                grid-template-columns: 1fr;
-                flex: 1 1 0%;
-                min-height: 0;
-                height: auto;
-                max-height: 100%;
-                padding: 0.4rem 0.55rem;
-                margin-bottom: 54px;
-                max-width: 100vw;
-                box-sizing: border-box;
-                overflow-x: hidden;
-            }
-
-            .verse-stage-card {
-                padding: 0.7rem 0.65rem;
-                max-width: 100%;
-                box-sizing: border-box;
-            }
-
-            .verse-stage-card .card-meta-bar {
-                flex-wrap: wrap;
-                gap: 0.4rem;
-            }
-
-            .quran-ayah-body {
-                word-break: break-word;
-                overflow-wrap: break-word;
-                max-width: 100%;
-            }
-
-            .clusters-sidebar {
-                display: none; /* تظهر كـ Drawer عند الحاجة */
-            }
-
-            .workspace-insights {
-                display: none; /* تظهر عند النقر على تبويب التدبر */
+                grid-template-columns: 1fr !important;
+                padding: 0.35rem 0.45rem !important;
+                margin-bottom: 58px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
             }
 
             .workspace-center {
-                height: 100%;
-                max-width: 100%;
-                overflow-x: hidden;
+                height: 100% !important;
+                max-width: 100% !important;
+                overflow-x: hidden !important;
+                padding: 0 !important;
+            }
+
+            .verses-compare-stack {
+                gap: 0.6rem !important;
+            }
+
+            .verse-stage-card {
+                padding: 0.65rem 0.6rem !important;
+                border-radius: 10px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+
+            .verse-stage-card .card-meta-bar {
+                flex-wrap: wrap !important;
+                gap: 0.35rem !important;
+                margin-bottom: 0.45rem !important;
+            }
+
+            .quran-ayah-body {
+                font-size: 1.25rem !important;
+                line-height: 1.85 !important;
+                word-break: break-word !important;
+                overflow-wrap: break-word !important;
+                max-width: 100% !important;
+            }
+
+            .clusters-sidebar {
+                display: none;
+            }
+
+            .workspace-insights {
+                display: none;
             }
 
             .mobile-bottom-nav {
-                display: flex;
+                display: flex !important;
             }
 
             :root {
                 --quran-font-size: 1.18rem;
             }
         }
-    
+
         /* أداة اختيار السورة (سورة البقرة / سورة آل عمران) */
         .surah-selector-wrap {
             display: flex;
@@ -210004,7 +210131,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=129')
+        navigator.serviceWorker.register('./sw.js?v=130')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
