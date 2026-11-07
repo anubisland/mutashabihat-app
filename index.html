@@ -2277,9 +2277,9 @@
                 border-radius: 10px !important;
             }
 
-            /* 4. شريط أدوات الفرز والتحكم */
+            /* 4. شريط أدوات الفرز والتحكم: هندسة نقية تمنع أي قص للأزرار أو تداخل */
             .controls-utility-bar {
-                padding: 0.25rem 0.45rem !important;
+                padding: 0.25rem 0.5rem !important;
                 gap: 0.3rem !important;
                 width: 100% !important;
                 max-width: 100% !important;
@@ -2290,15 +2290,27 @@
                 align-items: center !important;
             }
 
+            /* إخفاء شريط البحث النصي من هذا الشريط على الموبايل والتابلت لوجود زر البحث المباشر 🔍 في الترويسة */
+            .controls-utility-bar .search-box-wrap {
+                display: none !important;
+            }
+
+            /* إخفاء القائمة المنسدلة المكررة للأجزاء على الموبايل لوجود شريط كبسولات الأجزاء الثلاثين */
+            #juzSelectorWrap {
+                display: none !important;
+            }
+
+            /* محدد السورة يأخذ كامل العرض بأناقة ووضوح */
             .surah-selector-wrap {
-                flex: 1 1 auto !important;
-                min-width: 0 !important;
-                padding: 0.25rem 0.5rem !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 0.28rem 0.55rem !important;
+                margin-bottom: 0.15rem !important;
             }
 
             .surah-select-control {
                 width: 100% !important;
-                font-size: 0.76rem !important;
+                font-size: 0.8rem !important;
                 padding: 0.2rem 0.3rem !important;
                 text-overflow: ellipsis !important;
                 white-space: nowrap !important;
@@ -2312,42 +2324,17 @@
                 width: 100% !important;
                 display: flex !important;
                 justify-content: space-between !important;
-                margin: 0.25rem 0 !important;
+                margin: 0.2rem 0 !important;
                 padding: 0.15rem 0.2rem !important;
                 box-sizing: border-box !important;
                 gap: 0.25rem !important;
             }
 
-            /* إخفاء الأزرار المكررة (المسبار والميزان) من الشريط العلوي على الهاتف والتابلت لوجودها في الشريط السفلي */
-            .controls-utility-bar .btn-action-tool[onclick*="openTestModal"],
-            .controls-utility-bar .btn-action-tool[onclick*="scrollToScale"] {
-                display: none !important;
-            }
-
-            /* حماية زر تركيز الفروق وتكبير الخط من أي انضغاط أو قص على الإطلاق */
-            .controls-utility-bar .header-actions {
-                display: flex !important;
-                align-items: center !important;
-                gap: 0.45rem !important;
-                flex-shrink: 0 !important;
-                max-width: 100% !important;
-                justify-content: flex-end !important;
-            }
-
-            .controls-utility-bar #btnDimMode {
-                display: inline-flex !important;
-                padding: 0.28rem 0.65rem !important;
-                font-size: 0.76rem !important;
-                white-space: nowrap !important;
-                flex-shrink: 0 !important;
-                box-sizing: border-box !important;
-            }
-
             .juz-top-tab {
                 flex: 1 1 0 !important;
                 min-width: 0 !important;
-                padding: 0.25rem 0.2rem !important;
-                font-size: 0.7rem !important;
+                padding: 0.28rem 0.2rem !important;
+                font-size: 0.72rem !important;
                 gap: 0.25rem !important;
                 justify-content: center !important;
                 white-space: nowrap !important;
@@ -2356,13 +2343,56 @@
 
             .juz-tab-count {
                 padding: 0.05rem 0.25rem !important;
-                font-size: 0.64rem !important;
+                font-size: 0.65rem !important;
             }
 
-            .font-size-adjuster, .font-sizer-group {
+            /* إخفاء الأزرار المكررة (المسبار والميزان) من الشريط العلوي على الهاتف والتابلت لوجودها الدائم في الشريط السفلي */
+            .controls-utility-bar .btn-action-tool[onclick*="openTestModal"],
+            .controls-utility-bar .btn-action-tool[onclick*="scrollToScale"] {
+                display: none !important;
+            }
+
+            /* سطر الأدوات الحاسم: تركيز الفروق وتكبير/تصغير الخط في سطر واحد رحب دون أي قص */
+            .controls-utility-bar .header-actions {
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                box-sizing: border-box !important;
+                padding: 0.1rem 0 !important;
+                margin-top: 0.1rem !important;
+            }
+
+            .controls-utility-bar #btnDimMode {
+                display: inline-flex !important;
+                padding: 0.32rem 0.75rem !important;
+                font-size: 0.76rem !important;
+                white-space: nowrap !important;
+                border-radius: 8px !important;
                 flex-shrink: 0 !important;
-                scale: 0.9 !important;
-                transform-origin: left center !important;
+                box-sizing: border-box !important;
+            }
+
+            /* أداة تكبير وتصغير الخط: إلغاء الـ scale المشوه وحمايتها من القص أفقياً */
+            .font-sizer-group {
+                display: inline-flex !important;
+                direction: ltr !important;
+                align-items: center !important;
+                flex-shrink: 0 !important;
+                transform: none !important;
+                scale: 1 !important;
+                box-sizing: border-box !important;
+            }
+
+            .btn-font-size {
+                padding: 0.28rem 0.55rem !important;
+                font-size: 0.76rem !important;
+            }
+
+            .font-size-display {
+                font-size: 0.74rem !important;
+                min-width: 32px !important;
+                padding: 0 0.25rem !important;
             }
 
             /* 5. شريط المسار الأفقي */
@@ -210180,7 +210210,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=132')
+        navigator.serviceWorker.register('./sw.js?v=133')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();

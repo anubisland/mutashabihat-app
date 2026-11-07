@@ -1,5 +1,5 @@
 // Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v120
-const CACHE_NAME = 'miraj-itqan-v132-juz-chronological-harmony-and-sync';
+const CACHE_NAME = 'miraj-itqan-v133-master-mobile-unclipped-perfection';
 const STATIC_ASSETS = [
   './',
   './index.html',
