@@ -2304,15 +2304,43 @@
                 white-space: nowrap !important;
             }
 
-            /* أزرار فرز الجزء الثلاثية تأخذ العرض كاملاً بنسبة 1/3 دون أي تجاوز */
-            .juz-top-subfilters {
+            /* أزرار فرز الجزء الثلاثية: تختفي تماماً في نمط السور والأطلس وتظهر فقط في نمط الأجزاء */
+            .juz-top-subfilters[style*="display: none"] {
+                display: none !important;
+            }
+            .juz-top-subfilters:not([style*="display: none"]) {
                 width: 100% !important;
                 display: flex !important;
                 justify-content: space-between !important;
-                margin: 0 !important;
+                margin: 0.25rem 0 !important;
                 padding: 0.15rem 0.2rem !important;
                 box-sizing: border-box !important;
                 gap: 0.25rem !important;
+            }
+
+            /* إخفاء الأزرار المكررة (المسبار والميزان) من الشريط العلوي على الهاتف والتابلت لوجودها في الشريط السفلي */
+            .controls-utility-bar .btn-action-tool[onclick*="openTestModal"],
+            .controls-utility-bar .btn-action-tool[onclick*="scrollToScale"] {
+                display: none !important;
+            }
+
+            /* حماية زر تركيز الفروق وتكبير الخط من أي انضغاط أو قص على الإطلاق */
+            .controls-utility-bar .header-actions {
+                display: flex !important;
+                align-items: center !important;
+                gap: 0.45rem !important;
+                flex-shrink: 0 !important;
+                max-width: 100% !important;
+                justify-content: flex-end !important;
+            }
+
+            .controls-utility-bar #btnDimMode {
+                display: inline-flex !important;
+                padding: 0.28rem 0.65rem !important;
+                font-size: 0.76rem !important;
+                white-space: nowrap !important;
+                flex-shrink: 0 !important;
+                box-sizing: border-box !important;
             }
 
             .juz-top-tab {
@@ -4702,7 +4730,10 @@
         </div>
 
         <!-- 3. الجهة اليسرى: منطقة الإعدادات والأدوات المحجوزة -->
-        <div class="header-actions-zone">
+        <div class="header-actions-zone" style="display: flex; align-items: center; gap: 0.45rem;">
+            <button class="header-action-btn" id="btnHeaderSearch" title="البحث القرآني الذكي الموحد" onclick="openSmartSearchModal()" style="color: var(--gold-light);">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
             <button class="header-action-btn" id="btnSettings" title="الإعدادات والتفضيلات" onclick="openSettingsModal()">
                 <i class="fa-solid fa-gear"></i>
             </button>
@@ -210131,7 +210162,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=130')
+        navigator.serviceWorker.register('./sw.js?v=131')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
