@@ -2127,18 +2127,8 @@
             }
         }
 
-        /* التابلت في الوضع الرأسي (Tablet Portrait 769px - 880px) */
-        @media (max-width: 880px) and (min-width: 769px) {
-            .app-main-workspace {
-                grid-template-columns: 270px 1fr;
-            }
-            .workspace-insights {
-                display: none;
-            }
-        }
-
-        /* الموبايل والشاشات الصغيرة (Mobile Phone) */
-        @media (max-width: 768px) {
+        /* الموبايل والتابلت في الوضع الرأسي (Mobile & Tablet Portrait up to 900px) */
+        @media (max-width: 900px) {
             /* 1. الترويسة على الموبايل: نظام صفين أنيق ومتناسق يمنع أي انضغاط أو تداخل */
             .master-navy-header {
                 display: flex;
@@ -2664,7 +2654,7 @@
         }
 
         /* استجابة الهواتف */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .master-navy-header {
                 border-bottom-left-radius: 18px !important;
                 border-bottom-right-radius: 18px !important;
@@ -3037,7 +3027,7 @@
             text-shadow: 0 0 8px rgba(254, 240, 138, 0.8);
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             .perspective-master-switch-bar {
                 padding: 0.35rem 0.45rem;
                 gap: 0.35rem;
@@ -4471,7 +4461,7 @@
         }
 
         /* تحسينات الموبايل: تقليص الشريط العلوي وشبكة الميزان الثنائية 2x2 */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             /* تقليص مساحة شريط الأجزاء الثلاثين لمنع ابتلاع الشاشة */
             .juz-navigation-ribbon {
                 padding: 0.3rem 0.5rem !important;
@@ -210014,7 +210004,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=128')
+        navigator.serviceWorker.register('./sw.js?v=129')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();
