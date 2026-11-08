@@ -16,7 +16,7 @@
     <link rel="icon" type="image/png" sizes="512x512" href="app-icon-512.png">
     <link rel="apple-touch-icon" sizes="192x192" href="app-icon-192.png">
     <link rel="apple-touch-icon" sizes="512x512" href="app-icon-512.png">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json?v=139">
     <meta name="theme-color" content="#071324">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -927,7 +927,7 @@
     <link rel="icon" type="image/svg+xml" href="app-icon.svg">
     <link rel="alternate icon" type="image/jpeg" href="app-icon.jpg">
     <link rel="apple-touch-icon" href="app-icon.jpg">
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json?v=139">
     <meta name="theme-color" content="#071324">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -5430,7 +5430,7 @@
                             مِعْرَاجُ الإِتْقَان فِي مُتَشَابِهَاتِ القُرْآن
                         </span>
                         <span style="display: inline-block; background: rgba(16, 185, 129, 0.22); border: 1.5px solid #10b981; color: #6ee7b7; border-radius: 6px; padding: 0.15rem 0.55rem; font-size: 0.74rem; font-weight: 900; letter-spacing: 0.5px;">
-                            الإصدار v138
+                            الإصدار v139
                         </span>
                     </div>
                     <p style="font-size: 0.68rem; color: var(--text-muted); margin-top: 0.25rem;">
@@ -210637,7 +210637,7 @@
 <script>
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=138')
+        navigator.serviceWorker.register('./sw.js?v=139')
             .then(reg => {
                 console.log('ServiceWorker registered:', reg.scope);
                 reg.update();

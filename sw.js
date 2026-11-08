@@ -1,5 +1,5 @@
-// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v138
-const CACHE_NAME = 'miraj-itqan-v138-new-custom-icon-activated';
+// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v139
+const CACHE_NAME = 'miraj-itqan-v139-fresh-pwa-id';
 const STATIC_ASSETS = [
   './',
   './index.html',
