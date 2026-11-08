@@ -1,5 +1,5 @@
-// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v137
-const CACHE_NAME = 'miraj-itqan-v137-full-user-guide-and-search';
+// Service Worker for "معراج الإتقان في متشابهات القرآن" - الإصدار v138
+const CACHE_NAME = 'miraj-itqan-v138-new-custom-icon-activated';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -8,7 +8,11 @@ const STATIC_ASSETS = [
   './app-icon.svg',
   './app-icon.jpg',
   './app-icon-192.png',
-  './app-icon-512.png'
+  './app-icon-512.png',
+  './favicon-32x32.png',
+  './favicon.ico',
+  './header-emblem.svg',
+  './header-emblem.png'
 ];
 
 self.addEventListener('install', event => {
